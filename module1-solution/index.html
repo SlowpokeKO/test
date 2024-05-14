@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Module 1 Solution - Lunch Checker</title>
+	<!--Using tailwindcss to edit appearance from class attr.-->
+	<script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body ng-app="LCApp" class="bg-blue-500">
+	<div ng-controller="LCController" 
+		class="w-screen h-screen flex flex-col items-center justify-center text-white">
+		<h1 class="underline text-4xl font-bold my-12">
+			Lunch Checker</h1>
+		
+		<!--empty items aren't counted as items-->
+		<textarea id="lunch-menu" type="text"
+			placeholder="list comma seperated dishes you usually have for lunch"
+			ng-model="foodList"
+			class="text-blue-800 border-4 resize-none w-1/2 mt-8">
+		</textarea>
+	
+		<button ng-click="displayResult();"
+			class="border-4 bg-blue-400 p-2 my-4 rounded-xl hover:scale-105 active:bg-violet-800">
+			Check if too much</button>
+		
+		<div class="underline italic">	
+			{{msg}}
+		</div>
+	</div>
+
+	<script src="angular.min.js"></script>
+	<script src="app.js"></script>
+</body>
+</html>
