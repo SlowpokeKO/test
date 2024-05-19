@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html ng-app="ShoppingListCheckOffApp">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Module 2 Solution - Shopping List Check Off</title>
+	<!--Using tailwindcss to edit appearance from class attr.-->
+	<script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+	<div class="w-screen h-screen bg-blue-500 flex flex-col justify-center items-center text-white">
+  		<h1 class="text-4xl underline font-bold my-12">Shopping List Check Off</h1>
+
+	  	<div class="">
+
+		    <!-- To Buy List -->
+		    <div ng-controller="ToBuyController as toBuyList" class="border-4 p-4 w-80">
+		     	<h2 class="text-2xl underline">To Buy:</h2>
+		     	<ul>
+		       		<li ng-repeat="item in toBuyList.items" class="text-lg flex flex-row justify-between items-center">Buy {{item.quantity}} of {{item.name}}(s)<button ng-click="toBuyList.buyItem($index);" class="border-2 bg-blue-400 text-lg m-1 p-1 rounded-xl hover:scale-105 active:bg-green-600">&#x2713; Bought</button></li>
+		     	</ul>
+		    	<div class="italic" ng-show="toBuyList.items.length <= 0">Everything is bought!</div>
+		    </div>
+
+		    <!-- Already Bought List -->
+		    <div ng-controller="AlreadyBoughtController as boughtList" class="border-4 p-4">
+		     	<h2 class="text-2xl underline">Already Bought:</h2>
+		     	<ul>
+		     		<li ng-repeat="item in boughtList.items" class="text-lg my-2">
+		     			Bought {{item.quantity}} of {{item.name}}(s)
+		     		</li>
+		     	</ul>
+		     	<div class="italic" ng-hide="boughtList.items.length > 0">Nothing bought yet.</div>
+		    </div>
+		</div>
+	</div>
+	<script src="angular.min.js"></script>
+	<script src="app.js"></script>
+</body>
+</html>
