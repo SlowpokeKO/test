@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en" ng-app="NarrowItDownApp">
+  <head>
+    <title>Narrow Down Your Menu Choice</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+<body class="bg-red-600">
+   <div class="w-screen h-full flex flex-col items-center text-yellow-300" ng-controller="NarrowItDownController as list">
+    <h1 class="text-4xl font-bold underline my-12">Narrow Down Your Chinese Menu Choice</h1>
+    <input type="text" placeholder="search term" class="text-xl text-orange-600 border-4 text-right px-2" ng-model="list.searchTerm">
+
+    <button class="text-2xl my-4 p-2 bg-red-400 rounded-xl border-4 border-yellow-600 active:bg-red-800" ng-click="list.getMatchedMenuItems();">Narrow It Down For Me!</button>
+
+    <found-items found="list.found" on-remove="list.removeItem(index)" ng-hide="list.empty"></found-items>
+    <div ng-if="list.error != 'no errors'">{{list.error}}</div>
+  </div>
+
+  <script src="angular.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

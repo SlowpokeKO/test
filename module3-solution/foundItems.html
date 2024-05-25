@@ -1,0 +1,9 @@
+<ol>
+	<li class="text-white my-2 flex w-full" ng-repeat="item in found">
+		<div class="w-1/6"></div>
+		<div class="w-3/6 text-lg mr-8">
+		{{item.short_name}}, {{item.name}}, {{item.description}}
+		</div>
+		<button class="w-1/6 bg-blue-800 text-orange-200 rounded-lg" ng-click="onRemove({index: $index});">Don't want this one!</button>
+		<div class="w-1/6 ml-8"></div>
+</ol>
