@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html ng-app="MenuApp">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Module 4 Solution - Menu</title>
+	<!-- using tailwindcss to customize css looks -->
+	<script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="w-screen h-screen bg-gradient-to-b from-sky-500 to-yellow-500">
+	<nav class="w-full flex justify-between items-center h-12 bg-red-500">
+		<h1 class="ml-8 font-bold text-2xl text-yellow-400 underline decoration-black">Menu App</h1>
+		<ul class="flex">
+			<li ui-sref="home" class="mr-4 text-lg border-b-4 border-double hover:scale-105 hover:text-yellow-400"><a href="#">Home</a></li>
+			<li ui-sref="categories" class="mr-8 text-lg border-b-4 border-double hover:scale-105 hover:text-yellow-400"><a href="#">Categories</a></li>
+		</ul>
+	</nav>
+	
+	<ui-view class="w-full flex justify-center"></ui-view>
+	
+	<loading-spinner></loading-spinner>
+
+	<!-- Libraries & CDNs -->
+	<script src="lib/angular.min.js"></script>
+	<script src="lib/angular-ui-router.min.js"></script>
+	<!-- <script src=https://cdnjs.cloudflare.com/ajax/libs/ngStorage/0.3.10/ngStorage.min.js></script> -->
+	<!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0-rc.0/angular-cookies.min.js"></script> -->
+
+	<!-- Modules -->
+	<script src="src\menu\menuapp.module.js"></script>
+	<script src="src\data\data.module.js"></script>
+	<script src="src/spinner/spinner.module.js"></script>
+
+	<!-- Routes -->
+	<script src="src\routes.js"></script>
+
+	<!-- 'menuapp' module artifacts -->
+	<script src="src/menu/categories.component.js"></script>
+	<script src="src/menu/categories.controller.js"></script>
+	<script src="src/menu/items.component.js"></script>
+	<script src="src/menu/items.controller.js"></script>
+
+	<!-- 'data' module artifacts -->
+	<script src="src/data/menudata.service.js"></script>
+
+	<!-- 'Spinner' module artifacts -->
+	<script src="src/spinner/loadingspinner.component.js"></script>
+
+</body>
+</html>
