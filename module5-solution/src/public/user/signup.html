@@ -10,7 +10,7 @@
 		ng-model="signUpCtrl.lastName" required>
 		<br>
 		<label>Email address:</label>
-		<input type="text" name="email" placeholder="email address" class="form-control" 
+		<input type="email" name="email" placeholder="email address" class="form-control" 
 		ng-model="signUpCtrl.emailAddress" required>
 		<span ng-if="signUpForm.email.$invalid && signUpForm.email.$touched">
         	Must be a valid email address: handle@domain format

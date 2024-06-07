@@ -1,1 +1,1 @@
-This program uses a form and angularJS to save personal info for the user. 
+This program uses a form to save the users info 

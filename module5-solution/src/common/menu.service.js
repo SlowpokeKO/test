@@ -26,7 +26,9 @@ function MenuService($http, ApiPath) {
     var index = itemID.replace(/\D/g,'');
     return $http.get(ApiPath + '/menu_items/' + category.toUpperCase() +'.json')
     .then(function (response) {
-      console.log(response.data.menu_items[index - 1])
+      if (typeof response.data.menu_items[index - 1] == 'undefined') {
+        throw new Error('result not found')
+      }
       return response.data.menu_items[index - 1]
     })
     .catch(function (error) {
