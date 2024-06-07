@@ -1,0 +1,47 @@
+<fieldset class="container">
+	<legend>Sign Up for our Newsletter!</legend>
+	<form name='signUpForm' novalidate>
+		<label>First name:</label>
+		<input type="text" name="firstname" placeholder="first name" class="form-control" 
+		ng-model="signUpCtrl.firstName" required>
+		<br>
+		<label>Last name:</label>
+		<input type="text" name="lastname" placeholder="last name" class="form-control" 
+		ng-model="signUpCtrl.lastName" required>
+		<br>
+		<label>Email address:</label>
+		<input type="text" name="email" placeholder="email address" class="form-control" 
+		ng-model="signUpCtrl.emailAddress" required>
+		<span ng-if="signUpForm.email.$invalid && signUpForm.email.$touched">
+        	Must be a valid email address: handle@domain format
+        </span>
+		<br>
+		<label>Phone number:</label>
+		<input type="text" name="phone" placeholder="phone number" class="form-control" 
+		ng-model="signUpCtrl.phoneNumber" required pattern="(\d{3})-(\d{3})-(\d{4})">
+        <span ng-if="signUpForm.phone.$invalid && signUpForm.phone.$touched">
+        	Phone must be in the format ###-###-####.
+        </span>
+		<br>
+		<label>Favorite menu item:</label>
+		<input type="text" name="favorite" placeholder="menu number" class="form-control" 
+		ng-model="signUpCtrl.favoriteMenuItem" required>
+		<br>
+		<button
+      		ng-disabled="signUpForm.$invalid"
+      		ng-click="signUpCtrl.signUp($event)">Submit</button>
+
+      	<div>
+        	Form valid? {{ signUpForm.$valid }}
+      	</div>
+
+      	<div class="panel panel-success" ng-if="signUpCtrl.signUpValid">
+      		<div class="panel-heading">Signup complete</div>
+      		<div class="panel-body" style="color: green">Your information has been saved</div>
+      	</div>
+      	<div class="panel panel-danger" ng-if="signUpCtrl.menuItemFound == false">
+      		<div class="panel-heading">Something isn't right..</div>
+      		<div class="panel-body" style="color: red">The menu item specified wasn't found.</div>
+      	</div>
+	</form>
+</fieldset>
