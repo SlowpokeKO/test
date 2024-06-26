@@ -1,0 +1,14 @@
+<div ng-if="myInfoCtrl.signedUp" class="d-flex flex-column justify-content-center">
+	<div class="">
+		<h2>First Name: {{ myInfoCtrl.firstName }}</h2> 
+		<h2>Last Name: {{ myInfoCtrl.lastName }}</h2>
+		<h2>Email Address: {{ myInfoCtrl.emailAddress }}</h2>
+		<h2>Phone Number: {{ myInfoCtrl.phoneNumber }}</h2>
+		<h2>Account Number: {{ myInfoCtrl.accountNum }}</h2>
+	</div>
+	
+</div>
+
+<div class="d-flex justify-content-center mt-5" ng-if="!myInfoCtrl.signedUp">
+	<h1>Not Signed Up Yet. <a ui-sref='public.contact'>Sign Up Now!</a></h1>
+</div>

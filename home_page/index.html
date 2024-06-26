@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html ng-app="WebpageApp">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Home Page</title>
+	<!--css style-->
+	<link rel="stylesheet" href="css/style.css">
+	<!--bootstrap-->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+	<!--font awesome-->
+	<script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+	<!--Math.js-->
+	<!-- <script src="https://unpkg.com/mathjs/lib/browser/math.js"></script> -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/13.0.0/math.js"></script>
+	<!--angularJS-->
+	<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.3/angular.min.js"></script> -->
+	<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.3/angular.js"></script> -->
+	<!-- <script src="lib/angular.min.js"></script> -->
+	<script src="lib/angular.js"></script>
+	<!--UIRouter-->
+	<script src="lib/angular-ui-router.min.js"></script>
+	<!-- <script type="module">
+		import angularUiRouter from 'https://cdn.jsdelivr.net/npm/angular-ui-router@1.0.30/+esm'
+	</script> -->
+	<!--prism-->
+	<link rel="stylesheet" href="css/prism.css">
+	
+	<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.20.0/themes/prism.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.20.0/prism.min.js"></script> -->
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body class="d-flex flex-column" ng-controller="MyCtrl as myCtrl">
+	<header>
+		<nav class="navbar navbar-expand-md d-flex d-print-none mb-2 justify-content-around">
+			<div class="d-flex justify-content-around">
+				<div class="navbar-brand">
+					<a class="d-flex align-items-center" href="index.html">
+						<img style="height: 35px;" src="images/logo-YETI.jpg">
+						<h1 class="ms-2">Laser-Tag Arcanum Stadium</h1>
+					</a>
+				</div>
+
+				<button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+			</div>
+			<div class="collapse navbar-collapse mt-2" id="navbarSupportedContent">
+				<ul class="navbar-nav bg-dark d-flex flex-md-column w-100 flex-xl-row ">
+					<!-- <li class="nav-item border border-2 rounded border-white bg-primary mx-1 d-flex flex-column ">
+						<button class="nav-link text-primary-emphasis btn btn-outline-light px-1 px-md-2" ui-sref="public.home" ui-sref-active="active">
+							<img style="height: 20px;" src="images/logo-YETI.jpg"> Home</button>
+					</li> -->
+					<li class="nav-item py-2 bg-primary mx-1 d-flex justify-content-around">
+						<div class="d-flex w-25 bg-info rounded justify-content-center">
+							<img class="align-self-center me-2" ng-if="myCtrl.isState('public.grid2')" src="/images/dot_arrow.gif" style="height: 20px">
+							<div class="d-flex  ">
+								<button class="nav-link text-primary-emphasis btn btn-outline-light" ui-sref="public.grid2" ui-sref-active="active">Grid2</button>
+								<button class="nav-link text-primary-emphasis btn btn-outline-light" ui-sref="public.grid2b" ui-sref-active="active">/b </button>
+							</div>
+							<img class="align-self-center ms-2" ng-if="myCtrl.isState('public.grid2b')" src="/images/dot_arrow_left.gif" style="height: 20px">
+						</div>
+						<div class="bg-info w-25 d-flex justify-content-center rounded">
+							<img class="align-self-center me-2" ng-if="myCtrl.isState('public.grid3')" src="/images/dot_arrow.gif" style="height: 20px">
+							<button class="nav-link text-primary-emphasis btn btn-outline-light px-1 px-md-2" ui-sref="public.grid3" ui-sref-active="active">Grid3</button>
+							<img class="align-self-center ms-2" ng-if="myCtrl.isState('public.grid3')" src="/images/dot_arrow_left.gif" style="height: 20px">
+						</div>
+						<div class="bg-info w-25 d-flex justify-content-center rounded">
+							<img class="align-self-center me-2" ng-if="myCtrl.isState('public.grid4')" src="/images/dot_arrow.gif" style="height: 20px">
+							<button class="nav-link text-primary-emphasis btn btn-outline-light px-1 px-md-2" ui-sref="public.grid4" ui-sref-active="active">Grid4</button>
+							<img class="align-self-center ms-2" ng-if="myCtrl.isState('public.grid4')" src="/images/dot_arrow_left.gif" style="height: 20px">
+						</div>
+					</li>
+					<li class="nav-item py-2 bg-primary mx-1 d-flex justify-content-around ">
+						<div class="d-flex w-25 bg-info justify-content-center rounded">
+							<img class="align-self-center me-2" ng-if="myCtrl.isState('public.grid5')" src="/images/dot_arrow.gif" style="height: 20px">
+							<button class="nav-link text-primary-emphasis btn btn-outline-light px-1 px-md-2" ui-sref="public.grid5" ui-sref-active="active">Grid5</button>
+							<img class="align-self-center ms-2" ng-if="myCtrl.isState('public.grid5')" src="/images/dot_arrow_left.gif" style="height: 20px">
+						</div>
+						<div class="bg-info w-25 d-flex justify-content-center rounded">
+							<img class="align-self-center me-2" ng-if="myCtrl.isState('public.grid6')" src="/images/dot_arrow.gif" style="height: 20px">
+							<button class="nav-link text-primary-emphasis btn btn-outline-light px-1 px-md-2" ui-sref="public.grid6" ui-sref-active="active">Grid6</button>
+							<img class="align-self-center ms-2" ng-if="myCtrl.isState('public.grid6')" src="/images/dot_arrow_left.gif" style="height: 20px">
+						</div>
+						<div class="bg-info w-25 d-flex justify-content-center rounded">
+							<img class="align-self-center me-2" ng-if="myCtrl.isState('public.grid7')" src="/images/dot_arrow.gif" style="height: 20px">
+							<button class="nav-link text-primary-emphasis btn btn-outline-light px-1 px-md-2" ui-sref="public.grid7" ui-sref-active="active">Grid7</button>
+							<img class="align-self-center ms-2" ng-if="myCtrl.isState('public.grid7')" src="/images/dot_arrow_left.gif" style="height: 20px">
+						</div>
+					</li>
+					<li class="nav-item py-2 bg-primary mx-1 d-flex justify-content-around ">
+						<div class="bg-info w-25 d-flex justify-content-center rounded">
+							<img class="align-self-center me-2" ng-if="myCtrl.isState('public.grid8')" src="/images/dot_arrow.gif" style="height: 20px">
+							<button class="nav-link text-primary-emphasis btn btn-outline-light px-1 px-md-2" ui-sref="public.grid8" ui-sref-active="active">Grid8</button>
+							<img class="align-self-center ms-2" ng-if="myCtrl.isState('public.grid8')" src="/images/dot_arrow_left.gif" style="height: 20px">
+						</div>
+						<div class="bg-info w-25 d-flex justify-content-center rounded">
+							<img class="align-self-center me-2" ng-if="myCtrl.isState('public.grocery')" src="/images/dot_arrow.gif" style="height: 20px">
+							<button class="nav-link text-primary-emphasis btn btn-outline-light px-1 px-md-2" ui-sref="public.grocery" ui-sref-active="active">Grocery</button>
+							<img class="align-self-center ms-2" ng-if="myCtrl.isState('public.grocery')" src="/images/dot_arrow_left.gif" style="height: 20px">
+						</div>
+					</li>
+					<li class="nav-item py-2 bg-primary mx-1 d-flex justify-content-around ">
+						<div class="bg-info w-25 d-flex justify-content-center rounded">
+							<img class="align-self-center me-2" ng-if="myCtrl.isState('public.contact')" src="/images/dot_arrow.gif" style="height: 20px">
+							<button class="nav-link text-primary-emphasis btn btn-outline-light px-1 px-md-2" ui-sref="public.contact" ui-sref-active="active">Contact Info</button>
+							<img class="align-self-center ms-2" ng-if="myCtrl.isState('public.contact')" src="/images/dot_arrow_left.gif" style="height: 20px">
+						</div>
+						<div class="bg-info w-25 d-flex justify-content-center rounded">
+							<img class="align-self-center me-2" ng-if="myCtrl.isState('public.myinfo')" src="/images/dot_arrow.gif" style="height: 20px">
+							<button class="nav-link text-primary-emphasis btn btn-outline-light px-1 px-md-2" ui-sref="public.myinfo" ui-sref-active="active">My Info</button>
+							<img class="align-self-center ms-2" ng-if="myCtrl.isState('public.myinfo')" src="/images/dot_arrow_left.gif" style="height: 20px">
+						</div>
+					</li>
+					<li class="nav-item py-2 bg-primary mx-1 d-flex justify-content-around ">
+						<div class="bg-info w-25 d-flex justify-content-center rounded">
+							<img class="align-self-center me-2" ng-if="myCtrl.isState('public.invoice')" src="/images/dot_arrow.gif" style="height: 20px">
+							<button class="nav-link text-primary-emphasis btn btn-outline-light px-1 px-md-2" ui-sref="public.invoice" ui-sref-active="active">Billing Invoice</button>
+							<img class="align-self-center ms-2" ng-if="myCtrl.isState('public.invoice')" src="/images/dot_arrow_left.gif" style="height: 20px">
+						</div>
+					</li>
+					<li class="nav-item py-2 bg-primary mx-1 d-flex justify-content-around ">
+						<div class="bg-info w-25 d-flex justify-content-center rounded">
+							<img class="align-self-center me-2" ng-if="myCtrl.isState('public.aboutme-business')" src="/images/dot_arrow.gif" style="height: 20px">
+							<button class="nav-link text-primary-emphasis btn btn-outline-light px-1 px-md-2" ui-sref="public.aboutme-business" ui-sref-active="active">Business</button>
+							<img class="align-self-center ms-2" ng-if="myCtrl.isState('public.aboutme-business')" src="/images/dot_arrow_left.gif" style="height: 20px">
+						</div>
+						<span class="align-self-center text-light"><- templates -></span>
+						<div class="bg-info w-25 d-flex justify-content-center rounded">
+							<img class="align-self-center me-2" ng-if="myCtrl.isState('public.portfolio')" src="/images/dot_arrow.gif" style="height: 20px">
+							<button class="nav-link text-primary-emphasis btn btn-outline-light px-1 px-md-2" ui-sref="public.portfolio" ui-sref-active="active">Portfolio</button>
+							<img class="align-self-center ms-2" ng-if="myCtrl.isState('public.portfolio')" src="/images/dot_arrow_left.gif" style="height: 20px">
+						</div>
+					</li>
+					<li class="nav-item py-2 bg-primary mx-1 d-flex justify-content-around ">
+						<div class="bg-info w-25 d-flex justify-content-center rounded">
+							<img class="align-self-center me-2" ng-if="myCtrl.isState('public.thanks')" src="/images/dot_arrow.gif" style="height: 20px">
+							<button class="nav-link text-primary-emphasis btn btn-outline-light px-1 px-md-2" ui-sref="public.thanks" ui-sref-active="active">Thanks 100</button>
+							<img class="align-self-center ms-2" ng-if="myCtrl.isState('public.thanks')" src="/images/dot_arrow_left.gif" style="height: 20px">
+						</div>
+						<div class="bg-info w-25 d-flex justify-content-center rounded">
+							<img class="align-self-center me-2" ng-if="myCtrl.isState('public.fizzbuzz')" src="/images/dot_arrow.gif" style="height: 20px">
+							<button class="nav-link text-primary-emphasis btn btn-outline-light px-1 px-md-2" ui-sref="public.fizzbuzz" ui-sref-active="active">FizzBuzz</button>
+							<img class="align-self-center ms-2" ng-if="myCtrl.isState('public.fizzbuzz')" src="/images/dot_arrow_left.gif" style="height: 20px">
+						</div>
+						<div class="bg-info w-25 d-flex justify-content-center rounded">
+							<img class="align-self-center me-2" ng-if="myCtrl.isState('public.tacocat')" src="/images/dot_arrow.gif" style="height: 20px">
+							<button class="nav-link text-primary-emphasis btn btn-outline-light px-1 px-md-2" ui-sref="public.tacocat" ui-sref-active="active">Tacocat</button>
+							<img class="align-self-center ms-2" ng-if="myCtrl.isState('public.tacocat')" src="/images/dot_arrow_left.gif" style="height: 20px">
+						</div>
+					</li>
+					<li class="nav-item py-2 bg-primary mx-1 d-flex justify-content-around ">
+						<div class="bg-info w-25 d-flex justify-content-center rounded">
+							<img class="align-self-center me-2" ng-if="myCtrl.isState('public.loan')" src="/images/dot_arrow.gif" style="height: 20px">
+							<button class="nav-link text-primary-emphasis btn btn-outline-light px-1 px-md-2" ui-sref="public.loan" ui-sref-active="active">Loans</button>
+							<img class="align-self-center ms-2" ng-if="myCtrl.isState('public.loan')" src="/images/dot_arrow_left.gif" style="height: 20px">
+						</div>
+					</li>
+					<li class="nav-item py-2 bg-primary mx-1 d-flex justify-content-around ">
+						<div class="bg-info w-25 d-flex justify-content-center rounded">
+							<img class="align-self-center me-2" ng-if="myCtrl.isState('public.longest')" src="/images/dot_arrow.gif" style="height: 20px">
+							<button class="nav-link text-primary-emphasis btn btn-outline-light px-1 px-md-2" ui-sref="public.longest" ui-sref-active="active">Longest String</button>
+							<img class="align-self-center ms-2" ng-if="myCtrl.isState('public.longest')" src="/images/dot_arrow_left.gif" style="height: 20px">
+						</div>
+						<div class="bg-info w-25 d-flex justify-content-center rounded">
+							<img class="align-self-center me-2" ng-if="myCtrl.isState('public.brackets')" src="/images/dot_arrow.gif" style="height: 20px">
+							<button class="nav-link text-primary-emphasis btn btn-outline-light px-1 px-md-2" ui-sref="public.brackets" ui-sref-active="active">Balanced Brackets</button>
+							<img class="align-self-center ms-2" ng-if="myCtrl.isState('public.brackets')" src="/images/dot_arrow_left.gif" style="height: 20px">
+						</div>
+						<div class="bg-info w-25 d-flex justify-content-center rounded">
+							<img class="align-self-center me-2" ng-if="myCtrl.isState('public.distance')" src="/images/dot_arrow.gif" style="height: 20px">
+							<button class="nav-link text-primary-emphasis btn btn-outline-light px-1 px-md-2" ui-sref="public.distance" ui-sref-active="active">Distance Converter</button>
+							<img class="align-self-center ms-2" ng-if="myCtrl.isState('public.distance')" src="/images/dot_arrow_left.gif" style="height: 20px">
+						</div>
+					</li>
+					<li class="nav-item py-2 bg-primary mx-1 d-flex justify-content-around ">
+						<div class="bg-info w-25 d-flex justify-content-center rounded">
+							<img class="align-self-center me-2" ng-if="myCtrl.isState('public.biggest-object')" src="/images/dot_arrow.gif" style="height: 20px">
+							<button class="nav-link text-primary-emphasis btn btn-outline-light px-1 px-md-2" ui-sref="public.biggest-object" ui-sref-active="active">Biggest Object</button>
+							<img class="align-self-center ms-2" ng-if="myCtrl.isState('public.biggest-object')" src="/images/dot_arrow_left.gif" style="height: 20px">
+						</div>
+						<div class="bg-info w-25 d-flex justify-content-center rounded">
+							<img class="align-self-center me-2" ng-if="myCtrl.isState('public.anagram')" src="/images/dot_arrow.gif" style="height: 20px">
+							<button class="nav-link text-primary-emphasis btn btn-outline-light px-1 px-md-2" ui-sref="public.anagram" ui-sref-active="active">Anagram</button>
+							<img class="align-self-center ms-2" ng-if="myCtrl.isState('public.anagram')" src="/images/dot_arrow_left.gif" style="height: 20px">
+						</div>
+						<div class="bg-info w-25 d-flex justify-content-center rounded">
+							<img class="align-self-center me-2" ng-if="myCtrl.isState('public.vowels')" src="/images/dot_arrow.gif" style="height: 20px">
+							<button class="nav-link text-primary-emphasis btn btn-outline-light px-1 px-md-2" ui-sref="public.vowels" ui-sref-active="active">Vowel Count</button>
+							<img class="align-self-center ms-2" ng-if="myCtrl.isState('public.vowels')" src="/images/dot_arrow_left.gif" style="height: 20px">
+						</div>
+					</li>
+					<li class="nav-item py-2 bg-primary mx-1 d-flex justify-content-around ">
+						<div class="bg-info w-25 d-flex justify-content-center rounded">
+							<img class="align-self-center me-2" ng-if="myCtrl.isState('public.sum')" src="/images/dot_arrow.gif" style="height: 20px">
+							<button class="nav-link text-primary-emphasis btn btn-outline-light px-1 px-md-2" ui-sref="public.sum" ui-sref-active="active">Sum</button>
+							<img class="align-self-center ms-2" ng-if="myCtrl.isState('public.sum')" src="/images/dot_arrow_left.gif" style="height: 20px">
+						</div>
+						<div class="bg-info w-25 d-flex justify-content-center rounded">
+							<img class="align-self-center me-2" ng-if="myCtrl.isState('public.search')" src="/images/dot_arrow.gif" style="height: 20px">
+							<button class="nav-link text-primary-emphasis btn btn-outline-light px-1 px-md-2" ui-sref="public.search" ui-sref-active="active">Search</button>
+							<img class="align-self-center ms-2" ng-if="myCtrl.isState('public.search')" src="/images/dot_arrow_left.gif" style="height: 20px">
+						</div>
+						<div class="bg-info w-25 d-flex justify-content-center rounded">
+							<img class="align-self-center me-2" ng-if="myCtrl.isState('public.most-used-word')" src="/images/dot_arrow.gif" style="height: 20px">
+							<button class="nav-link text-primary-emphasis btn btn-outline-light px-1 px-md-2" ui-sref="public.most-used-word" ui-sref-active="active">Most Used Word</button>
+							<img class="align-self-center ms-2" ng-if="myCtrl.isState('public.most-used-word')" src="/images/dot_arrow_left.gif" style="height: 20px">
+						</div>
+					</li>
+					<li class="nav-item py-2 bg-primary mx-1 d-flex justify-content-around ">
+						<div class="bg-info w-25 d-flex justify-content-center rounded">
+							<img class="align-self-center me-2" ng-if="myCtrl.isState('public.sum-recursive')" src="/images/dot_arrow.gif" style="height: 20px">
+							<button class="nav-link text-primary-emphasis btn btn-outline-light px-1 px-md-2" ui-sref="public.sum-recursive" ui-sref-active="active">Sum Recursive</button>
+							<img class="align-self-center ms-2" ng-if="myCtrl.isState('public.sum-recursive')" src="/images/dot_arrow_left.gif" style="height: 20px">
+						</div>
+					</li>
+				</ul>
+			</div>	
+		</nav>
+	</header>
+
+	<loading class="text-center"></loading>
+
+	<ui-view>
+		<div class="text-center">
+			<h2>Loading Site...</h2>
+		</div>
+	</ui-view>
+
+
+	<!--Main Module-->
+	<script src="src/main.module.js"></script>
+
+	<!--Public Module-->
+	<script src="src/public/public.module.js"></script>
+	<script src="src/public/public.routes.js"></script>
+	<script src="src/public/public.controller.js"></script>
+	<script src="src/public/contact/contact.controller.js"></script>
+	<script src="src/public/contact/my-info.controller.js"></script>
+	<script src="src/public/contact/user.service.js"></script>
+	<script src="src/public/billing/invoice.controller.js"></script>
+	<!-- <script src="src/public/portfolio/js/portfolio.controller.js"></script> -->
+	<script src="src/public/how-many-thanks/how-many-thanks.controller.js"></script>
+	<script src="src/public/fizzbuzz/fizzbuzz.controller.js"></script>
+	<script src="src/public/tacocat/tacocat.controller.js"></script>
+	<script src="src/public/loan/loan.controller.js"></script>
+	<script src="src/public/longestString/longestString.controller.js"></script>
+	<script src="src/public/balanced-brackets/balanced-brackets.controller.js"></script>
+	<script src="src/public/distance-converter/distance-converter.controller.js"></script>
+	<script src="src/public/biggest-object/biggest-object.controller.js"></script>
+	<script src="src/public/anagram/anagram.controller.js"></script>
+	<script src="src/public/vowels/vowels.controller.js"></script>
+	<script src="src/public/sum/sum.controller.js"></script>
+	<script src="src/public/search/search.controller.js"></script>
+	<script src="src/public/most-used-word/most-used-word.controller.js"></script>
+	<script src="src/public/sum-recursive/sum-recursive.controller.js"></script>
+
+	<!--Common Module-->
+	<script src="src/common/common.module.js"></script>
+	<script src="src/common/loading/loading.component.js"></script>
+	<script src="src/common/loading/loading.interceptor.js"></script>
+
+	
+	<script src="lib/prism.js"></script>
+	
+</body>
+</html>

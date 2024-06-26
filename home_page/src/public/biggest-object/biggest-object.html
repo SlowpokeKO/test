@@ -1,0 +1,72 @@
+<div class="bg-warning" style="min-height: 100vh;">
+	<div class="row d-flex mx-auto pt-4">	
+		<div class="col-12 col-md-4">
+			<h2>BIGGEST OBJECT: A Coding Project</h1>
+			<p>Takes an array of towns and displays a sorted array in descending or ascending order.</p>
+			<h2 class="mt-4">Instructions</h2>
+			<p>Towns are hard-coded in right now. Press one of the table headers to sort.</p>
+		</div>
+		<div class="col-12 col-md-8">
+			<table class="table table-striped mt-2 text-center" ng-if="bigObjCtrl.table">
+				<tr class="user-select-none">
+					<th ng-click="bigObjCtrl.citySort()"><label class="d-flex text-center justify-content-center">City<label ng-if="bigObjCtrl.sort == 'descCity'"><i class="fa-solid fa-down-long ms-1"></i></label><label ng-if="bigObjCtrl.sort == 'ascCity'"><i class="fa-solid fa-up-long ms-1"></i></label></label></th>
+
+					<th ng-click="bigObjCtrl.stateSort()"><label class="d-flex text-center justify-content-center">State<label ng-if="bigObjCtrl.sort == 'descState'"><i class="fa-solid fa-down-long ms-1"></i></label><label ng-if="bigObjCtrl.sort == 'ascState'"><i class="fa-solid fa-up-long ms-1"></i></label></label></th>
+
+					<th ng-click="bigObjCtrl.popSort()"><label class="d-flex text-center justify-content-center">Population<label ng-if="bigObjCtrl.sort == 'descPop'"><i class="fa-solid fa-down-long ms-1"></i></label><label ng-if="bigObjCtrl.sort == 'ascPop'"><i class="fa-solid fa-up-long ms-1"></i></label></label></th>
+
+					<th ng-click="bigObjCtrl.ageSort()"><label class="d-flex text-center justify-content-center">Median Age<label ng-if="bigObjCtrl.sort == 'descAge'"><i class="fa-solid fa-down-long ms-1"></i></label><label ng-if="bigObjCtrl.sort == 'ascAge'"><i class="fa-solid fa-up-long ms-1"></i></label></label></th>
+
+					<th ng-click="bigObjCtrl.householdSort()"><label class="d-flex text-center justify-content-center">Avg. Household Size<label ng-if="bigObjCtrl.sort == 'descHouse'"><i class="fa-solid fa-down-long ms-1"></i></label><label ng-if="bigObjCtrl.sort == 'ascHouse'"><i class="fa-solid fa-up-long ms-1"></i></label></label></th>
+				</tr>
+				<tr ng-repeat="place in bigObjCtrl.table">
+					<td>{{ place.city }}</td>
+					<td>{{ place.state }}</td>
+					<td>{{ place.population }}</td>
+					<td>{{ place.median_age }}</td>
+					<td>{{ place.avg_household_size }}</td>
+				</tr>
+			</table>
+		</div>
+		<div class="col-12 col-md-6">
+			<pre class="line-numbers"><code class="language-javascript">
+let cityData = [{
+	city: "TownsTown",
+	state: "New Jersey",
+	population: 10001,
+	median_age: 82,
+	avg_household_size: 3.43
+},
+{
+	city: "Newtownland",
+	state: "New Jersey",
+	population: 10124,
+	median_age: 25,
+	avg_household_size: 2.9
+},
+{
+	city: "Applebeestown",
+	state: "New Jersey",
+	population: 9391,
+	median_age: 61,
+	avg_household_size: 3.59
+},
+{
+	city: "Williamstown",
+	state: "New Jersey",
+	population: 5002,
+	median_age: 28,
+	avg_household_size: 2.52
+},
+{
+	city: "Woodstown",
+	state: "New Jersey",
+	population: 9292,
+	median_age: 39.2,
+	avg_household_size: 3.81
+}]
+            </code>
+            </pre>
+		</div>
+	</div>
+</div>

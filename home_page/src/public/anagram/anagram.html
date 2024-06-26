@@ -1,0 +1,35 @@
+<div class="bg-info-subtle" style="min-height: 100vh;">
+	<div class="container-fluid row pt-4">
+		<div class="col-6 text-success d-flex flex-column text-center">
+			<h1>Anagram: A Coding Project</h1>
+			<h4 class="fs-4 my-2">Given two strings write a function that checks if they are anagrams. The function should return true or false. Display a message indicating the result of the function.</h4>
+			<h6 class="fs-6"><strong>Note:</strong> An anagram is a word or phrase formed by rearranging the letters of a different word or phrase.</h6>
+			<h4 class="text-start"><strong class="ms-2">Examples:</strong>
+				<ul>
+					<li>listen = silent</li>
+					<li>William Shakespeare = I am a weakish speller</li>
+					<li>eleven plus two = twelve plus one</li>
+					<li>a gentleman = elegant man</li>
+					<li>Apple = paple</li>
+				</ul>
+			</h4>
+		</div>
+		<div class="col-6 d-flex flex-column">
+			<form class="text-info d-flex flex-column justify-content-center my-4 text-center">
+				<label>Enter a phrase or word to check</label>
+				<input class="text-end pe-4" type="text" required ng-model="anagramCtrl.word1" placeholder="word 1">
+				<label class="mt-2">Enter a phrase or word to check</label>
+				<input class="text-end pe-4" type="text" required ng-model="anagramCtrl.word2" placeholder="word 2">
+				<button class="mx-auto my-4" ng-click="anagramCtrl.check()">Check it</button>
+			</form>
+			<div class="bg-danger my-2 p-2 text-center text-primary-subtle" style="min-height: 30px;" ng-if="anagramCtrl.result == false">
+				<h2>No luck.</h2>
+				<p>{{ anagramCtrl.setWord1 }} and {{ anagramCtrl.setWord2 }} aren't anagrams.</p>
+			</div>
+			<div class="bg-success my-2 p-2 text-center text-primary-subtle" style="min-height: 30px;" ng-if="anagramCtrl.result == true">
+				<h2>Success!</h2>
+				<p>{{ anagramCtrl.setWord1 }} and {{ anagramCtrl.setWord2 }} are anagrams!</p>
+			</div>
+		</div>
+	</div>
+</div>

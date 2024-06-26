@@ -1,0 +1,19 @@
+<div class="bg-info-subtle" style="min-height: 100vh;">
+	<div class="container-fluid row pt-4">
+		<div class="col-6 text-danger d-flex flex-column text-center">
+			<h2>Most Used Word: A Coding Project</h2>
+			<p>Enter a series of words seperated by commas or spaces. Press <strong>Find</strong> to find the most used word.</p>
+			<h6>Enter words with a space or comma between.</h6>
+		</div>
+		<div class="col-6">
+			<form class="text-secondary d-flex flex-column justify-content-center">
+				<label>Enter a series of words</label>
+				<input type="text" required ng-model="mostWordCtrl.input" pattern="[A-Za-z ,]+">
+				<button class="mx-auto my-2" ng-click="mostWordCtrl.find()">Find</button>
+			</form>
+			<div class="bg-info-subtle my-2 p-2 text-center text-break border border-2" style="min-height: 30px;" ng-if="mostWordCtrl.output.length > 0">
+				<h2>Most used word: {{ mostWordCtrl.output }}</h2>
+			</div>
+		</div>
+	</div>
+</div>

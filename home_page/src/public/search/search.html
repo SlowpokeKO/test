@@ -1,0 +1,27 @@
+<div class="bg-success-subtle" style="min-height: 100vh;">
+	<div class="container-fluid row pt-4">
+		<div class="col-6 text-danger d-flex flex-column text-center">
+			<h2>Search an Array of Objects: A Coding Project</h2>
+			<p>Given an array of marvel heroes write a function that accepts hero alias (string). The function should return corresponding hero. Display the hero object which includes their secret identity. If the search cannot find a hero return blank and display a message.</p>
+			<h4 class="text-decoration-underline">List of Heroes</h4>
+			<pre class="line-numbers border border-4"><code class="language-javascript">
+[ {Alias: "Ant-Man", Name: "Scott Lang"}, {Alias: "Black Panther", Name: "T'Challa"}, {Alias: "Black Widow", Name: "Natasha Romanoff"}, {Alias: "Captain America", Name: "Steve Rogers"}, {Alias: "Doctor Strange", Name: "Stephen Strange"}, {Alias: "Hawkeye", Name: "Clint Barton"}, {Alias: "Hulk", Name: "Bruce Banner"}, {Alias: "Iron Man", Name: "Tony Stark"}, {Alias: "Power Man", Name: "Luke Cage"}, {Alias: "Moon Knight", Name: "Steven Grant"}, {Alias: "Captain Marvel", Name: "Carol Danvers"}, {Alias: "Scarlet Witch", Name: "Wonda Maximoff"}, {Alias: "Spider-Man", Name: "Peter Parker"}, {Alias: "Thor", Name: "Thor Odinson"}, {Alias: "Wasp", Name: "Janet van Dyne"} ]
+			</code></pre>
+		</div>
+		<div class="col-6">
+			<form class="text-secondary d-flex flex-column justify-content-center">
+				<label>Enter a phrase or word to check</label>
+				<input type="text" required placeholder="Enter Hero Alias" ng-model="searchCtrl.input">
+				<button class="mx-auto my-2" ng-click="searchCtrl.search()">Search</button>
+			</form>
+			<div class="bg-danger my-2 p-2 text-center" style="min-height: 30px;" ng-if="searchCtrl.result == false">
+				<h2>No luck-</h2>
+				<p>{{ searchCtrl.setInput }} doesn't have any result.</p>
+			</div>
+			<div class="bg-light my-2 p-2 text-center text-break border border-4" style="min-height: 30px;" ng-if="searchCtrl.result == true">
+				<h2>{{ searchCtrl.setInput }} was found.</h2>
+				<p>Hero object: {{ searchCtrl.output }}</p>
+			</div>
+		</div>
+	</div>
+</div>

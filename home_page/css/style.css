@@ -1,0 +1,43 @@
+/*nav li:hover {
+	transform: scale(2.0);
+	background-color: black;
+}
+nav li {
+	margin-right: 8px;
+}*/
+
+/*.nav-item:hover {
+	 background-color: black;
+}*/
+
+/*.heaader_active {
+	background: white;
+}
+
+.child_active {
+	background: green;
+}*/
+
+.decoration_danger {
+	text-decoration: underline;
+	text-decoration-color: darkred;
+}
+
+code[class*="language-"],
+	pre[class*="language-"] {
+		white-space: pre-wrap;
+		word-break: break-all;
+		word-wrap: break-word;
+		position: relative;
+		display: block;
+	}
+
+td[value="Fizz"] {
+	color: lightblue;
+}
+td[value="Buzz"] {
+	color: orangered;
+}
+td[value="FizzBuzz"] {
+	color: purple;
+}

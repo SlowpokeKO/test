@@ -1,0 +1,50 @@
+<div class="bg-success-subtle" style="min-height: 100vh;">
+	<h1 class="text-center">Loan Calculator</h1>
+	<div class="row border border-4 border-primary-subtle m-2 p-2">
+		<form class="col-6 d-flex flex-column bg-secondary text-light p-2 py-3 justify-content-between">
+			<div class="d-flex flex-column">
+				<label>Loan Amount</label>
+				<input type="number" min="1" required ng-model="loanCtrl.loanAmount">
+				<label>Payment Months</label>
+				<input type="number" min="1" required ng-model="loanCtrl.payMonths">
+				<label>Monthly Interest Rate</label>
+				<input type="text" ng-model="loanCtrl.intRate"  placeholder="0.00" required>
+			</div>
+			<div class="d-flex my-2">
+				<label class="mx-2"><input type="radio" checked="checked" name="interestType" value="com" ng-click="loanCtrl.changeType('com')">Compound</label>
+				<label><input type="radio" name="interestType" value="nonCom" ng-click="loanCtrl.changeType('nonCom')">Non-Compound</label>
+			</div>
+			<button class="my-2" ng-click="loanCtrl.makeReport()">Calculate Payments</button>
+		</form>
+		<div class="col-6 d-flex flex-column p-2 py-3 text-center justify-content-between">
+			<div class="">
+				<h2 class="">Your Monthy Payments</h2>
+				<h3 class="" ng-if="loanCtrl.interestType == 'com'">(Average)</h3>
+			</div>
+			<h1 class=""><strong>{{ loanCtrl.monthlyPayment | currency }}</strong></h1>
+			<div class="mx-3">
+				<label class="d-flex justify-content-between">Total Principal: <strong>{{ loanCtrl.totalPrincipal | currency }}</strong></label>
+				<label class="d-flex justify-content-between">Total Interest: <strong>{{ loanCtrl.totalInterest | currency }}</strong></label>
+				<label class="d-flex justify-content-between">Total Cost: <strong>{{ loanCtrl.totalCost | currency }}</strong></label>
+			</div>
+		</div>
+		<table class="col-12 table table-striped my-2 text-center" ng-if="loanCtrl.report.length > 0">
+			<tr class="bg-primary-subtle">
+				<th>Months</th>
+				<th>Payment</th>
+				<th>Principal</th>
+				<th>Interest</th>
+				<th>Total Interest</th>
+				<th>Balance</th>
+			</tr>
+			<tr ng-repeat="monthReport in loanCtrl.report" class="">
+				<td>{{ monthReport.month }}</td>
+				<td>{{ monthReport.payment | currency }}</td>
+				<td>{{ monthReport.principal | currency }}</td>
+				<td>{{ monthReport.interest | currency }}</td>
+				<td>{{ monthReport.totalInt | currency }}</td>
+				<td>{{ monthReport.balance | currency }}</td>
+			</tr>
+		</table>
+	</div>
+</div>

@@ -1,0 +1,24 @@
+<div class="bg-warning" style="min-height: 100vh;">
+	<div class="row mx-4 pt-4">	
+		<div class="col-4">
+			<h2>FIZZ BUZZ: A Coding Project</h1>
+			<p>When it counts you Fizz Buzz. A javascript coding exercise using loops. Write a program that prints the numbers from 1 to 100 and for multiples of '<strong>first value</strong>' display "<strong>Fizz</strong>" instead of the number and for multiples of '<strong>second value</strong>' display "<strong>Buzz</strong>". If a multiple of both display "<strong>FizzBuzz</strong>".</p>
+			<h2 class="mt-4">Instructions</h2>
+			<p>Enter a fizz and a buzz value. Press the button and the values will appear.</p>
+		</div>
+		<div class="col-8 ">
+			<label>Enter Values:</label>
+			<form>
+				<input type="number" required ng-model="fizzBuzzCtrl.fizz">
+				<input type="number" required ng-model="fizzBuzzCtrl.buzz">
+				<button class="my-2" ng-click="fizzBuzzCtrl.find()">Find</button>
+			</form>
+			<table id="fizzBuzzTable" class="table table-striped mt-2">
+			<tr ng-repeat="num in fizzBuzzCtrl.table track by $index">
+				<td value="{{num}}">{{num}}</td>
+				<td>{{$index + 1}}</td>
+			</tr>
+		</table>
+		</div>
+	</div>
+</div>

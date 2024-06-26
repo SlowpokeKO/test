@@ -1,0 +1,53 @@
+<fieldset class="container justify-content-center" style=" width: 70vw">
+	<legend>My Contact</legend>
+	<form name='contactForm' novalidate class="bg-secondary p-5 h-100">
+		<div class="d-flex gap-5">
+			<div class="flex-column">
+				<label class="text-white">First name:</label>
+				<input type="text" name="firstname" placeholder="first name" class="form-control"
+				ng-model="contactCtrl.firstName" required>
+			</div>
+			<div class="flex-column">
+				<label class="text-white">Last name:</label>
+				<input type="text" name="lastname" placeholder="last name" class="form-control" 
+				ng-model="contactCtrl.lastName" required>
+			</div>
+		</div>
+		<br>
+		<label class="text-white">Email address:</label>
+		<input type="email" name="email" placeholder="email address" class="form-control" 
+		ng-model="contactCtrl.emailAddress" required>
+		<span class="decoration_danger" ng-if="contactForm.email.$invalid && contactForm.email.$touched">
+        	Must be a valid email address: handle@domain format
+        </span>
+		<br>
+		<label class="text-white">Phone number:</label>
+		<input type="text" name="phone" placeholder="phone number" class="form-control" 
+		ng-model="contactCtrl.phoneNumber" required pattern="(\d{3})-(\d{3})-(\d{4})">
+        <span class="decoration_danger" ng-if="contactForm.phone.$invalid && contactForm.phone.$touched">
+        	Phone must be in the format ###-###-####.
+        </span>
+		<br><br>
+	
+		<div class="d-flex ">
+			<div class="flex-column me-4">
+				<button
+		      		ng-disabled="contactForm.$invalid"
+		      		ng-click="contactCtrl.submit($event)">Submit</button>
+
+		      	<div class="mb-2">
+		        	Form valid? {{ contactForm.$valid }}
+		      	</div>
+			</div>
+
+	      	<div class="bg-light text-center" ng-if="contactCtrl.contactValid">
+	      		<div class="">Signup complete</div>
+	      		<div class="" style="color: green">Your information has been saved</div>
+	      	</div>
+	      	<div class="bg-light text-center" ng-if="contactCtrl.contactValid == false">
+	      		<div class="">Something isn't right..</div>
+	      		<div class="" style="color: red">try again</div>
+	      	</div>
+		</div>
+	</form>
+</fieldset>

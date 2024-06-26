@@ -1,0 +1,19 @@
+<div class="bg-warning-subtle" style="min-height: 100vh;">
+	<div class="container-fluid row pt-4">
+		<div class="col-6 text-danger d-flex flex-column text-center">
+			<h2>Sum: A Coding Project</h2>
+			<p>Enter a series of numbers to sum up. Press <strong>Sum</strong> to sum. The numbers will be summed through a function over and over, using recursion, until the condition is satisfied.</p>
+			<h6>List numbers with a space or comma between.</h6>
+		</div>
+		<div class="col-6">
+			<form class="text-secondary d-flex flex-column justify-content-center">
+				<label>Enter a series of numbers</label>
+				<input type="text" required ng-model="sumRecursiveCtrl.input" pattern="[0-9 ,]+">
+				<button class="mx-auto my-2" ng-click="sumRecursiveCtrl.sum()">Sum Recursive</button>
+			</form>
+			<div class="bg-info-subtle my-2 p-2 text-center text-break border border-2" style="min-height: 30px;" ng-if="sumRecursiveCtrl.output > 0">
+				<h2>Sum Recursive: {{ sumRecursiveCtrl.output }}</h2>
+			</div>
+		</div>
+	</div>
+</div>

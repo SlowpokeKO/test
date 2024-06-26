@@ -1,0 +1,24 @@
+<div class="bg-warning-subtle" style="min-height: 100vh;">
+	<div class="container-fluid row pt-4">
+		<div class="col-6 text-danger d-flex flex-column text-center">
+			<h2>VOWEL COUNT: A Coding Project</h2>
+			<p>Enter a word or phrase and check the number of vowels by pressing Run.</p>
+			<h6>Vowels: [ A, E, I, O, U ]</h6>
+		</div>
+		<div class="col-6">
+			<form class="text-secondary d-flex flex-column justify-content-center">
+				<label>Enter a phrase or word to check</label>
+				<input type="text" required ng-model="vowelCtrl.input">
+				<button class="mx-auto my-2" ng-click="vowelCtrl.run()">Run</button>
+			</form>
+			<div class="bg-danger my-2 p-2 text-center" style="min-height: 30px;" ng-if="vowelCtrl.result == false">
+				<h2>No luck-</h2>
+				<p>{{ vowelCtrl.setInput }} doesn't have any vowels.</p>
+			</div>
+			<div class="bg-success-subtle my-2 p-2 text-center text-break" style="min-height: 30px;" ng-if="vowelCtrl.result == true">
+				<h2>{{ vowelCtrl.setInput }} has {{ vowelCtrl.vowelList.length }} vowels!</h2>
+				<p>Vowels: {{ vowelCtrl.vowelList }}</p>
+			</div>
+		</div>
+	</div>
+</div>

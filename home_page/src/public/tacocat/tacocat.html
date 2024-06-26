@@ -1,0 +1,23 @@
+<div class="bg-info-subtle" style="min-height: 100vh;">
+	<div class="container-fluid row pt-4">
+		<div class="col-6 text-info d-flex flex-column text-center">
+			<h2>TACO CAT: A Coding Project</h2>
+			<p>Taco Cat is a palindrome. A palindrome is a word, phrase, or sequence that reads the same backward as forward. Write a program that checks if the input is a palindrome.</p>
+		</div>
+		<div class="col-6">
+			<form class="text-info d-flex flex-column justify-content-center">
+				<label>Enter a phrase or word to check</label>
+				<input type="text" required ng-model="tacocatCtrl.palindrome">
+				<button class="mx-auto my-2" ng-click="tacocatCtrl.check()">Check it</button>
+			</form>
+			<div class="bg-danger my-2 p-2 text-center" style="min-height: 30px;" ng-if="tacocatCtrl.result == false">
+				<h2>No luck.</h2>
+				<p>{{tacocatCtrl.palindrome}} is not a palindrome.</p>
+			</div>
+			<div class="bg-success my-2 p-2 text-center" style="min-height: 30px;" ng-if="tacocatCtrl.result == true">
+				<h2>Success!</h2>
+				<p>{{tacocatCtrl.palindrome}} is a palindrome!</p>
+			</div>
+		</div>
+	</div>
+</div>

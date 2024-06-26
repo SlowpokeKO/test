@@ -1,0 +1,23 @@
+<div class="bg-danger-subtle" style="min-height: 100vh;">
+	<div class="container-fluid row pt-4">
+		<div class="col-6 text-info d-flex flex-column text-center">
+			<h2>LONGEST STRING: A Coding Project</h2>
+			<p>Longest string will sort through a list of words and find the longest one. Enter a list of words seperated by spaces or commas and press start to begin.</p>
+		</div>
+		<div class="col-6">
+			<form class="text-info d-flex flex-column justify-content-center">
+				<label>Enter a list of words to check</label>
+				<textarea class="p-2" type="text" minlength="1" required ng-model="longestCtrl.list" placeholder="word, ohh, oh, word"></textarea>
+				<button class="mx-auto my-2" ng-click="longestCtrl.start()">Start</button>
+			</form>
+			<div class="bg-danger my-2 p-2 text-center" style="min-height: 30px;" ng-if="longestCtrl.result == false">
+				<h2>Oh no Error.</h2>
+				<p>Something's wrong- Couldn't find the longest word.</p>
+			</div>
+			<div class="bg-success my-2 p-2 text-center" style="min-height: 30px;" ng-if="longestCtrl.result == true">
+				<h2>Success!</h2>
+				<p>{{longestCtrl.longest}} is the longest word!</p>
+			</div>
+		</div>
+	</div>
+</div>

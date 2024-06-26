@@ -1,0 +1,25 @@
+<div class="bg-warning-subtle" style="min-height: 100vh;">
+	<div class="row mx-4 pt-4">	
+		<div class="col-4">
+			<h2>BALANCED BRACKETS: A Coding Project</h1>
+			<p>Given the string '<strong>[()]{}{[()()]()}</strong>', write a function that takes a string parameter containing brackets, determine if all brackets have a matching counterpart. If all brackets in the string form balanced pairs, return true. If not, return false.</p>
+			<h2 class="mt-4">Instructions</h2>
+			<p>Enter a series of brackets to check for balance. Press <strong>Check</strong> to test.</p>
+		</div>
+		<div class="col-8 ">
+			<label>Enter brackets:</label>
+			<form>
+				<input type="text" required minlength="1" ng-model="bracketsCtrl.brackets">
+				<button class="my-2" ng-click="bracketsCtrl.check()">Check</button>
+			</form>
+			<div class="bg-danger my-2 p-2 text-center" style="min-height: 30px;" ng-if="bracketsCtrl.result == false">
+				<h2>Oh no Error.</h2>
+				<p>{{ bracketsCtrl.bracketList }} is unbalanced somewhere.</p>
+			</div>
+			<div class="bg-success my-2 p-2 text-center" style="min-height: 30px;" ng-if="bracketsCtrl.result == true">
+				<h2>Success!</h2>
+				<p>{{ bracketsCtrl.bracketList }} is balanced!</p>
+			</div>
+		</div>
+	</div>
+</div>
