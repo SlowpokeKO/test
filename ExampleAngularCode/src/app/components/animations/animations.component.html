@@ -1,0 +1,31 @@
+<div id="anim1" class="hover-underline-animation">Hello World!</div>
+<div class="hover-underline-animation">Hello World!.</div>
+
+<button type="button" (click)='toggle()'>Toggle Open/Close</button>
+<div class="d-flex" [@openClose]="isOpen ? 'open' : 'closed'">Drawer is now {{ isOpen ? 'Open' : 'Closed' }}</div>
+
+<div class="position-relative justify-content-around">
+	<input #perspRangeShrink id="perspRange" type="range" min="1" max="200" value="100" (input)="setPersp(perspRangeShrink.value)" class=" m-0" style="">
+	<input #perspRangeGrow  type="range" min="1" max="200" value="100" (input)="setPersp(perspRangeGrow.value)" class=" m-0" style="">
+	<div #perspLeft class="perspective-left w-50">
+		<img src="https://loremflickr.com/320/240" width="90%" height="90%">
+		<div class="position-absolute top-150">
+			<span class="">Prepare for Love</span>
+			<div class="heart w-50"></div>
+		</div>
+	</div>
+	<div class="perspective-right w-50">
+		<img src="https://loremflickr.com/320/240" width="90%" height="90%">
+	</div>
+</div>
+
+<div >
+	
+</div>
+
+
+<div #colorpad id="colorpad" class="bg-success h-25">
+	<a routerLink="/animations/quotes">hey wassup</a>
+</div>
+
+

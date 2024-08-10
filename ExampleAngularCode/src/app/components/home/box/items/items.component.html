@@ -1,0 +1,6 @@
+<cdk-virtual-scroll-viewport draggable="true" ondrag="drag(event)" itemSize="50" class="example-viewport">
+	<div *cdkVirtualFor="let item of items; let i = index" class="example-item">
+		{{ item }}
+		<h1 style="color: black;">it works</h1>
+	</div>
+</cdk-virtual-scroll-viewport>

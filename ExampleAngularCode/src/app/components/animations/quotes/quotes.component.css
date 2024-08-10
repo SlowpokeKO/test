@@ -1,0 +1,55 @@
+.colorpad {
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	margin: auto;
+	
+	color: darkred;
+	background-color: forestgreen;
+
+	border-image: linear-gradient(to bottom, #3acfd5 0%, #3a4ed5 100%) 1;
+	border-radius: 5px;
+	border-width: 4px;
+	border-style: solid;
+}
+
+.quoteText {
+	font-size: 16px;
+  	-webkit-text-stroke: 1px white;
+  	-webkit-font-smoothing: antialiased;
+  	-moz-osx-font-smoothing: grayscale;
+  	text-rendering: optimizeLegibility;
+  	paint-order: stroke fill;
+}
+
+.colorpad:last-child {
+	margin-left: 20%;
+
+}
+
+.quoteArea {
+	padding: 5px;
+	transform: perspective(1000px) rotateY(15deg);
+	transition: transform 1s ease 0s;
+}
+.quoteArea:hover {
+	transform: scale(1.25);
+	transform: translateX(50%);
+	transform: perspective(none) rotateY(0);
+	transition: transform 1s ease 0s;
+}
+.quoteArea.selected {
+	z-index: 10;
+}
+
+.quoteArea.left {
+	transform: perspective(500px) rotateY(45deg);
+	transition: transform 1s ease 0s;
+
+}
+.quoteArea:nth-child(n-5) {
+	transform: perspective(none) rotateY(0);
+	transition: transform 1s ease 0s;
+	
+}

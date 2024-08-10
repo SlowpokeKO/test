@@ -1,0 +1,19 @@
+<!--box element that slides in from off screen - when scrolled past toggles the element's show class-->
+
+<div #theBox class="box">
+	<div #theItems class="items">
+		<ul>
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+		</ul>
+	</div>
+</div>
+	
+<!-- <app-items class="active"></app-items> -->
+	<!-- <option class="box show">1</option>
+	<option class="box show">2</option>
+	<option class="box show">3</option> -->
+<button (click)="activate()">SHOW</button>
+<button (click)="slide()">SLIDE</button>

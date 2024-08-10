@@ -1,0 +1,9 @@
+#outlet-container {
+	padding-top: 150px;
+}
+
+@media screen and (min-width: 650px) {
+	#outlet-container {
+		padding-top: 200px;
+	}
+}
