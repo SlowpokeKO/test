@@ -1,0 +1,112 @@
+.box {
+/*	background-color: black;*/
+	display: flex;
+	width: 250px;
+/*	position: relative;*/
+/*	flex-grow: 1;*/
+	flex-direction: column;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+	aspect-ratio: 1/1;
+
+	transform: translateX(400%);
+	transition: transform 330ms ease-in-out, background-color 500ms ease-in-out;
+}
+
+.items {
+	display: flex;
+	flex-direction: column;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.box:nth-child(even) {
+	transform: translateX(-400%);
+}
+
+.show {
+	transform: translateX(0);
+}
+
+.topleft {
+	align-items: start;
+	justify-content: start;
+	margin-left: 5px;
+	margin-right: 10px;
+	margin-top: 5px;
+	margin-bottom: auto;
+}
+
+.top {
+	align-items: center;
+	justify-content: start;
+	margin-left: 5px;
+	margin-right: auto;
+	margin-top: 5px;
+	margin-bottom: auto;
+}
+
+.topright {
+	align-items: end;
+	justify-content: start;
+	margin-left: 10px;
+	margin-right: 5px;
+	margin-top: 5px;
+	margin-bottom: auto;
+}
+
+
+.left {
+	align-items: start;
+	justify-content: center;
+	margin-left: 2px;
+	margin-right: 11px;
+	margin-top: auto;
+	margin-bottom: auto;
+}
+
+.middle {
+	align-items: center;
+	justify-content: center;
+	margin-left: 5px;
+	margin-right: 5px;
+	margin-top: auto;
+	margin-bottom: auto;
+}
+
+.right {
+	align-items: end;
+	justify-content: center;
+	margin-right: 2px;
+	margin-left: 11px;
+	margin-top: auto;
+	margin-bottom: auto;
+}
+
+.bottomleft {
+	align-items: start;
+	justify-content: end;
+	margin-left: 5px;
+	margin-right: 10px;
+	margin-top: auto;
+	margin-bottom: 5px;
+}
+
+.bottom {
+	align-items: center;
+	justify-content: end;
+	margin-left: 5px;
+	margin-right: 5px;
+	margin-top: auto;
+	margin-bottom: 5px;
+}
+
+.bottomright {
+	align-items: end;
+	justify-content: end;
+	margin-left: 10px;
+	margin-right: 5px;
+	margin-top: auto;
+	margin-bottom: 5px;
+}

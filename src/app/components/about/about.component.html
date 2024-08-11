@@ -1,0 +1,78 @@
+<div class="container-fluid">
+  <div class="row">
+    <section class="col-12">
+      <div>
+        <strong id="cool_text" class="position-absolute mt-4 ms-3 fs-1 text text-light rounded-bottom">Ty Johnson</strong>
+        <img class="rounded" src="./assets/pokeyplantcrystalized.png" height="160" width="100%">
+      </div>
+      <div class="mx-4">
+        <h1 class="mt-3">
+          <strong>Experienced with independant projects</strong>
+        </h1>
+        <h2 class="">Web Developer Angular, Bootstrap, and Node.js</h2>
+        <ul>
+          <li><a routerLink="/about/experience">experience</a></li>
+          <li><a routerLink="/about/skill">skill</a></li>
+        </ul>
+        <p>Contact me at TyJohnsonWeb&#64;gmail.com</p>
+        <a type="button" class="nga-btn-about nga-btn-github" href="https://github.com/SlowpokeKO" aria-label="Github Ty">
+          <i class="fab fa-github"></i></a>
+        <a type="button" class="nga-btn-about nga-btn-linkedin" href="https://www.linkedin.com/in/isaiah-coleman-807067161/"
+          aria-label="Linkedin Ty">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+        <a type="button" class="nga-btn-about nga-btn-twitter" href="#"
+          aria-label="Twitter Ty">
+          <i class="fab fa-twitter"></i>
+        </a>
+        <hr>
+        <h3 class="h6 text-primary p-4">Updated 2024, 15 July</h3>
+        <figure>
+          <blockquote class="blockquote">
+            <p style="font-size: 1rem;">
+              <strong>Inspired to be better, stronger, smarter</strong>
+            </p>
+          </blockquote>
+          <figcaption>
+            <cite style="font-size: 1rem;">
+              <a href="#">
+                <i>Ty Johnson</i>
+              </a></cite>
+          </figcaption>
+        </figure>
+        <h3>Quotes</h3>
+
+        <div class="container-fluid">
+            <div class="">
+              <label>Quotes</label>
+              <select [(ngModel)]="category">
+                <option *ngFor="let option of categories" [value]="option">{{ option }}</option>
+              </select>
+
+              <input type="text" class="" [(ngModel)]="category"/>
+                
+            </div>
+            <button class="btn btn-primary" type="submit" (click)="onSearch()">Search</button>
+            {{ category }}
+        </div>
+        <div class="container-fluid" >
+          <table>
+            <tr *ngIf="requestFinished === true && requestValid === true">
+              <th class="table-info">Message</th>
+              <th class="table-info">Author</th>
+              <th class="table-info">Category</th>
+            </tr>
+            <tr *ngFor="let quote of quotes">
+              <td class="table-info">{{ quote.quote }}</td>
+              <td class="table-primary">{{ quote.author }}</td>
+              <td class="table-success">{{ quote.category }}</td>
+            </tr>
+          </table>
+        </div>
+        <div class="header-style" *ngIf="requestValid === false">
+          {{ errorMessage }}
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
