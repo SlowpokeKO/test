@@ -82,10 +82,10 @@ export class QuotesComponent implements AfterViewInit {
     'movies',
     'success'
   ]
+  category: any = this.categories[Math.floor(Math.random() * this.categories.length )]
   quotes: Quote[] = []
   public quote!: string;
   public author!: string;
-  category!: string;
 
   current!: ElementRef
   newest!: ElementRef
@@ -95,7 +95,6 @@ export class QuotesComponent implements AfterViewInit {
   requestFinished = false;
   requestValid = false;
  
-  // @ViewChild('index') index!: ElementRef
   index!: number 
   @ViewChildren('quoteArea') quoteAreas!: QueryList<any>
 
@@ -103,24 +102,26 @@ export class QuotesComponent implements AfterViewInit {
   ngAfterViewInit() {
     let startQuote: Quote = {quote: "Live your best life 🥳", author: "Me", category: "Welcome"}
     this.quotes.push(startQuote)
-    console.log(startQuote)
     this.setRandomColor()
-    this.quoteAreas.toArray()
-    this.index = 0
+    this.index = this.quotes.length -1
   }
 
   goBack() {
     this.location.back()
   }
 
+  timeout(ms:any) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+  }
+  // async sleep(fn, ...args) {
+  //     await timeout(3000);
+  //     return fn(...args);
+  // }
 
-  
-
-  onSearch() {
-    if (this.categories.includes(this.category))
-    this.quotesService.fetchQuote(this.category).subscribe(
+  async onSearch() {
+    if (this.categories.includes(this.category)) {
+      this.quotesService.fetchQuote(this.category).subscribe(
         (data: any) => {
-          console.log(data)
           this.quote = data[0].quote
           this.author = data[0].author
           this.status = data[0].Status
@@ -131,26 +132,124 @@ export class QuotesComponent implements AfterViewInit {
             console.log(this.errorMessage)
           } else {
             let el: Quote = {quote: this.quote, author: this.author, category: this.category}
-            
             this.quotes.push(el)
             this.errorMessage = ""
+            // this.index = this.quotes.length -1
             this.requestValid = true
           }
         }, (error: any) => {
           this.errorMessage = "Unexpected Error Occurred!"
           this.requestValid = false
           console.log(this.errorMessage)
-        }
-      )
-    this.nextQuote()
+        })     
+    }
+  }
+
+  rightMargin = 0
+  @ViewChild('colorpad') colorpad!: ElementRef
+  @ViewChild('billboard') billboard!: ElementRef
+  async nextQuote() {
+    if (this.newest === undefined) {
+      this.current = this.quoteAreas.toArray()[0]
+    }
+    this.current.nativeElement.classList.remove('selected')
+    await this.onSearch()
+    await this.timeout(1500);
+    console.log(this.quoteAreas.length)
+    if (this.requestValid == true || this.newest === undefined) {
+      console.log(this.billboard)
+      this.index = this.quoteAreas.length -1
+      this.newest = this.quoteAreas.toArray()[this.index]
+      console.log(this.quoteAreas.length)
+      console.log(this.current)
+      this.current.nativeElement.classList.remove('selected')
+      this.current = this.quoteAreas.toArray()[this.index]
+      this.newest.nativeElement.classList.add('selected')
+      console.log(this.colorpad.nativeElement)
+      // this.colorpad.nativeElement.style.backgroundColor = this.setRandomColor()
+      this.renderer.setStyle(this.colorpad.nativeElement, 'background-color', 'red')
+      
+      this.quoteAreas.last.nativeElement.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+      this.rightMargin = 50
+    
+    // let leftPos = this.quoteAreas.toArray()[this.index].nativeElement.offsetLeft
+    // this.renderer.removeClass(this.quoteAreas.toArray()[this.index-1].nativeElement,'selected')
+   
+    // this.renderer.setProperty(this.billboard.nativeElement, 'scrollLeft', leftPos)
+    // this.renderer.setProperty(this.billboard.nativeElement, 'scrollLeft', leftPos)
+    
+    // console.log(this.quoteAreas.toArray()[this.index].nativeElement.offsetLeft)
+    
+    // this.current.nativeElement.classList.remove('selected')
+    // this.quoteAreas.toArray()[index].nativeElement.classList.add('selected')
+      
+    // this.renderer.setStyle(this.quoteAreas.toArray()[this.index].nativeElement, 'margin-left', this.index + 'px')
+    // this.quoteAreas.toArray()[0].nativeElement.style.marginRight = this.rightMargin + 'px'
+    // this.renderer.setStyle(this.quoteAreas.last.nativeElement, 'margin-right', this.rightMargin + 'px')
+
+    
+    // if (this.quoteAreas.toArray()[this.index].nativeElement.innerText.includes(this.index)){
+    //   console.log('it do same be')
+
+    //   this.quoteAreas.toArray()[this.index].nativeElement.style.left = this.index * 50
+    // } else {
+    //   this.quoteAreas.toArray()[this.index].nativeElement.style.left = this.index * -50
+    // }
+
+    // for (let i = 0; i < this.quoteAreas.length; i++) {
+      
+    //   this.quoteAreas.toArray()[i].nativeElement.style.left = 50 + (i * 10) + "px"
+    // }
+    }
+  }
+
+
+  lastQuote() {
+    // this.renderer.addClass(this.quoteAreas.first.nativeElement, 'z-index', 0)
+    this.renderer.setStyle(this.quoteAreas.first.nativeElement, 'z-index', this.index + 1)
+    console.log(this.quoteAreas.first)
+    this.quoteAreas.first.nativeElement.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
+    console.log('last quote')
   }
 
   copyToClipboard(quote:any) {
     navigator.clipboard.writeText(quote)
   }
 
-  
-  @ViewChild('colorpad') colorpad!: ElementRef
+  removeIndex(index: any) {
+    if (index > -1) { // only splice array when item is found
+      this.quotes.splice(index, 1); // 2nd parameter means remove one item only
+    }
+  }
+
+
+  getIndex(index: any) {
+    console.log(this.quoteAreas.toArray()[index])
+
+    if (this.quoteAreas.toArray()[index] == this.quoteAreas.toArray()[this.quoteAreas.length-1]) {
+      console.log('top of quote pile')
+      this.current.nativeElement.classList.remove('selected')
+      this.current = this.quoteAreas.toArray()[index]
+      this.current.nativeElement.classList.add('selected')
+    } else {
+      console.log('not top of quote pile')
+      this.current.nativeElement.classList.remove('selected')
+      this.current = this.quoteAreas.toArray()[index]
+      this.current.nativeElement.classList.add('selected')
+      
+      this.current.nativeElement.style.zIndex = index + 1
+    }
+
+    this.index = index
+    this.billboard.nativeElement.style.backgroundColor = this.setRandomColor()
+
+    // this.quoteAreas.toArray()[index].nativeElement.innerText[1] = index
+    // this.quoteAreas.toArray()[index].nativeElement.innerText[0] = 'hi'
+    // this.quoteAreas.toArray()[index].nativeElement.style.zIndex = index
+    // this.quoteAreas.toArray()[index].nativeElement.innerHTML = this.current.nativeElement.innerHTML
+  }
+
+
   getRandomColor() {
     var letters = '0123456789ABCDEF';
     var color = '#';
@@ -164,61 +263,22 @@ export class QuotesComponent implements AfterViewInit {
   setRandomColor() {
     let newColor = this.getRandomColor()
     console.log("set random color")
-    this.colorpad.nativeElement.style.backgroundColor = newColor
-    
+    this.colorpad.nativeElement.style.color = newColor
+    console.log(this.colorpad.nativeElement.style.backgroundColor)
+    console.log(newColor)
+    return newColor
   }
 
+  random_bg_color() {
+    // Generate random values for red, green, and blue components between 0 and 255.
+    var x = Math.floor(Math.random() * 256);
+    var y = Math.floor(Math.random() * 256);
+    var z = Math.floor(Math.random() * 256);
+    // Construct the RGB color string.
+    var bgColor = "rgb(" + x + "," + y + "," + z + ")";
+    // Output the generated color to the console.
+    return bgColor
+}
 
-  rightMargin = 0
-  nextQuote() {
-    this.renderer.setStyle(this.quoteAreas.first.nativeElement, 'margin-left', '50px')
-    this.renderer.setStyle(this.quoteAreas.last.nativeElement, 'margin-right', this.rightMargin + 'px')
-    this.rightMargin = 10
 
-    this.newest = this.current
-    this.index = this.quoteAreas.length
-
-    
-
-    this.current.nativeElement.classList.add('Hello')
-
-    this.current = this.quoteAreas.toArray()[0]
-    this.current = this.quoteAreas.toArray()[this.quoteAreas.toArray().length + 1 - this.quoteAreas.toArray().length]
-
-    this.current = this.quoteAreas.toArray()[this.index]
-    this.current = this.quoteAreas.toArray()[this.quoteAreas.toArray().indexOf(0)]
-    this.current = this.quoteAreas.toArray()[this.quoteAreas.toArray().indexOf(0)]
-    let temp = this.quoteAreas.last
-    
-  }
-  lastQuote() {
-    // this.renderer.addClass(this.quoteAreas.first.nativeElement, 'z-index', 0)
-    this.renderer.setStyle(this.quoteAreas.first.nativeElement, 'z-index', 10)
-    
-    console.log('last quote')
-  }
-
-  getIndex(index: any) {
-    if (this.quoteAreas.toArray()[index].nativeElement.innerText.includes('Index: ' + index)){
-      console.log('it do same be')
-      let temp = this.quoteAreas.toArray()[index]
-      this.quoteAreas.toArray()[index]
-    }
-    console.log(this.quoteAreas.toArray()[index].nativeElement.innerText)
-    this.current = this.quoteAreas.toArray()[index]
-    console.log(this.current)
-    console.log(index)
-    console.log(this.quoteAreas.toArray()[index].nativeElement.style.zIndex)
-    this.quoteAreas.toArray()[index].nativeElement.style.zIndex = "index"
-    console.log(this.quoteAreas.toArray()[index].nativeElement.style.zIndex)
-    for (let i = 0; i < this.quoteAreas.length; i++) {
-      
-      this.quoteAreas.toArray()[i].nativeElement.style.marginLeft = 50 + (i * 10) + "px"
-    }
-    console.log(this.quoteAreas.toArray()[this.index])
-    console.log(this.quoteAreas.toArray()[index])
-    this.quoteAreas.toArray()[this.index].nativeElement.innerHTML = this.quoteAreas.toArray()[index].nativeElement.innerHTML
-    
-    // console.log(this.quoteAreas.forEach() { return let inttotal += index})
-  }
 }

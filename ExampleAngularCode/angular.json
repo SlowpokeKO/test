@@ -101,9 +101,6 @@
               // "../node_modules/popper.min.js"
             ]
           }
-        },
-        "deploy": {
-          "builder": "angular-cli-ghpages:deploy"
         }
       }
     }

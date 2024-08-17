@@ -36,28 +36,31 @@
 </div>
 
 <!-- QUOTE AREA -->
-<div class="border border-5 overflow-scroll d-inline-block d-flex  " style="min-height: 350px; background-color: lightcyan; width: 100vw;">
-	<button class="d-flex flex-column justify-content-center align-items-center" (click)="lastQuote()"><span>last</span><span> quote</span><span><</span></button>
-	<div class="quoteArea d-flex" style="margin-left: 20px; left: 0" *ngFor="let quote of quotes; let i = index" #quoteArea (click)="getIndex(i)">
-		<div class="colorpad position-absolute text-center " style="height: 190px; width: 200px; padding-top: 16px;z-index: 1" *ngIf="quote.quote">
-			<div class="fs-5 text position-absolute ms-2" style="color: red; right: 0; top: 0; margin-right: 7px; margin-top: 3px;">
-					 <i>_<strong class="ms-1">{{ quotes.indexOf(quote) }}</strong></i>
-			</div>
-			<textarea class="text-center quoteText" style="background-image: url(https://loremflickr.com/340/240); background-size: contain ;height: 60%; resize: none; word-spacing: 4px; width: 80%; padding: 16px; padding-bottom: 20px; margin-bottom: 100px">{{ quote.quote }}</textarea>
-			<div class="position-absolute bottom-0 mx-1 d-flex flex-column bg-warning mb-1 p-1 justify-content-between" style="width: 97%;">
-				
-
-
-				<div class=" bg-warning text-center mx-auto d-flex flex-column">
-					<span class="" style="">{{ quote.author }}</span>
+<div style="width: 100%; height: 350px; position: relative;">
+	<button class="d-flex flex-column align-content-center position-absolute rounded-end-circle border-start-0 shadow-lg bg-body-tertiary hoverEmphasis" (click)="lastQuote()" style=" margin-left: 3px; width: 64px; z-index: 100;"><span>last</span><span> quote</span><span><</span></button>
+	<div #billboard class="billboard border border-5 overflow-scroll  d-flex w-100 align-items-center" style="height: 350px; background-color: lightcyan; width: 100%;">
+		<div class="quoteArea selected " style="height: 70%; width: 208px; flex-shrink: 0" *ngFor="let quote of quotes; let i = index" #quoteArea (click)="getIndex(i)">
+			<div #colorpad class="colorpad position-absolute text-center " style="height: 100%; width: 200px; padding-top: 16px;" *ngIf="quote.quote">
+				<button class="fs-5 text position-absolute" style="right: 82%; top: 2%;" (click)="removeIndex(i)">X</button>
+				<div class="fs-5 text position-absolute ms-2" style="color: red; right: 0; top: 0; margin-right: 7px; margin-top: 3px;">
+						 <i>_<strong class="ms-1">{{i}}</strong></i>
 				</div>
-				<div class="d-flex justify-content-between">
-					<i class="" style="">{{ quotes.indexOf(quote) }}_</i>
-					<div style="color: forestgreen;">
-						Index: 
-						<input id="" type="input" [(ngModel)]="index" class="border border-3" value="" style="width: 36px; height: 28px;">
+				<textarea class="text-center quoteText" style="background-image: url(https://loremflickr.com/340/240); background-size: contain ;height: 60%; resize: none; word-spacing: 4px; width: 80%; padding: 16px; padding-bottom: 0">{{ quote.quote }}</textarea>
+				<div class="position-absolute bottom-0 mx-1 d-flex flex-column bg-warning mb-1 p-1 justify-content-between" style="width: 97%;">
+					
+
+
+					<div class=" bg-warning text-center mx-auto d-flex flex-column">
+						<span class="" style="">{{ quote.author }}</span>
 					</div>
-					<button title="Copy to clipboard" class="right-0" style="" (click)="copyToClipboard(quote.quote)">&#128203;</button>
+					<div class="d-flex justify-content-between">
+						<i class="" style="">{{ i }}_</i>
+						<div style="color: forestgreen;">
+							Index: 
+							<input id="" type="input" [(ngModel)]="index" class="border border-3" value="" style="width: 36px; height: 28px;">
+						</div>
+						<button title="Copy to clipboard" class="right-0" style="" (click)="copyToClipboard(quote.quote)">&#128203;</button>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -68,13 +71,13 @@
     <div class="">
       <label>Quotes</label>
       <select [(ngModel)]="category">
-        <option *ngFor="let option of categories" [value]="option">{{ option }}</option>
+        <option *ngFor="let option of categories"  [selected]="option == 'car'">{{ option }}</option>
       </select>
 
       <input type="text" class="" [(ngModel)]="category"/>
         
     </div>
-    <button class="btn btn-primary" type="submit" (click)="onSearch()">Search</button>
+    <button class="btn btn-primary" type="submit" (click)="nextQuote()">Search</button>
     <p>{{ category }}<p>
 </div>
 <div class="container-fluid" >

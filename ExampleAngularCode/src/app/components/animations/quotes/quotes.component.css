@@ -15,7 +15,7 @@
 }
 
 .quoteText {
-	font-size: 16px;
+	font-size: 24px;
   	-webkit-text-stroke: 1px white;
   	-webkit-font-smoothing: antialiased;
   	-moz-osx-font-smoothing: grayscale;
@@ -23,14 +23,26 @@
   	paint-order: stroke fill;
 }
 
+.hoverEmphasis {
+	border-width: 2px;
+	margin-top: 125px;
+
+	transition: border-width 0.2s ease-in-out, margin-top 0.2s ease-in-out;
+}
+
+.hoverEmphasis:hover {
+	border-bottom-width: 6px;
+	margin-top: 121px;
+}
+
 .colorpad:last-child {
-	margin-left: 20%;
+/*	background-color: floralwhite;*/
 
 }
 
 .quoteArea {
 	padding: 5px;
-	transform: perspective(1000px) rotateY(15deg);
+	transform: perspective(none) rotateY(15deg);
 	transition: transform 1s ease 0s;
 }
 .quoteArea:hover {
@@ -40,8 +52,21 @@
 	transition: transform 1s ease 0s;
 }
 .quoteArea.selected {
-	z-index: 10;
+/*	flex-shrink: 0;*/
+	margin-left: 50px;
+	margin-right: 50px;
+	border-style: outset;
+	border-color: gold;
+	background-color: forestgreen;
 }
+
+.colorpad {
+	background-color: floralwhite;
+}
+
+/*.quoteArea:nth-child(4+n) {
+	margin-left: 50px;
+}*/
 
 .quoteArea.left {
 	transform: perspective(500px) rotateY(45deg);
@@ -49,7 +74,7 @@
 
 }
 .quoteArea:nth-child(n-5) {
-	transform: perspective(none) rotateY(0);
+	transform: perspective(1500px) rotateY(n);
 	transition: transform 1s ease 0s;
 	
 }
