@@ -1,0 +1,94 @@
+<div id="container">
+	<button id="backBtn" (click)="goBack()">go back</button>
+
+	<div id="sky"><div id="sun"></div></div>
+	<div id="waveEdge1"></div>
+	<div id="waveEdge2"></div>
+	<div id="waveEdge3"></div>
+	<div id="waterLandscape">
+		<div id="sunReflection"></div>
+		<div id="leftLand"></div>
+		<div id="rightLand">
+			<div id="topRightLand"></div>
+			<div id="topMidRightLand"></div>
+			<div id="botMidRightLand"></div>
+			<div id="botRightLand"></div>
+		</div>
+		<div id="bridge">
+			<div id="handrail"></div>
+			<div id="handrail2"></div>
+			<div id="leftGuard"></div>
+			<div id="rightGuard"></div>
+		</div>
+		<div id="people">
+			<div class="person">
+				<div class="head"></div>
+				<div class="body"></div>
+				<div class="rightArm"></div>
+				<div class="leftArm"></div>
+				<div class="leftLeg"></div>
+				<div class="rightLeg"></div>
+			</div>
+			<div class="person" style="transform: translateX(19px) translateY(2px) rotate(3deg);">
+				<div class="head"></div>
+				<div class="body"></div>
+				<div class="rightArm"></div>
+				<div class="leftArm"></div>
+				<div class="leftLeg"></div>
+				<div class="rightLeg"></div>
+			</div>
+			<div class="person" style="transform: translateX(-19px) translateY(2px) rotate(-3deg);">
+				<div class="head"></div>
+				<div class="body"></div>
+				<div class="rightArm"></div>
+				<div class="leftArm"></div>
+				<div class="leftLeg"></div>
+				<div class="rightLeg"></div>
+			</div>
+			<div class="person" style="transform: translateX(38px) translateY(4px) rotate(5deg);">
+				<div class="head"></div>
+				<div class="body"></div>
+				<div class="rightArm"></div>
+				<div class="leftArm"></div>
+				<div class="leftLeg"></div>
+				<div class="rightLeg"></div>
+			</div>
+			<div class="person" style="transform: translateX(-38px) translateY(4px) rotate(-5deg);">
+				<div class="head"></div>
+				<div class="body"></div>
+				<div class="rightArm"></div>
+				<div class="leftArm"></div>
+				<div class="leftLeg"></div>
+				<div class="rightLeg"></div>
+			</div>
+			<div class="person" style="transform: translateX(57px) translateY(5px) rotate(6deg);">
+				<div class="head"></div>
+				<div class="body"></div>
+				<div class="rightArm"></div>
+				<div class="leftArm"></div>
+				<div class="leftLeg"></div>
+				<div class="rightLeg"></div>
+			</div>
+			<div class="person" style="transform: translateX(-57px) translateY(5px) rotate(-6deg);">
+				<div class="head"></div>
+				<div class="body"></div>
+				<div class="rightArm"></div>
+				<div class="leftArm"></div>
+				<div class="leftLeg"></div>
+				<div class="rightLeg"></div>
+			</div>
+		</div>
+		<div class="squiggleContainer" style="bottom: 0; left: 0; width: 37vw;">
+			<div class="waterSquiggle"></div>
+			<div class="waterSquiggle"></div>
+			<div class="waterSquiggle"></div>
+			<div class="waterSquiggle"></div>
+		</div>
+		<div #waveContainer class="waveContainer" style="width: 52vw; height: 3vh; left: -5%; right: 0; top: 10%; bottom: 0; margin: auto;">
+			<div #waveShapes class="waveShapes">
+				<div class="quarterCircle"></div>
+			</div>
+		</div>
+	</div>
+		<button (click)="populateWaves()">Click me</button>
+</div>

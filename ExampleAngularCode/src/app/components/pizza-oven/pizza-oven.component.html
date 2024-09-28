@@ -1,0 +1,171 @@
+<div id="container">
+	<div id="ovenandprogress">
+		<div id="oven">
+			<div #heatArea id="heatArea">
+				<div #door id="door">
+					<div id="doorTop" (click)="toggleDoor()">
+						<div id="logo">EZ</div>
+						<div id="handle"></div>
+					</div>
+				</div>
+				<div id="lightbulbHolder"></div>
+				<input #lightbulb type="checkbox" id="lightbulb" style="">
+				<div #heatColor id="heatColor"></div>
+				<div id="tray">
+					<div class="longstick" style="top: 0;"></div>
+					<div class="longstick" style="bottom: 0;"></div>
+					<div class="shortstick" style="left: 0;"></div>
+					<div class="shortstick" style="left: 17%;"></div>
+					<div class="shortstick" style="left: 32%"></div>
+					<div class="shortstick" style="left: 47%"></div>
+					<div class="shortstick" style="left: 62%"></div>
+					<div class="shortstick" style="left: 77%"></div>
+					<div class="shortstick" style="right: 0;"></div>
+				</div>
+			</div>
+			<div id="controlPanel">
+				<div #heatDial id="heatDial" class="dial" (mousedown)="mouseDownDial($event)" (mouseup)="mouseUpDial($event)">heat</div>
+				<div id="timeDial" class="dial" (mousedown)="mouseDownDial($event)" (mouseup)="mouseUpDial($event)">00:00</div>
+				<div #powerBtn id="powerBtn" (click)="powerToggle()">
+					<div id="leftPowerBtn">Off</div>
+					<div id="rightPowerBtn">On</div>
+				</div>
+			</div>
+		</div>
+		<div id="progress">
+			<div #prep id="prep" class="pizzaContainer selected">
+				<label>Prepping</label>
+				<div class="pizza" (click)="selected('prep')">
+					<div #toppings class="toppings"></div>
+					<!-- <svg viewBox="0 0 500 500" xml:space="preserve" width="100" height="100" xmlns="http://www.w3.org/2000/svg">
+	      				<polygon
+	    				points="500,250 473.216,279.409 491.536,314.718 458.049,336.172 466.532,375.03 428.619,387.055     426.778,426.778 387.044,428.619 375.02,466.543 336.161,458.049 314.707,491.547 279.409,473.226 250,500 220.581,473.226     185.282,491.547 163.818,458.049 124.959,466.543 112.945,428.619 73.222,426.778 71.371,387.044 33.458,375.021 41.941,336.172     8.453,314.718 26.774,279.409 0,250 26.774,220.591 8.453,185.282 41.941,163.829 33.458,124.97 71.371,112.956 73.222,73.222     112.956,71.381 124.97,33.468 163.829,41.952 185.282,8.463 220.581,26.784 250,0 279.409,26.784 314.718,8.463 336.172,41.962     375.03,33.468 387.044,71.381 426.778,73.232 428.619,112.966 466.532,124.98 458.049,163.839 491.536,185.282 473.216,220.591       " style="fill:#0171a5;" />
+					</svg> -->
+				</div>
+			</div>
+			<div #bake id="bake" class="pizzaContainer">
+				<label>Baking</label>
+				<div class="pizza" (click)="selected('bake')">
+					<div #toppings class="toppings"></div>
+				</div>
+			</div>
+			<div #ready id="ready" class="pizzaContainer">
+				<label>Ready</label>
+				<div class="pizza" (click)="selected('ready')">
+					<div #toppings class="toppings"></div>
+				</div>
+			</div>
+			<div #box id="box" class="pizzaBox" (click)="selected('box')">
+				<div class="boxLid">Warlmart's Pizza 🐈‍</div>
+			</div>
+		</div>
+	</div>
+	<div id="prepStation" class="row">
+		<div #prepPizza id="prepPizza">
+			<div #pizzaToppings id="pizzaToppings" class="toppings">
+				<div class="topping sauce regular added"></div>
+				<div class="topping cheese regular added">
+					<div class="cheeseball"></div>
+					<div class="cheeseball"></div>
+					<div class="cheeseball"></div>
+					<div class="cheeseball"></div>
+					<div class="cheeseball"></div>
+					<div class="cheeseball"></div>
+					<div class="cheeseball"></div>
+					<div class="cheeseball"></div>
+				</div>
+				<div class="topping pepperoni regular">
+					<div class="poni">
+						<div class="pep1"></div>
+						<div class="pep2"></div>
+						<div class="pep3"></div>
+					</div>
+					<div class="poni">
+						<div class="pep1"></div>
+						<div class="pep2"></div>
+						<div class="pep3"></div>
+					</div>
+					<div class="poni">
+						<div class="pep1"></div>
+						<div class="pep2"></div>
+						<div class="pep3"></div>
+					</div>
+					<div class="poni">
+						<div class="pep1"></div>
+						<div class="pep2"></div>
+						<div class="pep3"></div>
+					</div>
+					<div class="poni">
+						<div class="pep1"></div>
+						<div class="pep2"></div>
+						<div class="pep3"></div>
+					</div>
+					<div class="poni">
+						<div class="pep1"></div>
+						<div class="pep2"></div>
+						<div class="pep3"></div>
+					</div>
+					<div class="poni">
+						<div class="pep1"></div>
+						<div class="pep2"></div>
+						<div class="pep3"></div>
+					</div>
+					<div class="poni">
+						<div class="pep1"></div>
+						<div class="pep2"></div>
+						<div class="pep3"></div>
+					</div>
+					<div class="poni">
+						<div class="pep1"></div>
+						<div class="pep2"></div>
+						<div class="pep3"></div>
+					</div>
+					<div class="poni">
+						<div class="pep1"></div>
+						<div class="pep2"></div>
+						<div class="pep3"></div>
+					</div>
+					<div class="poni">
+						<div class="pep1"></div>
+						<div class="pep2"></div>
+						<div class="pep3"></div>
+					</div>
+					<div class="poni">
+						<div class="pep1"></div>
+						<div class="pep2"></div>
+						<div class="pep3"></div>
+					</div>
+				</div>
+				<div class="topping sausage regular"></div>
+				<div class="topping spicysausage regular"></div>
+				<div class="topping chicken regular"></div>
+				<div class="topping bacon regular"></div>
+				<div class="topping ham regular"></div>
+				<div class="topping greenpeppers regular"></div>
+				<div class="topping blackolives regular"></div>
+				<div class="topping pineapple regular"></div>
+			</div>
+			<div #topServingList class="topServingList">
+				@for(serving of servings; track serving) {
+					<div #toppingDisplay id="toppingDisplay" class="toppingDisplay">{{ serving.key }} : {{ serving.value}}</div>
+				}
+			</div>
+		</div>
+		<div #rightPrepStation id="rightPrepStation">
+			<div #prepToppings id="prepToppings">
+				@for(serving of servings; track serving;) {
+					<div #lazyImg class="prepTopping" (click)="selectTopping(serving.key)">
+						<button [disabled]="" class="lessBtn" (click)="lessTopping(serving.key);$event.stopPropagation()"></button>
+							<div style="display: flex; flex-direction: column;">
+								<span style="line-height: 2; font-size: 16px;">{{ serving.key }}</span>
+								<span class="servingSize" style="font-size: 8px; line-height: 1;">{{ serving.value }}</span>
+							</div>
+						<button class="moreBtn" (click)="moreTopping(serving.key);$event.stopPropagation()"></button>
+					</div>
+					<!-- <div class="img" [style.background]="'url('+./assets/toppings/ + '.jpg')"></div> -->
+				}
+			</div>
+			<button id="finishBtn" (click)="finishPrep()">Finished</button>
+		</div>
+	</div>
+</div>

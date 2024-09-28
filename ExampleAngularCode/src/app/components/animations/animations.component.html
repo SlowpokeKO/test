@@ -2,20 +2,25 @@
 <div class="hover-underline-animation">Hello World!.</div>
 
 <button type="button" (click)='toggle()'>Toggle Open/Close</button>
-<div class="d-flex" [@openClose]="isOpen ? 'open' : 'closed'">Drawer is now {{ isOpen ? 'Open' : 'Closed' }}</div>
+<div class="d-flex flex-column position-relative" [@openClose]="isOpen ? 'open' : 'closed'">Drawer is now {{ isOpen ? 'Open' : 'Closed' }}
+	<img style="object-fit: fill;" height="78px" src="./assets/pokeyplantcrystalized.png">
+</div>
 
-<div class="position-relative justify-content-around">
-	<input #perspRangeShrink id="perspRange" type="range" min="1" max="200" value="100" (input)="setPersp(perspRangeShrink.value)" class=" m-0" style="">
-	<input #perspRangeGrow  type="range" min="1" max="200" value="100" (input)="setPersp(perspRangeGrow.value)" class=" m-0" style="">
-	<div #perspLeft class="perspective-left w-50">
-		<img src="https://loremflickr.com/320/240" width="90%" height="90%">
-		<div class="position-absolute top-150">
-			<span class="">Prepare for Love</span>
-			<div class="heart w-50"></div>
+<div class="position-relative justify-content-around overflow-hidden d-flex" style="height: 50vh; white-space: nowrap;">
+	<div class="d-flex position-relative w-100">
+		<input #perspRangeShrink id="perspRange" type="range" min="1" max="200" value="100" (input)="setPersp(perspRangeShrink.value)" class=" m-0" style="background-color: transparent; position: absolute; z-index: 10; left: 0; align-self: center;">
+		<div #perspLeft class="perspective-left w-50 ms-1" style="">
+			<img src="https://loremflickr.com/320/240" width="100%" height="">
+			<div class="position-absolute top-150">
+				<span class="borderText">Prepare for Love</span>
+				<div class="heart" style="width: 16px; height: 16px;"></div>
+			</div>
 		</div>
-	</div>
-	<div class="perspective-right w-50">
-		<img src="https://loremflickr.com/320/240" width="90%" height="90%">
+		
+		<input #perspRangeGrow  type="range" min="1" max="200" value="100" (input)="setPerspRight(perspRangeGrow.value)" class=" m-0 " style="position: relative; z-index: 10; position: absolute; z-index: 10; top: 0; right: 10%;">
+		<div #perspRight class="perspective-right w-50 me-1">
+			<img src="https://loremflickr.com/320/240" width="100%" height="">
+		</div>
 	</div>
 </div>
 
@@ -24,8 +29,8 @@
 </div>
 
 
-<div #colorpad id="colorpad" class="bg-success h-25">
-	<a routerLink="/animations/quotes">hey wassup</a>
+<div #colorpad id="colorpad" class=" h-25">
+	<a #colorlink id="colorlink" routerLink="/quotes">hey wassup</a>
 </div>
 
 

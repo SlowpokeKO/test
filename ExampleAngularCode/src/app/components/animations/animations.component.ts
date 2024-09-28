@@ -1,6 +1,8 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component, ElementRef, ViewChild, AfterViewInit } from '@angular/core';
 import { trigger, state, style, animate, transition } from '@angular/animations'
 import { RouterModule } from '@angular/router'
+import { QuotesComponent } from '../quotes/quotes.component'
+
 @Component({
   selector: 'app-animations',
   standalone: true,
@@ -32,7 +34,11 @@ import { RouterModule } from '@angular/router'
   styleUrl: './animations.component.css'
 })
 
-export class AnimationsComponent {
+export class AnimationsComponent implements AfterViewInit {
+  ngAfterViewInit() {
+
+  }
+
   isOpen = true;
 
   toggle() {
@@ -40,18 +46,26 @@ export class AnimationsComponent {
   }
 
   @ViewChild('perspLeft') pLeft!: ElementRef
-  setPersp(value: any) {
-    console.log('hi')
+  @ViewChild('perspRight') pRight!: ElementRef
 
-    
+  setPersp(input: any) {
+    console.log(this.pLeft.nativeElement)
     this.pLeft.nativeElement.style.perspective = 'none'
-    this.pLeft.nativeElement.style.padding = value+"px"
+    this.pLeft.nativeElement.style.padding = input+"px"
     // this.pLeft.nativeElement.style.color = "`#${Math.floor(Math.random() * 0x1000000).toString(16).padStart(6, 0)}`"
 
     this.setRandomColor()
   }
 
+  setPerspRight(input: any) {
+    this.pRight.nativeElement.style.perspective = 'none'
+    this.pRight.nativeElement.style.padding = input+"px"
+
+    this.setRandomBGColor()
+  }
+
   @ViewChild('colorpad') colorpad!: ElementRef
+  @ViewChild('colorlink') colorlink!: ElementRef
   getRandomColor() {
     var letters = '0123456789ABCDEF';
     var color = '#';
@@ -64,7 +78,10 @@ export class AnimationsComponent {
 
 
   setRandomColor() {
-    this.colorpad.nativeElement.style.color = this.getRandomColor()
-    // $("#colorpad").css("background-color", getRandomColor());
+    this.colorlink.nativeElement.style.color = this.getRandomColor()
+  }
+
+  setRandomBGColor() {
+    this.colorpad.nativeElement.style.backgroundColor = this.getRandomColor()
   }
 }

@@ -1,28 +1,33 @@
-import { Component, AfterViewInit, ViewChild, QueryList, ElementRef, HostListener, Renderer2 } from '@angular/core';
+import { Component, AfterViewInit, HostListener, Renderer2 } from '@angular/core';
 import { BoxComponent } from './box/box.component'
+import { SolarSystemComponent } from '../solar-system/solar-system.component'
+import { PizzaOvenComponent } from '../pizza-oven/pizza-oven.component'
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [BoxComponent],
+  imports: [BoxComponent, SolarSystemComponent, PizzaOvenComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
 export class HomeComponent implements AfterViewInit {
-  constructor(private renderer: Renderer2, private elem: ElementRef) { }
+  constructor(private renderer: Renderer2) { }
 
   name = 'angular from the unique world.'
-
-  //@ViewChild(BoxComponent, {static: false}) hello: BoxComponent
-
-  //@ViewChild('header', {static: false}) headerRed: ElementRef
 
   ngAfterViewInit() {
     //@HostListener('document:scroll', [$event])
     console.log('Hello', this.name)
   }
 
+  alert(input: any) {
+    console.log(input)
+    alert('Oh, you clicked on ' + input + '.')
+  }
 
+  
+
+  // THE BOX
   // @ViewChild(BoxComponent)
 
   // let global = this.renderer.listen('document', 'click', (evt) => {

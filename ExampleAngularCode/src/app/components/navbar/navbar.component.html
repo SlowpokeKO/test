@@ -1,19 +1,20 @@
-<nav id="navbar" class="navbar navbar-expand-lg fixed-top bg-light border-bottom">
-  <div class="container-fluid h-100 ">
-    <img id="logo" src="./assets/cryothanks_logo.png" class="">
-    <div class="d-flex flex-column text-center">
-      <i>Fixed navbar</i>
-      <hr>
-      <br>
-      <span>Example code bootstrap & angular</span>
-      <br>
+<nav #navbar id="navbar" class="navbar navbar-expand-lg fixed-top bg-light border-bottom justify-content-between" style="max-width: 100vw;">
+    <div class="position-relative ms-2" style="">
+      <img id="logo" src="./assets/cryothanks_logo.png" class="" width="240px" height="150px">
+      <div class="position-absolute left-0 top-0 m-1 d-flex" style="width: 34px; height: 34px; border: outset; border-width: 8px; border-radius: 2px; justify-content: center; align-items: center; line-height: 1.1;" (click)="toggleSnow()">
+        <span style=" height: 14px; display: flex; justify-content: center; align-items: center; border: medium; border-radius: 100px; cursor: pointer;" id="snowToggleFlake" #snowToggleFlake class=" ">&#10052;</span>
+      </div>
     </div>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
+    <div class="d-flex flex-column text-center" style="width: 30%;">
+      <span>Fixed navbar</span>
+      <span>Example code bootstrap & angular</span>
+    </div>
+    <button class="navbar-toggler me-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
       aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarCollapse">
-      <ul class="navbar-nav me-auto mb-2 mb-md-0">
+    <div class="collapse navbar-collapse " id="navbarCollapse">
+      <ul class="navbar-nav me-auto mb-2 mb-md-0 " style="margin: auto;">
         <li class="nav-item">
           <a class="nav-link active hover-underline-animation" aria-current="page" routerLink="/home">Home</a>
         </li>
@@ -30,13 +31,35 @@
           <a class="nav-link hover-underline-animation" routerLink="/animations">Animations</a>
         </li>
         <li class="nav-item">
+          <a class="nav-link hover-underline-animation" routerLink="/calculator">Calculator</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link hover-underline-animation" routerLink="/resume">Resume</a>
+        </li>
+        <li class="nav-item">
           <a class="nav-link hover-underline-animation disabled">Disabled</a>
         </li>
       </ul>
       <form class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
+        <!-- <mat-autocomplete #auto="matAutocomplete">
+          @for (option of options; track option) {
+            <mat-option [value]="option">{{option}}</mat-option>
+          }
+        </mat-autocomplete> -->
+        <input class="form-control me-2" type="text" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit" style="margin-right: 4px;">Search</button>
       </form>
     </div>
-  </div>
 </nav>
+
+<!-- SNOWFLAKES -->
+<ng-template ngFor let-config [ngForOf]="snowFlakes" id="snowflakeTemplate" style="z-index: 100;">
+
+  <app-snow-flake style="z-index: 100;"
+    [depth]="config.depth"
+    [speed]="config.speed"
+    [style.left.vw]="config.left"
+  ></app-snow-flake>
+
+</ng-template>
+

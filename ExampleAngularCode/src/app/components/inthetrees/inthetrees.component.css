@@ -1,0 +1,392 @@
+.trees-container {
+	width: 100%;
+	height: 100vh;
+	position: relative;
+	background-color: midnightblue;
+	background-image: url(/assets/grass_with_stars.png);
+	background-repeat: none;
+	background-size: cover;
+}
+.tree {
+	position: absolute;
+	inset: 0;
+	margin: auto;
+	width: 100%;
+	height: 70%;
+	/*border-top-left-radius: 20px;
+	border-top-right-radius: 20px;*/
+/*	border-style: solid;*/
+/*	border-width: 2px;*/
+/*	border-color: oldlace;*/
+}
+
+.topTree {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	margin: auto;
+/*	background-color: darkseagreen;*/
+	width: 0;
+	height: 0;
+	border-right:15vh solid transparent; 
+	border-left:15vh solid transparent;
+	z-index: 6;
+}
+.middleTree {
+	position: absolute;
+	inset: 0;
+	margin: auto;
+/*	background-color: forestgreen;*/
+	width: 40vh;
+	height: 0;
+	border-right:10vh solid transparent; 
+	border-left:10vh solid transparent;
+
+	z-index: 5;
+
+}
+.bottomTree {
+	position: absolute;
+	bottom: 10%;
+	left: 0;
+	right: 0;
+	margin: auto;
+/*	background-color: darkseagreen;*/
+	width: 50vh;
+	height: 0;
+	border-right:10vh solid transparent; 
+	border-left:10vh solid transparent;
+	z-index: 4;
+}
+.base {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin: auto;
+/*	background-color: darkseagreen;*/
+	width: 14vh;
+	height: 0;
+	border-right:1vh solid transparent; 
+	border-left:1vh solid transparent;
+	z-index: 3;
+	border-bottom-right-radius: 20%;
+	border-bottom-left-radius: 20%;
+}
+.topZigzag {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 27.5vh;
+	z-index: 5;
+}
+.zigzag1 {
+	position: absolute;
+	right: 0;
+	left: -17vh;
+	margin: auto;
+	width: 0;
+	height: 0;
+	border-right:4vh solid transparent; 
+	border-left:4vh solid transparent;
+	border-top:3vh solid mediumseagreen;
+	animation: breeze 4.5s 0.4s infinite;
+	z-index: 5;
+
+}
+.zigzag2 {
+	position: absolute;
+	right: 0;
+	left: -4vh;
+	margin: auto;
+	width: 0;
+	height: 0;
+	border-right:3.5vh solid transparent; 
+	border-left:3.5vh solid transparent;
+	border-top:4vh solid mediumseagreen; 
+	animation: breeze 4.5s 0.45s infinite;
+
+
+}
+
+.zigzag3 {
+	position: absolute;
+	right: 0;
+	left: 3.5vh;
+	margin: auto;
+	width: 0;
+	height: 0;
+	border-right:4vh solid transparent; 
+	border-left:4vh solid transparent;
+	border-top:3vh solid mediumseagreen; 
+	animation: breeze 4.5s 0.55s infinite;
+
+
+}
+
+.midZigzag {
+	position: absolute;
+	width: 100%;
+	height: 100vh;
+	top: 13vh;
+	z-index: 5;
+}
+.middleTree .zigzag1 {
+	left: -18vh;
+	animation: breeze 4.5s 0.6s infinite;
+}
+.middleTree .zigzag2 {
+	left: -5vh;
+	animation: breeze 4.5s 0.65s infinite;
+	
+}
+.middleTree .zigzag3 {
+	left: 12vh;
+	animation: breeze 4.5s 0.7s infinite;
+
+}
+.zigzag4 {
+	position: absolute;
+	right: 0;
+	left: 20vh;
+	margin: auto;
+	width: 0;
+	height: 0;
+	border-right:2.5vh solid transparent; 
+	border-left:2.5vh solid transparent;
+	border-top:3vh solid mediumseagreen; 
+	animation: breeze 4.5s 0.75s infinite;
+
+}
+
+@keyframes breeze {
+	33% {
+		transform: translateX(21%) translateY(-10%) rotate(-12deg);
+	}
+	49.5% {
+		transform: translateX(24%) translateY(-14%) rotate(-14deg);
+	}
+	66% {
+		transform: translateX(-12%) translateY(0) rotate(2deg);
+	}
+	70% {
+		transform: translateX(-2%) translateY(0) rotate(0deg);
+
+	}
+	71% {
+		transform: translateX(0) translateY(0) rotate(0);
+
+	}
+	100% {
+		transform: translateX(0) translateY(0);
+	}
+}
+.frontTree {
+	height: 80%;
+}
+.frontTree .topTree {
+	border-bottom:30vh solid darkgreen; 
+	border-right:15vh solid transparent; 
+	border-left:15vh solid transparent;
+}
+.frontTree .middleTree {
+	border-bottom:20.8vh solid darkgreen; 
+	border-right:10vh solid transparent; 
+	border-left:10vh solid transparent;
+}
+.frontTree .bottomTree {
+	border-bottom:24.1vh solid darkgreen; 
+	border-right:10vh solid transparent; 
+	border-left:10vh solid transparent;
+}
+.frontTree .base {
+	border-bottom:15.1vh solid saddlebrown; 
+	border-right:2vh solid transparent; 
+	border-left:2vh solid transparent;
+}
+.frontTree .midZigzag {
+	top: 20vh;
+}
+.frontTree .topZigzag {
+	top: 29vh;
+}
+.fireTree .topTree {
+	border-bottom:30vh solid rgba(150, 0, 0, .5); 
+	border-right:15vh solid transparent; 
+	border-left:15vh solid transparent;
+}
+.fireTree .middleTree {
+	border-bottom:20.8vh solid rgba(180, 0, 0, .5); 
+	border-right:10vh solid transparent; 
+	border-left:10vh solid transparent;
+}
+.fireTree .bottomTree {
+	border-bottom:24.1vh solid rgba(200, 0, 0, .5); 
+	border-right:10vh solid transparent; 
+	border-left:10vh solid transparent;
+}
+.fireTree .base {
+	border-bottom:15.1vh solid rgba(250, 0, 100, .5); 
+	border-right:2vh solid transparent; 
+	border-left:2vh solid transparent;
+}
+
+/*.fireTree .topTree {
+	border-bottom:28vh solid rgba(150, 0, 0, .5); 
+}
+.fireTree .middleTree {
+	border-bottom:13.8vh solid rgba(180, 0, 0, .5); 
+}
+.fireTree .bottomTree {
+	border-bottom:21.1vh solid rgba(200, 0, 0, .5); 
+}
+.fireTree .base {
+	border-bottom:7vh solid rgba(250, 0, 100, .5); 
+}*/
+.fireTree {
+	height: 80%;
+	animation: wiggle 7.5s 1s infinite;
+	z-index: 2;
+}
+.bgTree {
+	position: absolute;
+	left: -50vh;
+	z-index: 1;
+}
+.bgTree .topTree {
+	border-bottom:29vh solid rgba(0, 51, 0, 0.8); 
+}
+.bgTree .middleTree {
+	border-bottom:14.8vh solid rgba(0, 51, 0, 0.7); 
+}
+.bgTree .bottomTree {
+	border-bottom:21.1vh solid rgba(0, 51, 0, 0.7); 
+}
+.bgTree .base {
+	border-bottom:7.1vh solid rgba(0, 51, 0, 1); 
+}
+.bgTree .zigzag1 {
+	border-top:3vh solid darkgreen; 
+	animation: breeze 4.5s 0.7s infinite;
+}
+.bgTree .zigzag2 {
+	border-top:3vh solid darkgreen; 
+	animation: breeze 4.5s 0.7s infinite;
+}
+.bgTree .zigzag3 {
+	border-top:3vh solid darkgreen; 
+	animation: breeze 4.5s 0.7s infinite;
+}
+.bgTree .zigzag4 {
+	border-top:3vh solid darkgreen; 
+	animation: breeze 4.5s 0.7s infinite;
+}
+
+.bgTree2 {
+	left: 30vh;
+}
+
+@keyframes wiggle {
+	33% {
+		transform: translateX(-2%) translateY(-2%);
+	}
+	49.5% {
+		transform: translateX(1%) translateY(-.5%);
+	}
+	66% {
+		transform: translateX(0%) translateY(0%);
+	}
+	80% {
+		transform: translateX(1%) translateY(-2%);
+	}
+	96.5% {
+		transform: translateX(-2%) translateY(-.5%);
+	}
+	100% {
+		transform: translateX(0) translateY(0);
+	}
+}
+
+
+.fireLighting {
+	width: 100%;
+	height: 50%;
+	background: radial-gradient(circle at bottom, rgba(244, 67, 54, .55), rgba(255, 115, 0, 0.3), rgba(255, 234, 0, 0.05) 100%);
+	border-radius: 20%;
+	pointer-events: none;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin: auto;
+}
+.fireLighting:before {
+	content: "";
+	position: absolute;
+	width: 200vw;
+	height: 200vw;
+	left: -50vw;
+	bottom: -50vh;
+	background: radial-gradient(circle at bottom, rgba(144, 67, 54, .5) 0, rgba(155, 115, 0, .5), rgba(55, 234, 0, .05) 100%);
+	z-index: 99;
+	animation: rotate 7.5s infinite;
+	pointer-events: none;
+	border-radius: 80%;
+	bottom: -50vh;
+
+}
+
+@keyframes rotate {
+	50% {
+		transform: rotate(180deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
+#backBtn {
+	display: flex;
+	cursor: pointer;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+#firepit {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin: auto;
+	height: 15%;
+	z-index: 99;
+	-webkit-filter: drop-shadow(0px 0px 0 black)
+                  drop-shadow(-0px -0px 0 black);
+	filter: drop-shadow(0px 0px 0 black) 
+          drop-shadow(-0px -0px 0 black);
+  transition: all 0.4s 0.2s ease-in;
+}
+#firepit:hover {
+/*	animation: dropShadow 1s 0.2s;*/
+	-webkit-filter: drop-shadow(1px 1px 0 red)
+                  drop-shadow(-1px -1px 0 red);
+		filter: drop-shadow(1px 1px 0 red) 
+          drop-shadow(-1px -1px 0 red);
+}
+
+/*
+@keyframes dropShadow {
+	80% {
+		-webkit-filter: drop-shadow(.5px .5px 0 red)
+                  drop-shadow(-.5px -.5px 0 red);
+		filter: drop-shadow(.5px .5px 0 red) 
+          drop-shadow(-.5px -.5px 0 red);
+	}
+	100% {
+		-webkit-filter: drop-shadow(1px 1px 0 red)
+                  drop-shadow(-1px -1px 0 red);
+		filter: drop-shadow(1px 1px 0 red) 
+          drop-shadow(-1px -1px 0 red);
+	}
+}*/

@@ -1,0 +1,666 @@
+
+#quoteGameWrapper {
+	position: relative;
+	height: 53.8vh;
+	width: 90vw;
+}
+
+#windowOutside {
+	position: absolute;
+	width: 20vh;
+	height: 40vh;
+	border-width: 4px;
+	border-style: solid;
+	border-color: sandybrown;
+	right: 0;
+	overflow: hidden;
+	z-index: 1;
+}
+#windowOutside:before {
+	width: ;
+}
+
+#slidingPane {
+
+	transition: all .4s ease-in-out;
+	z-index: 3;
+	
+}
+
+#slidingPane:active {
+	transform: translateY(-88%);
+}
+
+#slidingPane.propped {
+	animation: propWindow 1.3s;
+	animation-fill-mode: forwards;
+	/*transition: transform 1.3s ease-out;
+	transform: translateY(-70%);*/
+}
+@keyframes propWindow {
+	75% {
+		transform: translateY(-85%);
+	}
+	100% {
+		transform: translateY(-67%);
+	}
+}
+
+#stickContainer {
+	content: "";
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	margin: auto;
+	width: 15vh;
+	height: 3vh;
+	padding: 5px;
+	padding-bottom: 0;
+	display: inline-block;
+	border-width: 0px;
+	border-radius: 2px;
+	border-style: solid;
+	border-image: linear-gradient(to top, gold 0%, transparent 25%, transparent 100%) 1;
+	z-index: 2;
+}
+
+#stickContainer:hover {
+	border-bottom-width: 6px;
+}
+#stickContainer.propped:hover {
+	border-bottom-width: 0;
+}
+#stick {
+	content: "";
+	position: absolute;
+	inset: 0;
+	margin: auto;
+	width: 14vh;
+	height: 2vh;
+	background-color: sandybrown;
+	border-radius: 2px;
+	z-index: 12;
+	display: inline-block;
+	visibility: visible;
+}
+#stickContainer.propped {
+		animation: propStick 1s ease-out;
+		animation-fill-mode: forwards;
+}
+
+@keyframes propStick {
+	20% {
+		transform: rotate(20deg) translateY(50%);
+		border-color: transparent;
+	}
+	60% {
+		transform: rotate(90deg) translateY(70%);
+		border-color: transparent;
+
+	}
+	100% {
+		transform: rotate(90deg) translateY(-110%) translateX(-131%);
+		border-color: transparent;
+
+	}
+}
+
+#outsideLink {
+	cursor: pointer;
+}
+
+#outside {
+	position: absolute;
+	inset: 0;
+	margin: auto;
+	height: 100%;
+	width: 100%;
+	background-size: cover;
+}
+
+#sunmoon {
+	position: relative;
+	height: 400%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	-webkit-animation:spin 130s linear infinite;
+  -moz-animation:spin 130s linear infinite;
+  animation:spin 130s linear infinite;
+  z-index: 2;
+}
+
+
+#moonface {
+	bottom: 0;
+	margin-bottom: 8px;
+	cursor: cell;
+
+}
+
+#dayBG {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	border-radius: 20%;
+	inset: 0;
+	margin: auto;
+	transform-origin: center;
+	background-image: linear-gradient(to bottom, aliceblue 1%, floralwhite 3%, skyblue 30%, aliceblue 45%, darkred 55%, blueviolet 70%, midnightblue 85%, black 100%);
+	transform: scaleX(5) scaleY(2);
+	opacity: .2;
+}
+
+#sunface {
+	top: 0;
+	margin-top: 8px;
+	cursor: crosshair;
+}
+
+#moonface, #sunface {
+	position: absolute;
+	width: 30%;
+	left: 0;
+	right: 0;
+	margin: auto;
+	scale: 1;
+}
+
+@keyframes wiggle {
+    0% { transform: rotate(0deg); }
+   80% { transform: rotate(0deg); }
+   85% { transform: rotate(10deg); }
+   95% { transform: rotate(-10deg); }
+  100% { transform: rotate(0deg); }
+}
+@-webkit-keyframes wiggle {
+   0% { -webkit-transform: rotate(0deg); }
+   55% { -webkit-transform: rotate(10deg); }
+   65% { -webkit-transform: rotate(-10deg); }
+  100% { -webkit-transform: rotate(0deg); }
+}
+#moonface:hover, #sunface:hover {
+	transform: scale(1.05);
+/*	animation: wiggle .5s infinite;*/
+	-webkit-animation: wiggle 1s ;
+}
+
+@-moz-keyframes spin { 
+    100% { -moz-transform: rotate(360deg); } 
+}
+@-webkit-keyframes spin { 
+    100% { -webkit-transform: rotate(360deg); } 
+}
+@keyframes spin { 
+		0% {
+			-webkit-transform: rotate(-60deg); 
+        transform:rotate(-60deg); 
+		}
+		5% {
+			-webkit-transform: rotate(-165deg); 
+        transform:rotate(-165deg); 
+		}
+		40% {
+			-webkit-transform: rotate(-235deg); 
+        transform:rotate(-235deg); 
+		}
+    45% { 
+        -webkit-transform: rotate(-320deg); 
+        transform:rotate(-320deg); 
+    } 
+		100% {
+			-webkit-transform: rotate(-420deg); 
+        transform:rotate(-420deg); 
+		}
+}
+
+#quoteGameWindow {
+	overflow: hidden;
+	border-width: 4px;
+	border-style: solid;
+	border-top-right-radius: 10px;
+	border-top-left-radius: 5px;
+	height: 70%;
+	width: 46.5%;
+	margin: auto;
+	left: 0;
+	right: 0;
+	border-bottom-right-radius: 3px;
+	border-bottom-left-radius: 1px;
+	z-index: 4;
+}
+
+@media only screen and (max-width: 1080px) {
+	#quoteGameWindow {
+		height: ;
+	}
+}
+
+#quoteGameWrapper:before {
+	content: "";
+	display: block;
+	position: absolute;
+	border-width: 4px;
+	border-color: mediumseagreen;
+	border-style: solid;
+	border-right: none;
+	background-image: linear-gradient(to right, darkgreen, forestgreen, forestgreen);
+	height: 100%;
+	width: 10%;
+	left: 16.75%;
+	border-top-left-radius: 70%;
+	transform: translateX(3px);
+}	
+
+#quoteGameWrapper:after {
+	content: "";
+	width: 56.5%;
+	height: 5px;
+	transform: translateX(-19.4px);
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin: auto;
+	display: block;
+	position: absolute;
+	border-width: 3px;
+	border-color: darkgreen;
+	border-style: outset;
+}
+
+#quoteGameControlPanel {
+	position: relative;
+	height: 29%;
+	width: 46.5%;
+	margin: auto;
+	left: 0;
+	right: 0;
+	background-color: forestgreen;
+	z-index: 4;
+	/*border-bottom: 50px solid #555;
+	border-left: 25px solid transparent;
+	border-right: 25px solid transparent;*/
+}
+
+#quoteGameControlPanel:before {
+	content: "";
+	overflow: visible;
+	display: block;
+	position: absolute;
+	width: 99.8%;
+	height: 100%;
+	border-width: 4px;
+	border-style: solid;
+	border-color: lightgreen;
+	background-color: mediumseagreen;
+	transform: skew(21deg) translateX(22.5px) translateY(-.5px);
+	border-bottom-right-radius: 3px;
+	border-bottom-left-radius: 1px;
+	border-top-left-radius: 2px;
+	border-top-right-radius: 2px;
+}
+
+.gameBtnWrapper {
+	position: absolute;
+	z-index: 3;
+	height: 30%;
+	aspect-ratio: 1 / 1;
+	border-width: 5px;
+	border-style: solid;
+	border-color: blue;
+	border-radius: 50%;
+	background-color: darkblue;
+}
+.gameBtn {
+	position: relative;
+	background-color: lightsteelblue;
+	width: 100%;
+	height: 100%;
+	text-align: center;
+	border-radius: 50%;
+	border-width: 3px;
+}
+
+.gameBtn span {
+	position: absolute;
+	inset: 0;
+	transform: translateY(-10%);
+}
+
+.gameBtn:hover {
+	transform: translateY(-2px);
+}
+
+.gameBtn:active {
+	transform: translateY(0);
+}
+
+
+.colorpad {
+	position: relative;
+	height: 100%;
+	width: 100%;
+	color: darkred;
+
+	background-color: linear-gradient(to bottom, #3acfd5 0%, #3a4ed5 100%) 1;
+	
+}
+
+#quoteCat {
+	position: absolute;
+	top: 0;
+	right: 10%;
+	line-height: 1.1;
+	opacity: 0%;
+	transition: opacity 0.5s 0.1s ease-in;
+}
+
+.colorpad:hover #quoteCat {
+	opacity: 100%;
+}
+
+.quoteText {
+	height: 100%;
+	font-size: 24px;
+  	-webkit-text-stroke: 1px white;
+  	-webkit-font-smoothing: antialiased;
+  	-moz-osx-font-smoothing: grayscale;
+  	text-rendering: optimizeLegibility;
+  	paint-order: stroke fill;
+  	position: absolute;
+  	margin: auto;
+  	left: 0;
+  	right: 0;
+  	align-content: center;
+  	z-index: 0;
+  	overflow-y: scroll;
+  	scrollbar-width: thin;
+}
+.quoteGameTextArea {
+	
+
+}
+.quoteGameTextArea .quoteText {
+	font-size: 40px;
+	line-height: 1;
+}
+
+.hoverEmphasis {
+	border-width: 2px;
+	margin-top: 25px;
+
+	transition: border-width 0.2s ease-in-out, margin-top 0.2s ease-in-out;
+}
+
+.hoverEmphasis:hover {
+	border-bottom-width: 6px;
+	margin-top: 21px;
+}
+
+
+.arrowBtn {
+	position: absolute;
+  	display: inline-block;
+  	border-radius: 10px 5px 5px 10px;
+  	background: lightgrey;
+  	font: 22px Constantia, sans-serif;
+  	color: blue;
+  	width: 50px;
+  	z-index: 1;
+}
+
+.arrowBtn:after {
+	content: "";
+	position: absolute;
+
+	height: 0px;
+	width: 0px;
+	border-top: 24px solid transparent;
+  	border-bottom: 24px solid transparent;
+  	border-left: 24px solid antiquewhite;
+
+  	right: -16px;
+  	top: -8px;	
+  	z-index: -1;
+}
+
+/*.arrowBtn:after {
+	box-shadow: 12px 12px 2px 1px rgba(0, 0, 255, .2);
+}*/
+
+
+
+.quoteArea {
+	display: inline;
+	transform: perspective(none) rotateY(15deg);
+	transition: transform 1s ease 0s;
+	border-style: solid;
+	border-width: 1px;
+	border-color: black;
+
+
+
+}
+.quoteArea:hover {
+	transform: scale(1.25);
+	transform: perspective(none) rotateY(0);
+	transition: transform 1s ease 0s;
+}
+.quoteArea.selected {
+	padding: 5px;
+	margin-left: 50px;
+	margin-right: 50px;
+	border-width: 4px;
+	border-style: outset;
+	border-color: gold;
+	background-color: forestgreen;
+
+	.colorpad {
+		height: 96.5%; 
+		width: 95.5%;
+	}
+}
+
+.colorpad {
+	background-color: floralwhite;
+}
+
+/*.quoteArea:nth-child(4+n) {
+	margin-left: 50px;
+}*/
+
+.quoteArea.left {
+	transform: perspective(500px) rotateY(45deg);
+	transition: transform 1s ease 0s;
+
+}
+.quoteArea:nth-child(n-5) {
+	transform: perspective(1500px) rotateY(n);
+	transition: transform 1s ease 0s;
+	
+}
+
+select.no-droparrow {
+ 	-webkit-appearance: none;
+  	-moz-appearance: none;
+  	text-indent: 1px;
+	text-overflow: '';
+}
+
+
+/* From Uiverse.io by JkHuger */ 
+.l {
+  display: block;
+  margin-bottom: 1.5em;
+  font-size: 1em;
+}
+
+.l {
+  background-color: rgba(0,0,0,0.7);
+  border-radius: 0.75em;
+  box-shadow: 0.125em 0.125em 0 0.125em rgba(0,0,0,0.3) inset;
+  color: #fdea7b;
+  display: inline-flex;
+  align-items: center;
+  margin: auto;
+  padding: 0.15em;
+  width: 3em;
+  height: 1.5em;
+  transition: background-color 0.1s 0.3s ease-out, box-shadow 0.1s 0.3s ease-out;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.l:before, .l:after {
+  content: "";
+  display: block;
+}
+
+.l:before {
+  background-color: #d7d7d7;
+  border-radius: 50%;
+  width: 1.2em;
+  height: 1.2em;
+  transition: background-color 0.1s 0.3s ease-out, transform 0.3s ease-out;
+  z-index: 1;
+}
+
+.l:after {
+  background: linear-gradient(transparent 50%, rgba(0,0,0,0.15) 0) 0 50% / 50% 100%,
+		repeating-linear-gradient(90deg,#bbb 0,#bbb,#bbb 20%,#999 20%,#999 40%) 0 50% / 50% 100%,
+		radial-gradient(circle at 50% 50%,#888 25%, transparent 26%);
+  background-repeat: no-repeat;
+  border: 0.25em solid transparent;
+  border-left: 0.4em solid #d8d8d8;
+  border-right: 0 solid transparent;
+  transition: border-left-color 0.1s 0.3s ease-out, transform 0.3s ease-out;
+  transform: translateX(-22.5%);
+  transform-origin: 25% 50%;
+  width: 1.2em;
+  height: 1em;
+  box-sizing: border-box;
+}
+/* Checked */
+.l:checked {
+  background-color: rgba(0,0,0,0.45);
+  box-shadow: 0.125em 0.125em 0 0.125em rgba(0,0,0,0.1) inset;
+}
+
+.l:checked:before {
+  background-color: currentColor;
+  transform: translateX(125%)
+}
+
+.l:checked:after {
+  border-left-color: currentColor;
+  transform: translateX(-2.5%) rotateY(180deg);
+}
+/* Other States */
+.l:focus {
+	/* Usually an anti-A11Y practice but set to remove an annoyance just for this demo */
+  outline: 0;
+}
+
+#rdmBtnContainer {
+
+  	border-style: outset;
+  	border-width: 2px;
+  	position: absolute;
+  	border-radius: 99em;
+  	overflow: hidden;
+	display: flex;
+  	width: 100%;
+}
+#randomBtn {
+  --toggle-size: 8px;
+  width: 100%;
+  height: 3.125em;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  /*background: -webkit-gradient(linear, left top, right top, color-stop(50%, forestgreen), color-stop(10%, black)) no-repeat;
+  background: -o-linear-gradient(left, forestgreen 50%, black 10%) no-repeat;
+  background: linear-gradient(to right, forestgreen 50%, black 10%) no-repeat;
+  */
+  background: linear-gradient(to left, black 1%, ghostwhite 50%);
+  background-size: 200%;
+  background-position: 0;
+  -webkit-transition: 0.4s, opacity 0.45s ease-in-out;
+  -o-transition: 0.4s, opacity 0.45s ease-in-out;
+  transition: 0.4s, opacity 0.45s ease-in-out;
+  border-radius: 99em;
+  position: relative;
+  cursor: pointer;
+  font-size: var(--toggle-size);
+  
+  z-index: 1;
+}
+
+#randomBtn::before {
+  content: "";
+  width: 2.25em;
+  height: 2.25em;
+  position: absolute;
+  top: 0.5em;
+  left: 0.438em;
+  /*background: -webkit-gradient(linear, left top, right top, color-stop(50%, #efefef), color-stop(50%, #2a2a2a)) no-repeat;
+  background: -o-linear-gradient(left, #efefef 50%, #2a2a2a 50%) no-repeat;
+  background: linear-gradient(to right, #efefef 50%, #2a2a2a 50%) no-repeat;*/
+  background-size: 200%;
+  background-position: 100%;
+  
+  border-radius: 50%;
+  -webkit-transition: .4s, opacity 0.4s ease-in-out, background-image 0.4s ease-in-out;
+  -o-transition: .4s, opacity 0.4s ease-in-out, background-image 0.4s ease-in-out;
+  transition: .4s, opacity 0.4s ease-in-out, background-image 0.4s ease-in-out;
+  border-width: 2px;
+  border-color: lightseagreen;
+  border-style: solid;
+  z-index: 3;
+  background-image: url(/assets/randomnessBG.jpg);
+
+}
+
+#randomBtn::after {
+  content: "";
+  background-image: url(/assets/randomnessBG.jpg);
+  position: absolute;
+  border-radius: 99em;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  opacity: 0%;
+  -webkit-transition: opacity 0.4s ease-in-out;
+  -o-transition: opacity 0.4s ease-in-out;
+  transition: opacity 0.4s ease-in-out;
+}
+#randomBtn:checked::after {
+  opacity: 80%;
+
+}
+
+#randomBtn:checked::before {
+  left: calc(100% - 2.25em - 0.438em);
+  background-position: 0;
+  background-image: url(/assets/randomnessBG.jpg);
+}
+
+#randomBtn:checked {
+  background-position: 100%;
+}
+
+#randomBtn:hover {
+	#randomBtn::before {
+		z-index: 3;
+		background-image: url(/assets/randomnessBG.jpg);
+
+	}
+}
+
+.hoverBB:hover {
+	border-width: 2px;
+	border-color: lightblue;
+}
+.hoverBB:active {
+}

@@ -1,0 +1,501 @@
+#container {
+	width: 100vw; 
+	height: 100vh; 
+	display: flex; 
+	flex-direction: column; 
+	justify-content: center;
+	position: relative;
+}
+#backBtn {
+	display: flex;
+	cursor: pointer;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+#sky {
+	width: 100%;
+	padding-top: 2vh;
+	max-height: 42vh;
+	background-color: skyblue;
+}
+#sun {
+	width: 40vh;
+	height: 40vh;
+	inset: 0;
+	margin: auto;
+	border-radius: 50%;
+	background: radial-gradient(circle at center, darkorange 0, orange 50%, yellow 100%);
+}
+#waterLandscape {
+	position: relative;
+	width: 100%;
+	height: 60vh;
+    background-color: linear-gradient(to bottom, darkblue 0, dodgerblue 100%);
+    overflow: hidden;
+}
+
+.squiggleContainer {
+	position: absolute;
+	height: 20px;
+	width: 10%;
+	overflow: hidden;
+	display: flex;
+}
+.waterSquiggle {
+    background-image: linear-gradient(135deg, white 17px, transparent 18px), linear-gradient(45deg, black 17px, transparent 18px);
+	clip-path: polygon(50% 0, 100% 100%, 0 100%);
+	background-repeat: repeat-x;
+	height: 100%;
+	width: 25%;
+	animation: moveX 10s infinite;
+	opacity: 50%;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin: auto;
+}
+
+@keyframes moveX {
+	0% {
+		transform: translateX(-400%);
+		height: 100%;
+	}
+	20% {
+		transform: translateX(-400%);
+		height: 100%;
+	}
+	69% {
+		transform: translateX(370%);
+		height: 100%;
+	}
+	89% {
+		transform: translateX(400%);
+		height: 70%;
+	}
+	100% {
+		transform: translateX(400%);
+		height: 50%;
+
+	}
+}
+@keyframes flipWaterLines {
+	49% {
+		transform: rotate(0deg);
+	}
+	50% {
+		transform: rotate(180deg);
+	}
+}
+
+#sunReflection {
+	position: absolute;
+	width: 100vw;
+	height: 95vh;
+	top: -35%;
+	opacity: 80%;
+	z-index: 10;
+    background: radial-gradient(circle at center, orange 0, lightblue 50%, dodgerblue 90%, rgba(200, 10, 10, 0.05) 95%, rgba(200, 100, 200, 0.01) 100%);
+	border-bottom-left-radius: 20%;
+	border-bottom-right-radius: 20%;
+}
+#waveEdge1 {
+	position: absolute;
+	width: 100vw;
+	height: 4vh;
+    background: linear-gradient(to top, dodgerblue, dodgerblue 80%, darkblue 100%);
+	top: 15%;
+	bottom: 0;
+	margin: auto;
+	z-index: 3;
+	--mask:
+    radial-gradient(8px at 50% 11.25px,#000 99%,#0000 101%) calc(50% - 10px) 0/20px 100%,
+    radial-gradient(8px at 50% -6.25px,#0000 50%,#000 101%) 50% 5px/20px 100% repeat-x;
+  	-webkit-mask: var(--mask);
+    mask: var(--mask);
+    animation: waves 10.5s 2s  infinite;
+
+}
+#waveEdge2 {
+	position: absolute;
+	width: 100vw;
+	height: 1.5vh;
+	top: -5%;
+	bottom: 0;
+	margin: auto;
+	z-index: 2;
+    background: linear-gradient(to top, dodgerblue 80%, darkblue 100%);
+
+	--mask:
+    radial-gradient(8px at 50% 11.25px,#000 99%,#0000 101%) calc(50% - 10px) 0/20px 100%,
+    radial-gradient(8px at 50% -6.25px,#0000 50%,#000 101%) 50% 5px/20px 100% repeat-x;
+  	-webkit-mask: var(--mask);
+    mask: var(--mask);
+    animation: wave2 10.5s 1s  infinite;
+}
+#waveEdge3 {
+	position: absolute;
+	width: 200vw;
+	height: 1.5vh;
+	top: -16%;
+	opacity: 50%;
+	bottom: 0;
+	margin: auto;
+	z-index: 2;
+    background: linear-gradient(to top, dodgerblue 80%, darkblue 100%);
+
+	--mask:
+    radial-gradient(8px at 100% 12.25px,#000 99%,#0000 101%) calc(50% - 10px) 0/20px 100%,
+    linear-gradient(rgba(153, 153, 153, 0.4), rgba(204, 204, 204, 0.5)) 50% 5px/20px 100% repeat-x;
+  	-webkit-mask: var(--mask);
+    mask: var(--mask);
+
+    animation: wave3 10.5s  infinite;
+}
+
+.waveContainer {
+	position: absolute;
+	background: linear-gradient(to bottom, transparent 6%, rgba(255, 0, 0, 0.5), rgba(255, 0, 0, 0.5) 90%, transparent);
+	z-index: 9;
+	overflow: hidden;
+	display: flex;
+	align-items: flex-start;
+}
+.waveShapes {
+	position: relative;
+	min-width: 2vw;
+	height: 100%;
+	align-items: end;
+	display: flex;
+	animation: moveShapesX;
+}
+.quarterCircle {
+/*	?height: 2.5vh; width: 2vw;"*/
+	width: 2vw;
+	height: 40%;
+	background-image:
+        linear-gradient(180deg, rgba(30, 144, 255, 0.9) 10%, rgba(30, 144, 255, 0.5) 100%),
+        linear-gradient(180deg, transparent 10%, rgba(0, 0, 0, 0.75) 90%, rgba(0, 0, 0, 1) 100%);
+    
+    border-radius: 50%;
+    border-top-left-radius: 20em;
+    border-top-right-radius: 20em;
+
+    animation: moveWavesY 3s infinite;
+}
+/*.triangle {
+	height: 50%;
+	width: 3vw;
+	background-image: linear-gradient(135deg, white 17px, transparent 18px), linear-gradient(45deg, black 17px, transparent 18px);
+	clip-path: polygon(50% 0, 100% 100%, 0 100%);
+}*/
+@keyframes moveWavesY {
+	0% {
+        border-top-right-radius: 20em;
+        height: 40%;
+	}
+	20% {
+        border-top-right-radius: 20%;
+	}
+	50% {
+        border-top-right-radius: 50%;
+        height: 100%;
+        
+	}
+	70% {
+        border-top-right-radius: 2em;
+	}
+	100% {
+        border-top-right-radius: 20em;
+        height: 40%;
+	}
+}
+@keyframes moveShapesX {
+	100% {
+		transform: translateX(100%);
+	}
+}
+@keyframes wave3 {
+	0% {
+		transform: translateX(-50%);
+		height: 1.5vh;
+	}
+	25% {
+		transform: translateX(0);
+		height: 2.5vh;
+	}
+	55% {
+		transform: translateX(30%);
+		height: 2vh;
+	}
+	75% {
+		transform: translateX(40%);
+		height: 1.5vh;
+	}
+	100% {
+		transform: translateX(50%);
+		height: 1.2vh;
+	}
+}
+@keyframes wave2 {
+	25% {
+		
+		height: 2vh;
+	}
+	55% {
+		height: 2.5vh;
+	}
+	75% {
+		height: 2vh;
+		mask-position: 100%;
+	}
+	100% {
+		height: 1.4vh;
+		mask-position: 50%;
+	}
+}
+@keyframes waves {
+	25% {
+		transform: translateY(-10px);
+    	-webkit-mask-position: 80%;
+    	mask-position: 80%
+	}
+	55% {
+		transform: translateY(-5px);
+
+    	-webkit-mask-position: 100%;
+    	mask-position: 100%
+	}
+	75% {
+		transform: translateY(0px);
+    	-webkit-mask-position: 80%;
+    	mask-position: 80%
+	}
+	100% {
+		transform: translateY(-5px);
+    	-webkit-mask-position: 100%;
+    	mask-position: 50%
+	}
+}
+
+#leftLand {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	margin: auto;
+	width: 25vw;
+	height: 21vh;
+	border-bottom-right-radius: 40em;
+	border-top-right-radius: 20em;
+	background-color: lawngreen;
+	z-index: 11;
+	border-width: 4px;
+	border-color: sandybrown;
+	border-bottom-style: groove;
+}
+
+#rightLand {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	margin: auto;
+	width: 40vw;
+	height: 100%;
+	z-index: 11;
+	overflow: visible;
+}
+#topRightLand {
+	position: absolute;
+	top: 28%;
+	right: 0;
+	margin: auto;
+	border-left: 12vh solid transparent;
+	border-bottom: 10vw solid lawngreen;
+	border-bottom-left-radius: 10px;
+}
+#topMidRightLand {
+	position: absolute;
+	top: 37%;
+	right: 0;
+	margin: auto;
+	width: 25vw;
+	height: 15vh;
+	background-color: lawngreen;
+	border-top-left-radius: 2em;
+}
+#botMidRightLand {
+	position: absolute;
+	top: 59%;
+	right: 0;
+	left: 0;
+	margin: auto;
+	border-left: 9vh solid transparent;
+	border-bottom: 12vh solid lawngreen;
+	border-bottom-left-radius: 2px;
+}
+#botRightLand {
+	position: absolute;
+	left: -60%;
+	bottom: 0;
+	height: 13vh;
+	width: 64vw;
+	background-color: lawngreen;
+	overflow: hidden;
+	border-top-left-radius: 100vh 60vh;
+}
+
+
+#bridge {
+	width: 85vw;
+	height: 15vh;
+	position: absolute;
+	background: radial-gradient(80% 120% at bottom, transparent 0, transparent 40%, gainsboro 41%, gray 45%, gray 80%, lightgray 98%, gainsboro 100%);
+	border-radius: 50%/100% 100% 0 0;
+	z-index: 13;
+	overflow: hidden;
+	left: -10%;
+	right: 0;
+	bottom: 41%;
+	margin: auto;
+	overflow: visible;
+}
+#handrail {
+	position: absolute;
+	inset: 0;
+	margin: auto;
+	width: 100%;
+	height: 100%;
+	background: radial-gradient(60% 120% at bottom, transparent 0, transparent 80%, darkred 81%, darkred 100%);
+	border-radius: 50%/100px 100px 0 0;
+}
+#handrail2 {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	left: 0;
+	margin: auto;
+	width: 100%;
+	height: 100%;
+	background: radial-gradient(60% 120% at bottom, transparent 0, transparent 80%, darkgray 81%, darkgray 100%);
+	border-radius: 50%/100px 100px 0 0;
+	z-index: 15;
+}
+#leftGuard {
+	width: 40px;
+	height: 55px;
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	background-color: darkgray;
+	border-top-left-radius: 10px;
+	border-width: 0;
+	border-bottom-width: 3px;
+	border-color: darkgreen;
+	border-style: groove;
+	z-index: 16;
+}
+#rightGuard {
+	width: 40px;
+	height: 55px;
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	background-color: darkgray;
+	border-top-right-radius: 10px;
+	border-width: 0;
+	border-bottom-width: 3px;
+	border-color: darkgreen;
+	border-style: groove;
+	z-index: 16;
+}
+
+#people {
+	width: 85vw;
+	height: 15vh;
+	position: absolute;
+	z-index: 13;
+	left: -10%;
+	right: 0;
+	bottom: 41%;
+	margin: auto;
+	overflow: visible;
+}
+.person {
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: -15%;
+	margin: auto;
+	width: 20px;
+	height: 40px;
+	transition: all 0.4s linear;
+	z-index: 14;
+}
+.head {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	margin: auto;
+	width: 50%;
+	height: 20%;
+	background: radial-gradient(50% 50% at center, transparent 0, transparent 60%, darkorange 61%, darkorange 80%, black 100%);
+	border-radius: 50%;
+}
+.body {
+	content: "";
+	position: absolute;
+	inset: 0;
+	margin: auto;
+	width: 20%;
+	height: 40%;
+	background-color: black;
+}
+.rightArm {
+	content: "";
+	position: absolute;
+	top: -10%;
+	bottom: 0;
+	right: 25%;
+	margin: auto;
+	width: 10%;
+	height: 35%;
+	background-color: black;
+	rotate: -45deg;
+}
+.leftArm {
+	content: "";
+	position: absolute;
+	top: -10%;
+	bottom: 0;
+	left: 25%;
+	margin: auto;
+	width: 10%;
+	height: 35%;
+	background-color: black;
+	rotate: 45deg;
+}
+.leftLeg {
+	content: "";
+	position: absolute;
+	bottom: 0;
+	left: 35%;
+	width: 10%;
+	height: 42%;
+	background-color: black;
+	rotate: 15deg;
+}
+.rightLeg {
+	content: "";
+	position: absolute;
+	bottom: 0;
+	right: 35%;
+	width: 10%;
+	height: 42%;
+	background-color: black;
+	rotate: -15deg;
+}
+

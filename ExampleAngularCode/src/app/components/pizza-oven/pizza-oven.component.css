@@ -1,0 +1,940 @@
+* {
+	-webkit-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+#container {
+	width: 100%;
+/*	height: 85vw;*/
+	height: 140vw;
+	background: firebrick;
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+}
+
+#oven {
+	width: 80vw;
+	height: 55vw;
+	background: dimgray;
+	align-self: center;
+	position: relative;
+	display: flex;
+	border-width: 8px;
+	border-color: darkgreen;
+	border-style: outset;
+/*	border-top-left-radius: 5%;*/
+/*	border-top-right-radius: 5%;*/
+	overflow: hidden;
+}
+
+#ovenandprogress {
+	display: flex;
+	flex-direction: column;
+}
+
+#progress {
+	width: 92vw;
+	height: 24vw;
+	display: flex;
+	background: rgb(100, 50, 0);
+	align-self: center;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-around;
+	margin-bottom: 1vh;
+	border-width: 2px;
+	border-style: outset;
+	border-color: saddlebrown;
+}
+.pizzaContainer {
+	position: relative;
+	text-align: center;
+	width: 20vw;
+	height: 20vw;
+	background-color: darkslategrey;
+	border-radius: 50%;
+}
+.pizzaBox {
+	position: relative;
+	text-align: center;
+	width: 20vw;
+	height: 20vw;
+	background-color: navajowhite;
+	border-color: darkgoldenrod;
+	border-style: dashed;
+	border-width: 1px;
+}
+.boxLid {
+	height: 100%;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	border-style: dashed;
+	border-color: burlywood;
+	border-width: 2px;
+}
+label {
+	position: absolute;
+	right: 0;
+	left: 0;
+	top: -12%;
+	margin: auto;
+	z-index: 2;
+	color: lightslategray;
+}
+.selected label {
+	color: lawngreen;
+}
+.pizza {
+	width: 80%;
+	height: 80%;
+	position: absolute;
+	inset: 0;
+	margin: auto;
+	border-radius: 50%;
+
+	align-content: center;
+}
+#prep .pizza {
+	background: lightgoldenrodyellow;	
+}
+#bake .pizza {
+	background: palegoldenrod;	
+}
+#ready .pizza {
+	background: sandybrown;
+}
+#prepStation {
+	width: 90vw;
+	height: 55vw;
+	background: orangered;
+	align-self: center;
+	position: relative;
+	display: flex;
+}
+#prepPizza {
+	position: absolute;
+	width: 50vw;
+	height: 50vw;
+	border-radius: 50%;
+	background: lightgoldenrodyellow;
+	align-content: center;
+	top: 0;
+	bottom: 0;
+	left: 2%;
+	margin: auto;
+	border-bottom-width: 0px;
+	border-style: solid;
+	border-color: lightgoldenrodyellow;
+	transition: transform 3s 1s ease-in-out, rotateX .5s 3.5s ease-in-out, border-bottom-width .4s 3.5s ease-out;
+	z-index: 3;
+	animation-fill-mode: forwards;
+}
+#prepPizza.cooking {
+	animation-fill-mode: forwards;
+	
+	-webkit-animation: colorCrust 0s;
+}
+@-webkit-keyframes colorCrust {
+	70% {
+		background: palegoldenrod;
+	}
+	100% {
+		background: sandybrown;
+	}
+}
+
+#prepPizza.intheoven {
+	transform: rotateX(65deg) translate(10vw, -165vw);
+	border-bottom-width: 12px;
+}
+
+
+#rightPrepStation {
+	position: absolute;
+	width: 30vw;
+	height: 50vw;
+	display: flex;
+	flex-direction: column;
+	right: 3%;
+	border-color: indianred;
+	border-radius: 2%;
+	border-style: inset;
+	top: 0;
+	bottom: 0;
+	margin: auto;
+	overflow: hidden;
+	opacity: 100%;
+	transition: width 1.6s ease-out, opacity .2s 1s linear;
+}
+#prepToppings {
+	height: 45vw;
+	border-color: indianred;
+	border-radius: 2%;
+	border-style: inset;
+	overflow-y: scroll;
+	scrollbar-width: thin;
+	scrollbar-color: rebeccapurple darkgreen;
+	font-size: 12px;
+}
+.prepTopping {
+	width: 100%;
+	height: 15%;
+	align-content: center;
+	text-align: center;
+	-webkit-text-stroke-width: 1px;
+	-webkit-text-stroke-color: red;
+	position: relative;
+	pointer-events: auto;
+}
+.prepTopping:before {
+	width: 100%;
+	height: 15%;
+	background: radial-gradient(circle at center, transparent 0, transparent 80%, white 100%);
+	pointer-events: none;
+}
+.toppings {
+	width: 90%;
+	aspect-ratio: 1/1;
+	inset: 0;
+	margin: auto;
+	border-radius: 50%;
+	overflow: hidden;
+	position: relative;
+}
+.topping {
+	width: 100%;
+	height: 100%;
+	border-radius: 50%;
+	position: absolute;
+	inset: 0;
+	margin: auto;
+
+}
+
+.sauce {
+	background: tomato;
+}
+.sauce.added.light {
+	opacity: 50%;
+}
+.sauce.added.regular {
+	opacity: 70%;
+}
+.sauce.added.extra {
+	opacity: 90%;
+}
+.sauce.added.okay {
+	opacity: 100%;
+}
+.cheese {
+	width: 100%;
+	height: 100%;
+	position: relative;
+}
+.cheeseball {
+	position: absolute;
+	border-radius: 50%;
+	opacity: 0;
+	width: 20%;
+	height: 20%;
+	background-color: floralwhite;
+}
+.cheeseball:nth-of-type(1) {
+	top: 10%;
+	left: 35%;
+}
+.cheeseball:nth-of-type(2) {
+	top: 60%;
+	left: 60%;
+}
+.cheeseball:nth-of-type(3) {
+	top: 55%;
+	left: 15%;
+}
+.cheeseball:nth-of-type(4) {
+	top: 20%;
+	left: 65%;
+}
+.cheeseball:nth-of-type(5) {
+	top: 40%;
+	left: 40%;
+}
+.cheeseball:nth-of-type(6) {
+	top: 20%;
+	left: 0%;
+}
+.cheeseball:nth-of-type(7) {
+	top: 80%;
+	left: 40%;
+}
+.cheeseball:nth-of-type(8) {
+	top: 40%;
+	left: 90%;
+}
+.cheese.added.light .cheeseball:nth-of-type(-n+2) {
+	width: 15%;
+	height: 15%;
+	opacity: 100%;
+}
+.cheese.added.regular .cheeseball:nth-of-type(-n+4) {
+	opacity: 100%;
+}
+.cheese.added.extra .cheeseball:nth-of-type(-n+6) {
+	width: 25%;
+	height: 25%;
+	opacity: 100%;
+}
+.cheese.added.okay .cheeseball:nth-of-type(-n+8) {
+	width: 35%;
+	height: 35%;
+	opacity: 100%;
+	transform: translateX(-20%) translateY(-20%);
+}
+.poni {
+	background-color: orangered;
+	opacity: 0;
+	width: 15%;
+	height: 15%;
+	border-radius: 50%;
+	position: absolute;
+
+}
+.poni:nth-of-type(1) {
+	top: 5%;
+	left: 55%;
+}
+.poni:nth-of-type(2) {
+	top: 45%;
+	left: 70%;
+}
+.poni:nth-of-type(3) {
+	top: 45%;
+	left: 35%;
+}
+.poni:nth-of-type(4) {
+	top: 30%;
+	left: 15%;
+}
+.poni:nth-of-type(5) {
+	top: 30%;
+	left: 40%;
+}
+.poni:nth-of-type(6) {
+	top: 60%;
+	left: 15%;
+}
+.poni:nth-of-type(7) {
+	top: 80%;
+	left: 40%;
+}
+.poni:nth-of-type(8) {
+	top: 25%;
+	left: 75%;
+}
+.poni:nth-of-type(9) {
+	top: 10%;
+	left: 15%;
+}
+.poni:nth-of-type(10) {
+	top: 70%;
+	left: 70%;
+}
+.poni:nth-of-type(11) {
+	top: 40%;
+	left: 90%;
+}
+.poni:nth-of-type(12) {
+	top: 45%;
+	left: 5%;
+}
+.pepperoni.added.light .poni:nth-of-type(-n+4) {
+	opacity: 100%;
+}
+.pepperoni.added.regular .poni:nth-of-type(-n+8) {
+	opacity: 100%;
+}
+.pepperoni.added.extra .poni:nth-of-type(-n+10) {
+	opacity: 100%;
+}
+.pepperoni.added.okay .poni:nth-of-type(-n+12) {
+	opacity: 100%;
+}
+.pep1 {
+	position: absolute;
+	width: 20%;
+	height: 20%;
+	border-radius: 50%;
+	top: 15%;
+	left: 25%;
+	background-color: papayawhip;
+	opacity: 15%;
+}
+.pep2 {
+	position: absolute;
+	width: 25%;
+	height: 25%;
+	border-radius: 50%;
+	top: 65%;
+	left: 35%;
+	background-color: papayawhip;
+	opacity: 15%;
+}
+.pep3 {
+	position: absolute;
+	width: 15%;
+	height: 15%;
+	border-radius: 50%;
+	top: 45%;
+	left: 70%;
+	background-color: papayawhip;
+	opacity: 15%;
+}
+
+
+.sausage {
+	content: 'sausage';
+}
+.spicysausage {
+	content: 'spicysausage';
+}
+.chicken {
+	content: 'chicken';
+}
+.bacon {
+	content: 'bacon';
+}
+.ham {
+	content: 'ham';
+}
+.greenpeppers {
+	content: 'greenpeppers';
+}
+.blackolives {
+	content: 'blackolives';
+}
+.pineapple {
+	content: 'pineapple';
+}
+.topServingList {
+	position: absolute;
+	inset: 0;
+	margin: auto;
+	text-align: center;
+	align-content: center;
+}
+.toppingDisplay {
+	height: 0;
+	overflow: hidden;
+	transition: height .5s .1s linear;
+	-webkit-text-stroke-width: 1px;
+	-webkit-text-stroke-color: darkgreen;
+}
+.toppingDisplay.viewable {
+	height: 24px;
+}
+
+.lessBtn, .moreBtn {
+	height: 50%;
+	aspect-ratio: 1/1;
+	position: absolute;
+	border-color: darkgreen;
+	border-width: 2px;
+	border-radius: 50%;
+	border-style: solid;
+	pointer-events: none;
+	background: transparent;
+	opacity: 5%;
+	line-height: 1;
+	background-size: 70%;
+	background-repeat: no-repeat;
+	background-position: center;
+	transition: background-size .05s ease-in;
+}
+.lessBtn {
+	top: 0;
+	bottom: 0;
+	left: 2%;
+	margin: auto;
+	background-image: url(/assets/minus.png);
+}
+.moreBtn {
+	top: 0;
+	bottom: 0;
+	right: 2%;
+	margin: auto;
+	background-image: url(/assets/plus.png);
+}
+.lessBtn:hover, .moreBtn:hover {
+	background-size: 100%;
+}
+
+.servingSize {
+	opacity: 0;
+}
+
+.prepTopping.added {
+	border-color: black;
+	border-width: 2px;
+	border-style: dashed;
+
+	.lessBtn, .moreBtn {
+		pointer-events: all;
+		opacity: 70%;
+	}
+
+	.servingSize {
+		opacity: 100%;
+	}
+
+}
+
+#finishBtn {
+	overflow: hidden;
+}
+
+/*animation using steps*/
+/*#prep.selected label:after, #bake.selected label:after {
+  overflow: hidden;
+  display: inline-block;
+  vertical-align: bottom;
+  -webkit-animation: ellipsis steps(4, end) 900ms infinite;
+  animation: ellipsis steps(4, end) 900ms infinite;
+  content: "\2026";
+  width: 0px;
+}*/
+#prep.selected label:after, #bake.selected label:after {
+	content: "";
+	animation: loadingDots 1.5s infinite;
+}
+@keyframes loadingDots {
+	0% {
+		content: "";
+	}
+	25% {
+		content: ".";
+	}
+	50% {
+		content: "..";
+	}
+	75% {
+		content: "...";
+	}
+	100% {
+		content: "";
+	}
+}
+#ready.selected label:after {
+	content: "! 😃";
+}
+/*#ready.selected */
+
+@keyframes ellipsis {
+  to {
+    width: 40px;
+  }
+}
+
+@-webkit-keyframes ellipsis {
+  to {
+    width: 40px;
+  }
+}
+
+#heatArea {
+	width: 80%;
+	height: 100%;
+	position: relative;
+}
+#heatArea:before {
+	height: 20%;
+	width: 100%;
+	content: "";
+	position: absolute;
+	background: royalblue;
+}
+#tray {
+	width: 100%;
+	height: 50%;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	position: absolute;
+	margin: auto;
+	z-index: 0;
+}
+.longstick {
+	background: linear-gradient(to bottom, lightslategray 0, lightsteelblue 30%,lightsteelblue 70%, lightslategray 100%);
+;
+	height: 8%;
+	width: 100%;
+	left: 0;
+	right: 0;
+	margin: auto;
+	position: absolute;
+	z-index: 1;
+}
+.shortstick {
+	background: linear-gradient(to right, lightslategray 0, lightsteelblue 30%, lightsteelblue 70%, lightslategray 100%);
+	height: 93%;
+	width: 5%;
+	top: 0;
+	bottom: 0;
+	margin: auto;
+	position: absolute;
+	z-index: 0;
+}
+
+#heatColor {
+	position: absolute;
+	inset: 0;
+	margin: auto;
+	width: 100%;
+	height: 100%;
+	opacity: 0%;
+	background: radial-gradient(circle at 50% 20%, darkorange 20%, orangered 50%, orange 60%, red 100%);
+	z-index: 1;
+	transition: opacity 1s 0.2s ease-in;
+	animation: rotateIt 30s infinite, heightIt 3s alternate infinite;
+}
+#heatColor.on {
+	opacity: 70%;
+}
+@keyframes rotateIt {
+	0% {
+		rotate: 0;
+	}
+	100% {
+		rotate: 100%;
+	}
+}
+@keyframes heightIt {
+	0% {
+		height: 100%;
+	}
+	100% {
+		height: 150%;
+	}
+}
+
+#door {
+	width: 100%;
+	height: 100%;
+	z-index: 2;
+	/*border-width: 0;
+	border-top-width: 41px;
+	border-style: solid;
+	border-color: black;*/
+}
+#door.open {
+	#doorTop {
+		transform: translateY(450%);
+	}
+}
+
+@property --c {
+  syntax: '<color>';
+  inherits: false;
+  initial-value: red;
+}
+#door:before {
+	--c: transparent;
+	content: "";
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	transition: --c .5s;
+	background: radial-gradient(circle at top center, var(--c) 0, var(--c) 80%, transparent 100%);
+/*	animation: heatUp 5s infinite;*/
+}
+#door:before:hover {
+	--c: orangered;
+}
+@keyframes heatUp {
+	50% {
+		--c: orange;
+		background-size: 100%;
+	}
+	100% {
+		--c: orangered;
+		background-size: 200%;
+	}
+}
+
+#doorTop {
+	position: relative;
+	width: 100%;
+	height: 20%;
+	background-color: rebeccapurple;
+	z-index: 2;
+	transition: all 1.1s ease-in-out;
+}
+/*#doorTop:before {
+	content: "";
+	width: 100%;
+	height: 100%;
+	z-index: 1;
+	background: white;
+}*/
+#logo {
+	position: absolute;
+	transform: skewX(-10deg);
+	top: 0;
+	bottom: 0;
+	left: 20%;
+	margin: auto;
+	align-content: center;
+	font-size: 24px;
+}
+#handle {
+	position: absolute;
+	inset: 0;
+	margin: auto;
+	width: 40%;
+	height: 15%;
+	background-color: burlywood;
+}
+
+
+#lightbulbHolder {
+	position: absolute;
+	left: 0;
+	top: 0;
+  right: 0;
+	width: 100%;
+  margin: auto;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  background: wheat;
+}
+
+#lightbulb {
+	position: absolute;
+  display: block;
+  margin-bottom: 1.5em;
+  font-size: 2em;
+  background-color: rgba(0,0,0,0.7);
+  border-radius: 0.75em;
+  box-shadow: 0.125em 0.125em 0 0.125em rgba(0,0,0,0.3) inset;
+  color: #fdea7b;
+  display: inline-flex;
+  align-items: center;
+  left: 0%;
+  right: 0;
+  top: 20%;
+  margin: auto;
+  padding: 0.15em;
+  width: 3em;
+  height: 1.5em;
+  transition: background-color 0.1s 0.3s ease-out, box-shadow 0.1s 0.3s ease-out;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+#lightbulb:before, #lightbulb:after {
+  content: "";
+  display: block;
+}
+
+#lightbulb:before {
+  background-color: #d7d7d7;
+  border-radius: 50%;
+  width: 1.2em;
+  height: 1.2em;
+  transition: background-color .15s .3s ease-out, transform 0.3s ease-out;
+  z-index: 1;
+}
+/*linear-gradient(transparent 50%, rgba(0,0,0,0.15) 0) 0 50% / 50% 100%,*/
+/*-webkit-linear-gradient(top, rgba(255,255,255,0), rgba(255,255,255, 1));*/
+#lightbulb:after {
+  background: -webkit-linear-gradient(top, rgba(0,0,0,0.05), rgba(0,0,0,0.5)) 0 100% / 50% 50%,
+    repeating-linear-gradient(90deg,#bbb 0,#bbb,#bbb 20%,#999 15%,#999 25%) 0 50% / 50% 100%,
+    radial-gradient(circle at 45% 50%,#888 25%, transparent 26%);
+  background-repeat: no-repeat;
+  border: 0.25em solid transparent;
+  border-left: 0.4em solid #d8d8d8;
+  border-right: 0 solid transparent;
+  transition: border-left-color 0.1s 0.3s ease-out, transform 0.3s ease-out;
+  transform: translateX(-22.5%);
+  transform-origin: 25% 50%;
+  width: 1.2em;
+  height: 1em;
+  box-sizing: border-box;
+
+}
+/* Checked */
+#lightbulb:checked {
+  background-color: rgba(0,0,0,0.40);
+  box-shadow: 0.125em 0.125em 0 0.125em rgba(0,0,0,0.1) inset;
+}
+
+#lightbulb:checked:before {
+  background-color: currentColor;
+  transform: translateX(125%)
+}
+
+#lightbulb:checked:after {
+  border-left-color: currentColor;
+  transform: translateX(-2.5%) rotateY(180deg);
+}
+/* Other States */
+#lightbulb:focus {
+  /* Usually an anti-A11Y practice but set to remove an annoyance just for this demo */
+  outline: 0;
+}
+
+
+
+#controlPanel {
+	width: 20%;
+	height: 100%;
+	background-color: mediumpurple;
+	justify-content: space-around;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	border-width: 0;
+	border-left-width: 4px;
+	border-style: inset;
+	border-color: darkgreen;
+
+}
+.dial {
+	width: 70%;
+	aspect-ratio: 1/1;
+	background-color: wheat;
+	align-content: center;
+	text-align: center;
+	border-radius: 50%;
+	font-size: 24px;
+	color: darkslategray;
+	border-color: darkgray;
+	
+}
+#heatDial {
+}
+#timeDial {
+
+}
+#powerBtn {
+	position: relative;
+	width: 80%;
+	height: 10%;
+	background: darkred;
+	display: inline-flex;
+	justify-content: center;
+	text-align: center;
+	align-content: center;
+	border-style: outset;
+	border-width: 2px;
+	border-color: black;
+
+}
+#leftPowerBtn {
+	width: 50%;
+	height: 100%;
+	border-width: 1px;
+	border-style: outset;
+	border-color: darkgray;
+	justify-content: center;
+	align-content: center;
+	background-color: indianred;
+	transition: all .2s linear;
+	border-top-left-radius: 2px;
+	border-bottom-left-radius: 3px;
+}
+
+#rightPowerBtn {
+	width: 50%;
+	height: 100%;
+	border-width: 1px;
+	border-style: outset;
+	background-color: indianred;
+	transform: skewY(-10deg) translateY(-10%);
+	height: 98%;
+	justify-content: center;
+	align-content: center;
+	border-color: darkgray;
+	transition: all .2s linear;
+	border-top-right-radius: 2px;
+	border-bottom-right-radius: 3px;
+
+}
+
+#powerBtn.on {
+	#leftPowerBtn {
+		transform: skewY(10deg) translateY(-10%);
+		height: 98%;
+	}
+	#rightPowerBtn {
+		transform: skewY(0) translateY(0);
+		height: 100%;
+	}
+
+}
+
+/*#powerBtn.on {
+
+	#door {
+		
+		animation-fill-mode: forwards;
+		animation: heatUp 3s;
+	}
+}*/
+
+/*tablets and larger devices*/
+@media only screen and (min-width: 768px) { 
+	#container {
+		height: 140vh;
+	}
+	#oven {
+		width: 80vh;
+		height: 60vh;
+
+	}
+	#progress {
+		width: 22vh;
+		height: 88vh;
+		flex-direction: column;
+	}
+	#ovenandprogress {
+		flex-direction: row;
+		justify-content: space-around;
+	}
+	.pizzaContainer {
+		width: 20vh;
+		height: 20vh;
+	}
+	.pizzaBox {
+		width: 20vh;
+		height: 20vh;
+	}
+	.powerBtn {
+		width: 10vh;
+		height: 4vh;
+	}
+	#prepStation {
+		width: 90vh;
+		height: 55vh;
+	}
+	#prepPizza {
+		width: 50vh;
+		height: 50vh;
+	}
+	#prepPizza.intheoven {
+		transform: rotateX(65deg) translate(-5vh, -140vh);
+	}
+
+	#rightPrepStation {
+		width: 25vh;
+		height: 50vh;
+	}
+	#prepToppings {
+		height: 45vh;
+		font-size: 16px;
+	}
+}

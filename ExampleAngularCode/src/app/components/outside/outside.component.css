@@ -1,0 +1,35 @@
+.bg {
+	position: relative;
+	height: 100%;
+	width: 100vw;
+	background-image: url(/assets/outsideOutside.png);
+	background-size: cover;
+}
+.bgEl {
+	position: absolute;
+	height: 70%;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	margin: auto;
+}
+#frontTree {
+	height: 35%;
+	top: 0;
+	left: 18%;
+	margin: auto;
+	bottom: -30%;
+}
+#frontTree:hover {
+	-webkit-filter: drop-shadow(1px 1px 0 forestgreen)
+                  drop-shadow(-1px -1px 0 forestgreen);
+	filter: drop-shadow(1px 1px 0 forestgreen) 
+          drop-shadow(-1px -1px 0 forestgreen);
+}
+#backBtn {
+	cursor: pointer;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 3;
+}

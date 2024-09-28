@@ -1,4 +1,4 @@
-#outlet-container {
+/*#outlet-container {
 	padding-top: 150px;
 }
 
@@ -6,4 +6,15 @@
 	#outlet-container {
 		padding-top: 200px;
 	}
+}*/
+
+#outletcontainer {
+	content: "";
+	margin-top: 200px;
+	-webkit-transition: all .4s ease-in-out;
+  	transition: all .4s ease-in-out;
 }
+
+#outletcontainer.shrink {
+  	margin-top: 100px;
+  }

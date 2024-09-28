@@ -1,0 +1,182 @@
+<app-track-mouse></app-track-mouse>
+
+	<!-- GO BACK BUTTON -->
+	<button (click)="goBack()">Go Back</button>
+
+	<!-- Bootstrap CAROUSEL -->
+	<div id="quoteGameWrapper" style="">
+		<div id="windowOutside" style="position: absolute;">
+			<div id="windowPane" style="position: absolute; width: 100%; height: 100%;">
+				<div id="topPane" style="position: absolute; width: 100%; height: 50%;">
+					<div style="position: absolute; width:5%; height: 100%; left: 0; right: 0; margin: auto; background-color: burlywood; z-index: 3; "></div>
+					<div style="position: absolute; width:100%; height: 5%; left: 0; right: 0; bottom: 0; margin: auto; background-color: burlywood; z-index: 3;"></div>
+					<div style="position: absolute; width:100%; height: 5%; left: 0; right: 0; top: 0; margin: auto; background-color: burlywood; z-index: 3;"></div>
+					<div style="position: absolute; width:3%; height: 100%; right: 0; margin: auto; background-color: burlywood; z-index: 3;"></div>
+					<div style="position: absolute; width:3%; height: 100%; left: 0; margin: auto; background-color: burlywood; z-index: 3;"></div>
+				</div>
+				<div #slidingPane id="slidingPane" style="position: absolute; width: 100%; height: 53%; bottom: 0; z-index: 6;" (click)="checkKey()">
+					<div style="position: absolute; width:100%; height: 8%; bottom: 0; margin: auto; background-color: burlywood; z-index: 3;"></div>
+					<div style="position: absolute; width:100%; height: 8%; top: 0; margin: auto; background-color: burlywood; z-index: 3;"></div>
+					<div style="position: absolute; width:5%; height: 100%; left: 0; right: 0; margin: auto; background-color: burlywood; z-index: 3;"></div>
+					<div style="position: absolute; width:5%; height: 100%; right: 0; margin: auto; background-color: burlywood; z-index: 3;"></div>
+					<div style="position: absolute; width:5%; height: 100%; left: 0; margin: auto; background-color: burlywood; z-index: 3;"></div>
+				</div>
+				<div id="outsideLink" style="position: absolute;width: 100%; height: 50%; bottom: 0; z-index: 5" routerLink="/outside">
+				</div>
+			</div>
+			<div id="sunmoon">
+				<div id="dayBG"></div>
+				<div id="sun">
+					<img id="sunface" src="./assets/happy_sun.png" routerLink="/sun-river">
+				</div>
+				<div id="moon">
+					<img id="moonface" src="./assets/happy_moon.png" routerLink="/mooon">
+				</div>
+			</div>
+			<img id="outside" src="./assets/outsideBG.png">
+		</div>
+		<div #stickContainer id="stickContainer">
+			<div #stick id="stick" (click)="grabStick()"></div>
+		</div>
+		<div id="quoteGameWindow" style="position: relative; overflow: hidden;">
+		  	
+			<div #colorpad class="colorpad" style="position: relative; overflow: hidden;">
+			  	<div *ngFor="let quote of quotes; let i = index;" style="">
+			  		@if (index === i) {
+				  		<div class="quoteGameTextArea" style="display: inline-block; position: absolute; z-index: 2; text-align: center; height: 100%; width: 100%; overflow: hidden;">
+					  		<span class="quoteText">
+					  			{{ quote.quote }}
+					  		</span>
+					  	</div>
+							<img src="https://loremflickr.com/320/240" class="d-block w-100 position-absolute object-fit-contain" alt="..." width="100%" height="100%" style="">
+						}
+			  	</div>	
+			  <!-- <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+			    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+			    <span class="visually-hidden">Previous</span>
+			  </button>
+			  <button (click)="nextQuote()" class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+			    <span class="carousel-control-next-icon" aria-hidden="true" style=""></span>
+			    <span class="visually-hidden">Next</span>
+			  </button> -->
+		  	</div>
+		  	<!-- <select [(ngModel)]="category" class="position-absolute text-center hoverBB" style="min-width: 25%; right: 11px; bottom: 0; cursor: pointer; z-index: 5; font-size: 80%; height: 1.8em;">
+	        <option *ngFor="let option of categories"  [selected]="option == 'car'">{{ option }}</option>
+	    	</select> -->
+		</div>
+
+		<div id="quoteGameControlPanel">
+			<div class="gameBtnWrapper" style="top: 50%; left: 25%;">
+				<button class="gameBtn" (click)="previousQuote()">
+					<span><</span>
+				</button>
+			</div>
+			<div class="gameBtnWrapper" style="top: 50%; left: 45%;">
+				<button class="gameBtn" (click)="nextQuote()">
+					<span>></span>
+				</button>
+			</div>
+			<div class="gameBtnWrapper" style="top: 55%; right: 10%;">
+				<button class="gameBtn">
+					<span>A</span>
+				</button>
+			</div>
+			<div class="gameBtnWrapper" style="top: 25%; right: 0;">
+				<button class="gameBtn">
+					<span>B</span>
+				</button>
+			</div>
+		</div>
+	</div>
+
+	<!-- QUOTE AREA -->
+	<div style="width: 100%; height: 350px; position: relative;">
+
+		<!-- CONTROL AREA -->
+		<div class="d-flex flex-column h-100 position-absolute position-relative" style="width: 68px">
+	    
+	    <!-- imported toggle button NEW AUTO BUTTON/TOGGLE-->
+	    <input type="checkbox" class="l" style="position: absolute; top: 10px; align-self: center; cursor: pointer;" (click)="this.autoToggle = !this.autoToggle; this.auto();">
+			
+			<select [(ngModel)]="category" class="no-droparrow position-absolute hoverEmphasis w-100 text-center" style=" top: 60px; cursor: pointer;">
+	        <option *ngFor="let option of categories"  [selected]="option == 'car'">{{ option }}</option>
+	    </select>
+
+	    <!-- RANDOM-NESS TOGGLE -->
+	    <div id="rdmBtnContainer" style="top: 140px;">
+	    	<input type="checkbox" id="randomBtn" class="" (click)="this.randomnessToggle = !this.randomnessToggle; this.randomize();" >
+	    </div>
+
+			<!-- NEXT QUOTE BUTTON -->
+			<button class="arrowBtn position-absolute hoverEmphasis d-flex bg-success-subtle" (click)="nextQuote()" style=" padding-left:0px; z-index: 100; bottom: 120px; margin-left: 1px;"><span style="margin-left: 2px; color: black;">Next</span></button>
+			<!-- FIRST INDEX BUTTON -->
+			<button class="d-flex flex-column align-items-center position-absolute rounded-end-circle border-start-0 shadow-lg bg-success-subtle hoverEmphasis mb-2 " (click)="lastQuote()" style=" padding-left:0px; width: 64px; z-index: 100; bottom: 0; line-height: 1.25;"><span>first</span><span><</span><span>index</span></button>
+		</div>
+
+		<!-- DISPLAY AREA -->
+		<div #billboard class="billboard d-flex w-100 align-items-center" style="height: 350px; background-color: lightcyan; width: 100%; border: outset; border-width: 5px 5px 5px 70px; border-color: green; overflow-x: scroll;">
+			<div class="quoteArea selected " style="height: 70%; width: 208px; flex-shrink: 0" *ngFor="let quote of quotes; let i = index" #quoteArea (click)="getIndex(i)">
+				<div #colorpad class="colorpad position-absolute position-relative text-center " style="padding-top: 16px;" *ngIf="quote.quote">
+					<span id="quoteCat">{{ quote.category }}</span>
+					<button title="Close" class="fs-5 text position-absolute" style="right: 82%; top: 2%; z-index: 1;" (click)="removeIndex(i)">X</button>
+					<div class="fs-5 text position-absolute ms-2" style="color: red; right: 0; top: 0; margin-right: 7px; margin-top: 3px; z-index: 1;">
+							 <i>_<strong class="ms-1">{{i}}</strong></i>
+					</div>
+					<textarea class="text-center quoteText" style="background-image: url(https://loremflickr.com/340/240); background-size: contain; background-repeat: repeat; background-attachment: local; height: 60%; resize: none; word-spacing: 4px; width: 80%; padding-bottom: 16px;">{{ quote.quote }}</textarea>
+					<div class="position-absolute bottom-0 mx-1 d-flex flex-column bg-warning mb-1 p-1 justify-content-between" style="width: 97%;">
+						<div class=" bg-warning text-center mx-auto d-flex flex-column">
+							<span class="" style="">{{ quote.author }}</span>
+						</div>
+						<div class="d-flex justify-content-between">
+							<i class="" style="">{{ i }}_</i>
+							<div style="color: forestgreen;">
+								Index: 
+								<input id="" type="input" [(ngModel)]="index" class="border border-3" value="" style="width: 36px; height: 28px;" (keyup.enter)="getIndex(index)">
+							</div>
+							<button title="Copy to clipboard" class="right-0" style="" (click)="copyToClipboard(quote.quote)">&#128203;</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="container-fluid" style="margin-top: 100px;">
+	    <div class="">
+	      <label>Quotes</label>
+	      <select [(ngModel)]="category">
+	        <option *ngFor="let option of categories"  [selected]="option == 'car'">{{ option }}</option>
+	      </select>
+
+	      <input type="text" class="" [(ngModel)]="category"/>
+	        
+	    </div>
+	    <button class="btn btn-primary" type="submit" (click)="nextQuote()">Search</button>
+	    <p>{{ category }}<p>
+	</div>
+	<div class="container-fluid" >
+	  <table>
+	    <tr>
+	    	<th class="table-info"></th>
+	      	<th class="table-info">Message</th>
+	      	<th class="table-info">Author</th>
+	      	<th class="table-info">Category</th>
+	  		<th class="table-info"></th>
+	    </tr>
+	    <tr *ngFor="let quote of quotes">
+		    <td class="table-success">{{ quotes.indexOf(quote) }}</td>
+		    <td class="table-info">{{ quote.quote }}</td>
+		    <td class="table-primary">{{ quote.author }}</td>
+		    <td class="table-success">{{ quote.category }}</td>
+		    <td class="table-success">
+		    	<button (click)="copyToClipboard(quote.quote)">
+		    		&#128203;
+		    	</button>
+		    </td>
+	    	
+	    </tr>
+	  </table>
+	</div>
+	<div class="header-style" *ngIf="requestValid === false">
+	  {{ errorMessage }}
+	</div>

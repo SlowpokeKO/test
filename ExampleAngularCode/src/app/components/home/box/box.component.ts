@@ -12,22 +12,21 @@ import { ItemsComponent } from './items/items.component'
 export class BoxComponent {
   @ViewChild('theBox') box!: ElementRef;
 
-
-
   slide() {
-
-    // this.box.nativeElement.style.backgroundColor = 'red'
-    this.box.nativeElement.classList.toggle('show')
+    if (! this.box.nativeElement.classList.contains('show')) {
+      this.box.nativeElement.classList.add('show')
+    } else {
+      this.box.nativeElement.classList.remove('show')
+      this.box.nativeElement.style.backgroundColor = 'transparent'
+    }
     
-    
-    console.log(this.box.nativeElement.innerHTML)
-
   }  
 
   activate() {
     if (this.box.nativeElement.classList.contains('show')) {
       this.box.nativeElement.style.backgroundColor = 'blue'
-    }
+
+    } 
 
   }
 

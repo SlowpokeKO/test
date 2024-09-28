@@ -1,0 +1,47 @@
+<div id="calculatorBody">
+	<div id="numberContainer">
+		<div id="bg"></div>
+		{{ evaluation }}
+	</div>
+	<div id="btns" class="d-flex">
+		<div id="numberBtns" class="">
+			<div class="d-flex">
+				<div class="btn" (click)="addToCalc(1)">1</div>
+				<div class="btn" (click)="addToCalc(2)">2</div>
+				<div class="btn" (click)="addToCalc(3)">3</div>
+			</div>
+			<div class="d-flex">
+				<div class="btn" (click)="addToCalc(4)">4</div>
+				<div class="btn" (click)="addToCalc(5)">5</div>
+				<div class="btn" (click)="addToCalc(6)">6</div>
+			</div>
+			<div class="d-flex">	
+				<div class="btn" (click)="addToCalc(7)">7</div>
+				<div class="btn" (click)="addToCalc(8)">8</div>
+				<div class="btn" (click)="addToCalc(9)">9</div>
+			</div>
+			<div class="d-flex">
+				<div class="btn" (click)="backspace()">back</div>
+				<div class="btn" (click)="addToCalc(0)">0</div>
+				<div class="btn" (click)="calculate()">=</div>
+			</div>
+		</div>
+		<div id="operatorBtns" class="">
+			<div class="d-flex">
+				<div class="btn" (click)="addToCalc('-')">-</div>
+				<div class="btn" (click)="addToCalc('/')">/</div>
+			</div>
+			<div class="d-flex">
+				<div class="btn" (click)="addToCalc('+')">+</div>
+				<div class="btn" (click)="addToCalc('*')">*</div>
+			</div>
+			<div class="d-flex">	
+				<div class="btn" (click)="addToCalc('%')">%</div>
+				<div class="btn" (click)="addToCalc('sqrt')">Sqrt</div>
+			</div>
+			<div class="d-flex">	
+				<div class="btn" (click)="addToCalc('(')">(</div>
+				<div class="btn" (click)="addToCalc(')')">)</div>
+			</div>
+		</div>
+</div>

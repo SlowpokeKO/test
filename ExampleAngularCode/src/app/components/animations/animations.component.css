@@ -58,9 +58,26 @@ div {
   aspect-ratio: 1;
   border-image: radial-gradient(red 69%, #0000 70%) 84.5%/50%;
   clip-path: polygon(-41% 0, 50% 91%, 141% 0);
+  z-index: 9;
 }
 
 #perspRange {
 	-webkit-transform: rotate(-90deg); 
     -moz-transform: rotate(-90deg);
+}
+
+.borderText {
+	font-size: 24px;
+	-webkit-text-stroke: 1px white;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	text-rendering: optimizeLegibility;
+	paint-order: stroke fill;
+}
+
+#colorlink {
+	color: rgb(0, 0, 0, 1.0);
+}
+#colorpad {
+	background-color: rgb(0, 0, 0, 1.0);
 }

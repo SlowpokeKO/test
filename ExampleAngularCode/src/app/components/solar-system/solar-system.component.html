@@ -1,0 +1,61 @@
+<div id="solarBG" class="">
+	<div id="wrapper">
+        <div id="sun"></div>
+      	<div #planets>
+	        <div id="circle-container1">
+	          <div id="mercury" class="circle" (click)="alert('Mercury')" (mouseenter)="mouseHovering('Mercury')" (mouseleave)="mouseLeft('Mercury')">
+	          	<span #planetLabel class="planetLabel">Mercury</span>
+	          </div>
+	        </div>
+	      
+	        <div id="circle-container2">
+	          <div id="venus" class="circle" (click)="alert('Venus')" (mouseenter)="mouseHovering('Venus')" (mouseleave)="mouseLeft('Venus')">
+	          	<span #planetLabel class="planetLabel">Venus</span>
+	          </div>
+	        </div>
+	      
+	        <div id="circle-container3">
+	          <div id="earth" class="circle" (click)="alert('Earth')" (mouseenter)="mouseHovering('Earth')" (mouseleave)="mouseLeft('Earth')">
+	          	<span #planetLabel class="planetLabel">Earth</span>
+	          </div>
+	        </div>
+	      
+	        <div id="circle-container4">
+	          <div id="mars" class="circle" (click)="alert('Mars')" (mouseenter)="mouseHovering('Mars')" (mouseleave)="mouseLeft('Mars')">
+	          	<span #planetLabel class="planetLabel">Mars</span>
+	          </div>
+	        </div>
+	      
+	        <div id="circle-container5">
+	          <div id="jupiter" class="circle" (click)="alert('Jupiter')" (mouseenter)="mouseHovering('Jupiter')" (mouseleave)="mouseLeft('Jupiter')">
+	        	<span #planetLabel class="planetLabel">Jupiter</span>
+	          </div>
+	        </div>
+	      
+	        <div id="circle-container6">
+	          <div id="saturn" class="circle" (click)="alert('Saturn')" (mouseenter)="mouseHovering('Saturn')" (mouseleave)="mouseLeft('Saturn')">
+	          	<span #planetLabel class="planetLabel">Saturn</span>
+	          </div>
+	          <div id="rings" class="circle"></div>
+	        </div>
+	      
+	        <div id="circle-container7">
+	          <div id="uranus" class="circle" (click)="alert('Uranus')" (mouseenter)="mouseHovering('Uranus')" (mouseleave)="mouseLeft('Uranus')">
+	          	<span #planetLabel class="planetLabel">Uranus</span>
+	          </div>
+	        </div>
+	      
+	        <div id="circle-container8">
+	        	<div id="neptune" class="circle" (click)="alert('Neptune')" (mouseenter)="mouseHovering('Neptune')" (mouseleave)="mouseLeft('Neptune')">
+	          	<span #planetLabel class="planetLabel">Neptune</span>
+	          </div>
+	        </div>
+	       	<div id="circle-container9">
+	           <div id="pluto" class="circle" (click)="alert('Pluto')" (mouseenter)="mouseHovering('Pluto')" (mouseleave)="mouseLeft('Pluto')">
+	          	<span #planetLabel class="planetLabel">Pluto</span>
+	          </div>
+	      	</div>
+      	</div>
+      	<div id="counter">Earth years passed: {{this.yearCount}}</div>
+    </div>
+</div>
