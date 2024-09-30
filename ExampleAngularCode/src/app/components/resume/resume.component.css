@@ -1,0 +1,309 @@
+#resumeContainer {
+	height: 100vh;
+	width: 100vw;
+	justify-content: center;
+	background: darkgreen;
+	position: relative;
+}
+
+#personalInfo {
+	position: absolute;
+	width: 75%;
+	height: 25%;
+	right: 0;
+	top: 2%;
+	animation: slideoutFromLeft 1.25s linear;
+	animation-fill-mode: forwards;
+	box-shadow: 18px 4px 4px rgba(0, 0, 255, 0.5);
+	border-top-left-radius: 20px;
+	border-bottom-left-radius: 20px;
+	background-color: lightskyblue;
+}
+#infoBox {
+	position: absolute;
+	height: 100%;
+	width: 50%;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	margin: auto;
+	z-index: 1;
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+	align-items: center;
+	justify-content: space-around;
+	margin-right: 5%;
+
+	color: black;
+	-webkit-text-stroke-width: 1px;
+	-webkit-text-stroke-color: blue;
+}
+#name {
+	display: flex;
+	flex-direction: column;
+	font-size: 1.25em;
+}
+#contact {
+	width: 80%;
+	display: flex;
+	flex-direction: column;
+	word-wrap: break-word;
+	font-size: .75em;
+}
+span + span {
+	margin-top: 4%;
+}
+
+
+#icon {
+	position: absolute;
+	height: 100%;
+	aspect-ratio: 1/1;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	margin: auto;
+	transform: translateX(-40%);
+	background: darkblue;
+	border-radius: 50%;
+	border-color: skyblue;
+	border-width: 8px;
+	border-style: outset;
+	z-index: 2;
+	box-shadow: 4px 6px 8px rgba(0, 0, 255, 0.5);
+
+}
+#icon::before {
+	content: "";
+	height: 95%;
+	aspect-ratio: 1/1;
+	inset: 0;
+	margin: auto;
+	position: absolute;
+	border-radius: 50%;
+	background: url("/assets/firepit.png");
+	background-size: cover;
+	z-index: 1;
+}
+
+#backgroundInfo {
+	position: absolute;
+	top: 35%;
+	margin: auto;
+	height: 60%;
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+}
+#leftSide {
+	position: relative;
+	width: 60%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+}
+#rightSide {
+	position: relative;
+	background: forestgreen;
+	height: 100%;
+	width: 40%;
+	display: flex;
+	flex-direction: column;
+	border-width: 2px;
+	border-style: groove;
+	border-color: darkolivegreen;
+	box-shadow: 6px 4px 2px rgba(200, 0, 255, 0.5);
+	transform: translateX(100%);
+	animation: slideoutFromLeft 2s 1.25s linear;
+	animation-fill-mode: forwards;
+	border-top-left-radius: 20px;
+	border-bottom-left-radius: 20px;
+	justify-content: space-around;
+	padding: 4%;
+}
+.leftBox {
+	top: 0;
+	position: absolute;
+	width: 75%;
+	height: 6vh;
+	left: 0;
+	background: linear-gradient(to bottom, blue 0%, lightskyblue 15%, lightskyblue 80%, darkslateblue 100%);
+	box-shadow: 3px 4px 4px rgba(200, 0, 255, 0.5);
+	transform: translateX(-100%);
+	animation-fill-mode: forwards;
+	text-align: right;
+	align-content: center;
+	padding-right: 5%;
+	border-bottom-right-radius: 50px;
+	border-top-right-radius: 50px;
+	-webkit-text-stroke-width: 1px;
+	-webkit-text-stroke-color: blue;
+}
+
+#workContainer {
+	position: relative;
+	width: 100%;
+	min-height: 33%;
+	overflow-y: scroll;
+	scrollbar-width: none;
+}
+#work {
+	animation: slideoutFromRight 1.25s .75s linear;
+	animation-fill-mode: forwards;
+}
+#workList {
+	margin-top: 7vh;
+}
+#workTitle {
+	-webkit-text-stroke-width: 1px;
+	font-size: 1em;
+}
+#workExpertise {
+	text-decoration: underline;
+	text-decoration-color: limegreen;
+	font-size: .55em;
+}
+
+#educationContainer {
+	position: relative;
+	width: 100%;
+	min-height: 15%;
+	scrollbar-width: none;
+	overflow-y: scroll;
+
+}
+#education {
+	animation: slideoutFromRight 1.25s 1s linear;
+	animation-fill-mode: forwards;
+}
+#edList {
+	margin-top: 7vh;
+}
+
+#certificationsContainer {
+	position: relative;
+	width: 100%;
+	scrollbar-width: none;
+	min-height: 10%;
+	overflow-y: scroll;
+
+}
+#certifications {
+	animation: slideoutFromRight 1.25s 1.25s linear;
+	animation-fill-mode: forwards;
+}
+#certiList {
+	margin-top: 7vh;
+}
+
+@media screen and (min-width: 750px) {
+	/*#education {
+		top: 37%;
+	}*/
+	#infoBox {
+		flex-direction: row;
+		justify-content: space-between;
+		width: 70%;
+	}
+	#contact {
+		width: 50%;
+		font-size: 1em;
+
+	}
+	#workExpertise {
+		font-size: .85em;
+	}
+}
+
+
+@keyframes slideoutFromLeft {
+	0% {
+		transform: translateX(100%);
+	}
+	75% {
+		transform: translateX(15%);
+	}
+	95% {
+		transform: translateX(2%);
+	}
+	100% {
+		transform: translateX(0%);
+	}
+}
+@keyframes slideoutFromRight {
+	0% {
+		transform: translateX(-100%);
+	}
+	75% {
+		transform: translateX(-15%);
+	}
+	95% {
+		transform: translateX(-6%);
+	}
+	100% {
+		transform: translateX(-4%);
+	}
+}
+
+#backgroundInfo {
+
+}
+
+#work {
+
+}
+
+#education {
+
+}
+
+#certifications {
+
+}
+
+#summary {
+	-webkit-text-stroke-width: 1px;
+	-webkit-text-stroke-color: white;
+}
+
+#skills {
+
+}
+
+#languages {
+
+}
+#progressEnglish {
+	position: relative;
+	width: 6vh;
+	height: 2vh;
+	border-radius: 50px;
+	background-color: green;
+	border-width: 2px;
+	border-color: darkolivegreen;
+	justify-content: center;
+	display: flex;
+	overflow: hidden;
+	margin-left: 4%;
+	align-self: center;
+}
+#progressEnglish::before {
+	width: 100%;
+	height: 100%;
+	content: "";
+	opacity: 40%;
+	position: absolute;
+	background-color: black;
+}
+#progressColor {
+	animation: blinkOpa 1s infinite;
+}
+@keyframes blinkOpa {
+	0% {
+		z-index: 3;
+	}
+	50% {
+		z-index: 1;
+	}
+}

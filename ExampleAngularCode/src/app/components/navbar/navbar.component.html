@@ -1,13 +1,15 @@
 <nav #navbar id="navbar" class="navbar navbar-expand-lg fixed-top bg-light border-bottom justify-content-between" style="max-width: 100vw;">
     <div class="position-relative ms-2" style="">
       <img id="logo" src="./assets/cryothanks_logo.png" class="" width="240px" height="150px">
-      <div class="position-absolute left-0 top-0 m-1 d-flex" style="width: 34px; height: 34px; border: outset; border-width: 8px; border-radius: 2px; justify-content: center; align-items: center; line-height: 1.1;" (click)="toggleSnow()">
+      <div id="snowBtn" class="position-absolute left-0 top-0 m-1 d-flex" (click)="toggleSnow()">
         <span style=" height: 14px; display: flex; justify-content: center; align-items: center; border: medium; border-radius: 100px; cursor: pointer;" id="snowToggleFlake" #snowToggleFlake class=" ">&#10052;</span>
       </div>
     </div>
-    <div class="d-flex flex-column text-center" style="width: 30%;">
-      <span>Fixed navbar</span>
-      <span>Example code bootstrap & angular</span>
+    <div id="navTitle" class="d-flex flex-column text-center" style="min-width: 30%; margin: auto;">
+      <span id="navTitleHeader">Fixed navbar</span>
+      <hr id="navHr">
+      <span>Practice website with</span>
+      <span>angular & bootstrap</span>
     </div>
     <button class="navbar-toggler me-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
       aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">

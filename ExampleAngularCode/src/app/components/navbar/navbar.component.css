@@ -1,39 +1,66 @@
-#navbar {
-	min-height: 200px;
-	z-index: 100;
-}
-#navbar.shrink {
-  min-height: 100px;
-  
-  #logo {
-  	height: 75px;
-  	width: 120px;
-  }
-}
-
-#snowflakeTemplate {
-	z-index: 100;
-	position: absolute;
-}
-
 nav.navbar{
   background-color:#ccc;
    -webkit-transition: all 0.4s ease-in-out;
    transition: all 0.4s ease-in-out;
 }
 
+#navbar.shrink {
+  min-height: 75px;
+  
+  #logo {
+  	height: 56.25px;
+  	width: 90px;
+  }
+  #navTitle {
+  	line-height: 1.25;
+  	font-size: .5em;
+  }
+ /* #navTitleHeader {
+  	font-size: 1.25em;
+  }*/
+  #navHr {
+  	margin-top: 5%;
+  }
+}
+
+#navbar {
+	min-height: 75px;
+	z-index: 100;
+}
+
 #logo {
+	height: 75px;
+	width: 120px;
 	-webkit-transition: all 0.5s ease-in-out;
    transition: all 0.5s ease-in-out;
 }
+#navTitle {
+	line-height: 2;
+	font-size: .75em;
+	-webkit-transition: all 0.5s ease-in-out;
+   transition: all 0.5s ease-in-out;
+}
+/*#navTitleHeader {
+	font-size: 1em;
+	-webkit-transition: all 0.5s ease-in-out;
+   transition: all 0.5s ease-in-out;
+}*/
+#navHr {
+	margin-top: 0; 
+	margin-bottom: 0;
+	-webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
 
-@media screen and (min-width: 650px) {
-	#navbar {
-		min-height: 200px;
-	}
-	#logo {
-		height: 150px;
-	}
+#snowBtn {
+	width: 18px; 
+	height: 18px; 
+	border-width: 8px; 
+	border-radius: 2px; 
+	border: outset; 
+	justify-content: center; 
+	align-items: center; 
+	line-height: 1.1;
 }
 
 .hover-underline-animation {
@@ -59,6 +86,10 @@ nav.navbar{
 	transform-origin: bottom left;
 }
 
+#snowflakeTemplate {
+	z-index: 100;
+	position: absolute;
+}
 
 .hoverText {
     background-color: lightskyblue;
@@ -72,4 +103,32 @@ nav.navbar{
 @keyframes spin {
     from {transform:rotate(0deg);}
     to {transform:rotate(360deg);}
+}
+
+@media screen and (min-width: 750px) {
+	#navbar {
+		min-height: 100px;
+	}
+	#logo {
+		height: 112.5px;
+		width: 180px;
+	}
+	#navTitle {
+		font-size: 1em;
+	}
+	#snowBtn {
+		width: 34px; 
+		height: 34px; 
+		border-width: 8px; 
+		border-radius: 2px; 
+	}
+	#navbar.shrink {
+		#logo {
+	  	height: 75px;
+	  	width: 120px;
+	  }
+	  #navTitle {
+			font-size: .75em;
+		}
+	}
 }

@@ -82,6 +82,6 @@ export class NavbarComponent implements AfterViewInit{
     console.log('snow toggled')
   }
 
-  options = ['1','2','3']
+  // options = ['1','2','3']
 
 }

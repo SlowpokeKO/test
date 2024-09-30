@@ -18,7 +18,7 @@ import { ResumeComponent } from './components/resume/resume.component'
 export const routes: Routes = [
 	{ 
 		path: '',
-		component: HomeComponent,
+		component: ResumeComponent,
 		pathMatch: 'full'
 	},
 	{
