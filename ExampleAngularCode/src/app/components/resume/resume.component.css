@@ -75,7 +75,7 @@ span + span {
 	box-shadow: 4px 6px 8px rgba(0, 0, 255, 0.5);
 
 }
-#icon::before {
+/*#icon::before {
 	content: "";
 	height: 95%;
 	aspect-ratio: 1/1;
@@ -86,7 +86,7 @@ span + span {
 	background-image: url(/assets/firepit.png);
 	background-size: cover;
 	z-index: 1;
-}
+}*/
 
 #backgroundInfo {
 	position: absolute;
