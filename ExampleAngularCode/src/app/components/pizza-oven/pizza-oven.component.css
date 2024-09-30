@@ -134,10 +134,18 @@ label {
 }
 #prepPizza.cooking {
 	animation-fill-mode: forwards;
-	
-	-webkit-animation: colorCrust 0s;
+	animation: colorCrust 5s linear;
+	-webkit-animation: colorCrust 5s linear;
 }
 @-webkit-keyframes colorCrust {
+	70% {
+		background: palegoldenrod;
+	}
+	100% {
+		background: sandybrown;
+	}
+}
+@keyframes colorCrust {
 	70% {
 		background: palegoldenrod;
 	}
@@ -926,7 +934,7 @@ label {
 		height: 50vh;
 	}
 	#prepPizza.intheoven {
-		transform: rotateX(65deg) translate(-5vh, -140vh);
+		transform: rotateX(65deg) translate(-8vw, -130vh);
 	}
 
 	#rightPrepStation {

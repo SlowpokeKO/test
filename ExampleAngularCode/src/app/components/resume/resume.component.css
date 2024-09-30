@@ -12,7 +12,7 @@
 	height: 25%;
 	right: 0;
 	top: 2%;
-	animation: slideoutFromLeft 1.25s linear;
+	animation: slideInFromLeft 1.25s linear;
 	animation-fill-mode: forwards;
 	box-shadow: 18px 4px 4px rgba(0, 0, 255, 0.5);
 	border-top-left-radius: 20px;
@@ -22,7 +22,8 @@
 #infoBox {
 	position: absolute;
 	height: 100%;
-	width: 50%;
+	width: 70%;
+	line-height: 1.2;
 	right: 0;
 	top: 0;
 	bottom: 0;
@@ -49,7 +50,7 @@
 	display: flex;
 	flex-direction: column;
 	word-wrap: break-word;
-	font-size: .75em;
+	font-size: .55em;
 }
 span + span {
 	margin-top: 4%;
@@ -65,7 +66,7 @@ span + span {
 	left: 0;
 	margin: auto;
 	transform: translateX(-40%);
-	background: darkblue;
+	background: linear-gradient(to bottom, darkblue 0%, darkblue 33%, darkgreen 33%, darkgreen 100%);
 	border-radius: 50%;
 	border-color: skyblue;
 	border-width: 8px;
@@ -82,7 +83,7 @@ span + span {
 	margin: auto;
 	position: absolute;
 	border-radius: 50%;
-	background: url("/assets/firepit.png");
+	background-image: url(/assets/firepit.png);
 	background-size: cover;
 	z-index: 1;
 }
@@ -115,12 +116,12 @@ span + span {
 	border-color: darkolivegreen;
 	box-shadow: 6px 4px 2px rgba(200, 0, 255, 0.5);
 	transform: translateX(100%);
-	animation: slideoutFromLeft 2s 1.25s linear;
+	animation: slideInFromLeft 2s 1.25s linear;
 	animation-fill-mode: forwards;
 	border-top-left-radius: 20px;
 	border-bottom-left-radius: 20px;
 	justify-content: space-around;
-	padding: 4%;
+	padding: 3%;
 }
 .leftBox {
 	top: 0;
@@ -147,13 +148,18 @@ span + span {
 	min-height: 33%;
 	overflow-y: scroll;
 	scrollbar-width: none;
+
+
 }
 #work {
-	animation: slideoutFromRight 1.25s .75s linear;
+	animation: slideInFromRight 1.25s .75s linear;
 	animation-fill-mode: forwards;
 }
 #workList {
 	margin-top: 7vh;
+	opacity: 0;
+	animation: fadeIn 1s 1.75s ease-in;
+	animation-fill-mode: forwards;
 }
 #workTitle {
 	-webkit-text-stroke-width: 1px;
@@ -174,11 +180,14 @@ span + span {
 
 }
 #education {
-	animation: slideoutFromRight 1.25s 1s linear;
+	animation: slideInFromRight 1.25s 1s linear;
 	animation-fill-mode: forwards;
 }
 #edList {
 	margin-top: 7vh;
+	opacity: 0;
+	animation: fadeIn 1s 2s ease-in;
+	animation-fill-mode: forwards;
 }
 
 #certificationsContainer {
@@ -190,11 +199,19 @@ span + span {
 
 }
 #certifications {
-	animation: slideoutFromRight 1.25s 1.25s linear;
+	animation: slideInFromRight 1.25s 1.25s linear;
 	animation-fill-mode: forwards;
 }
 #certiList {
 	margin-top: 7vh;
+	opacity: 0;
+	animation: fadeIn 1s 2.25s ease-in;
+	animation-fill-mode: forwards;
+}
+	
+ul {
+	font-size: .7em;
+	line-height: 2;
 }
 
 @media screen and (min-width: 750px) {
@@ -205,6 +222,7 @@ span + span {
 		flex-direction: row;
 		justify-content: space-between;
 		width: 70%;
+		line-height: 2;
 	}
 	#contact {
 		width: 50%;
@@ -214,10 +232,26 @@ span + span {
 	#workExpertise {
 		font-size: .85em;
 	}
+	ul {
+		font-size: 1em;
+		line-height: 1;
+	}
+	#rightSide {
+		padding: 6%;
+
+	}
 }
 
+@keyframes fadeIn {
+	0% {
+		opacity: 0%;
+	}
+	100% {
+		opacity: 100%;
+	}
+}
 
-@keyframes slideoutFromLeft {
+@keyframes slideInFromLeft {
 	0% {
 		transform: translateX(100%);
 	}
@@ -231,7 +265,7 @@ span + span {
 		transform: translateX(0%);
 	}
 }
-@keyframes slideoutFromRight {
+@keyframes slideInFromRight {
 	0% {
 		transform: translateX(-100%);
 	}
@@ -307,3 +341,4 @@ span + span {
 		z-index: 1;
 	}
 }
+
