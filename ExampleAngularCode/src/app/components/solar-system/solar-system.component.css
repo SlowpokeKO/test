@@ -61,6 +61,7 @@
   border-color: black;
 /*  padding: 20vw;*/
   aspect-ratio: 1 / 1;
+  position: relative;
 }
 
 #wrapper {

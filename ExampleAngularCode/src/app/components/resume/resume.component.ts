@@ -8,5 +8,7 @@ import { Component } from '@angular/core';
   styleUrl: './resume.component.css'
 })
 export class ResumeComponent {
-
+  copyToClipboard(info: string) {
+    navigator.clipboard.writeText(info)
+  }
 }

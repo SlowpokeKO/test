@@ -561,7 +561,7 @@ label {
 	width: 100%;
 	content: "";
 	position: absolute;
-	background: royalblue;
+	background: darkgreen;
 }
 #tray {
 	width: 100%;
@@ -675,7 +675,7 @@ label {
 	position: relative;
 	width: 100%;
 	height: 20%;
-	background-color: rebeccapurple;
+	background-color: darkseagreen;
 	z-index: 2;
 	transition: all 1.1s ease-in-out;
 }
@@ -800,7 +800,7 @@ label {
 #controlPanel {
 	width: 20%;
 	height: 100%;
-	background-color: mediumpurple;
+	background-color: mediumseagreen;
 	justify-content: space-around;
 	display: flex;
 	flex-direction: column;

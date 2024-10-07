@@ -583,7 +583,7 @@ select.no-droparrow {
   background: -o-linear-gradient(left, forestgreen 50%, black 10%) no-repeat;
   background: linear-gradient(to right, forestgreen 50%, black 10%) no-repeat;
   */
-  background: linear-gradient(to left, black 1%, ghostwhite 50%);
+  background: linear-gradient(to left, black 1%, transparent 3%, green 50%);
   background-size: 200%;
   background-position: 0;
   -webkit-transition: 0.4s, opacity 0.45s ease-in-out;

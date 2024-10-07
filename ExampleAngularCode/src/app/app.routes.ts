@@ -14,6 +14,7 @@ import { InthetreesComponent } from './components/inthetrees/inthetrees.componen
 import { SunRiverComponent } from './components/sun-river/sun-river.component'
 import { CalculatorComponent } from './components/calculator/calculator.component'
 import { ResumeComponent } from './components/resume/resume.component'
+import { TodolistComponent } from './components/todolist/todolist.component'
 
 export const routes: Routes = [
 	{ 
@@ -28,6 +29,10 @@ export const routes: Routes = [
 	{
 		path: 'hello',
 		component: HelloComponent
+	},
+	{
+		path: 'todolist',
+		component: TodolistComponent
 	},
 	{
 		path: 'about',

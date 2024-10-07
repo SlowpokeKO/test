@@ -1,3 +1,4 @@
+
 #resumeContainer {
 	height: 100vh;
 	width: 100vw;
@@ -11,7 +12,7 @@
 	width: 75%;
 	height: 25%;
 	right: 0;
-	top: 2%;
+	top: 3%;
 	animation: slideInFromLeft 1.25s linear;
 	animation-fill-mode: forwards;
 	box-shadow: 18px 4px 4px rgba(0, 0, 255, 0.5);
@@ -33,9 +34,9 @@
 	flex-direction: column;
 	text-align: center;
 	align-items: center;
-	justify-content: space-around;
-	margin-right: 5%;
-
+	justify-content: center;
+	margin-left: 5%;
+	margin-right: 10%;
 	color: black;
 	-webkit-text-stroke-width: 1px;
 	-webkit-text-stroke-color: blue;
@@ -43,20 +44,34 @@
 #name {
 	display: flex;
 	flex-direction: column;
-	font-size: 1.25em;
+	font-size: 1.5em;
+	margin-bottom: 5%;
 }
 #contact {
 	width: 80%;
 	display: flex;
 	flex-direction: column;
-	word-wrap: break-word;
 	font-size: .55em;
+	flex-wrap: wrap;
+	margin-left: 5%;
 }
+.contactInfo {
+	justify-content: center; 
+	display: flex; 
+	align-items: center;
+	cursor: pointer;
+}
+.contactInfo:hover {
+	text-decoration: underline;
+	text-decoration-color: black;
+	.contactIcon {
+		transform: scale(1.2);
+	}
+}
+
 span + span {
 	margin-top: 4%;
 }
-
-
 #icon {
 	position: absolute;
 	height: 100%;
@@ -90,7 +105,7 @@ span + span {
 
 #backgroundInfo {
 	position: absolute;
-	top: 35%;
+	top: 30%;
 	margin: auto;
 	height: 60%;
 	width: 100%;
@@ -104,32 +119,13 @@ span + span {
 	display: flex;
 	flex-direction: column;
 }
-#rightSide {
-	position: relative;
-	background: forestgreen;
-	height: 100%;
-	width: 40%;
-	display: flex;
-	flex-direction: column;
-	border-width: 2px;
-	border-style: groove;
-	border-color: darkolivegreen;
-	box-shadow: 6px 4px 2px rgba(200, 0, 255, 0.5);
-	transform: translateX(100%);
-	animation: slideInFromLeft 2s 1.25s linear;
-	animation-fill-mode: forwards;
-	border-top-left-radius: 20px;
-	border-bottom-left-radius: 20px;
-	justify-content: space-around;
-	padding: 3%;
-}
-.leftBox {
+.leftTitleBox {
 	top: 0;
 	position: absolute;
 	width: 75%;
 	height: 6vh;
 	left: 0;
-	background: linear-gradient(to bottom, blue 0%, lightskyblue 15%, lightskyblue 80%, darkslateblue 100%);
+	background: linear-gradient(to bottom, powderblue 0%, lightskyblue 15%, lightskyblue 80%, darkslateblue 100%);
 	box-shadow: 3px 4px 4px rgba(200, 0, 255, 0.5);
 	transform: translateX(-100%);
 	animation-fill-mode: forwards;
@@ -139,8 +135,10 @@ span + span {
 	border-bottom-right-radius: 50px;
 	border-top-right-radius: 50px;
 	-webkit-text-stroke-width: 1px;
-	-webkit-text-stroke-color: blue;
+	-webkit-text-stroke-color: darkblue;
+	font-size: 1.1em;
 }
+
 
 #workContainer {
 	position: relative;
@@ -148,8 +146,6 @@ span + span {
 	min-height: 33%;
 	overflow-y: scroll;
 	scrollbar-width: none;
-
-
 }
 #work {
 	animation: slideInFromRight 1.25s .75s linear;
@@ -167,8 +163,8 @@ span + span {
 }
 #workExpertise {
 	text-decoration: underline;
-	text-decoration-color: limegreen;
-	font-size: .55em;
+	text-decoration-color: lightblue;
+	font-size: .85em;
 }
 
 #educationContainer {
@@ -212,35 +208,11 @@ span + span {
 ul {
 	font-size: .7em;
 	line-height: 2;
+	margin-left: 5%;
 }
 
-@media screen and (min-width: 750px) {
-	/*#education {
-		top: 37%;
-	}*/
-	#infoBox {
-		flex-direction: row;
-		justify-content: space-between;
-		width: 70%;
-		line-height: 2;
-	}
-	#contact {
-		width: 50%;
-		font-size: 1em;
 
-	}
-	#workExpertise {
-		font-size: .85em;
-	}
-	ul {
-		font-size: 1em;
-		line-height: 1;
-	}
-	#rightSide {
-		padding: 6%;
 
-	}
-}
 
 @keyframes fadeIn {
 	0% {
@@ -280,33 +252,75 @@ ul {
 	}
 }
 
-#backgroundInfo {
-
-}
-
-#work {
-
-}
-
-#education {
-
-}
-
-#certifications {
-
+#rightSide {
+	position: relative;
+	background: lightskyblue;
+	height: 100%;
+	width: 40%;
+	display: flex;
+	flex-direction: column;
+	border-width: 2px;
+	border-style: groove;
+	border-color: darkolivegreen;
+	box-shadow: 6px 4px 2px rgba(200, 0, 255, 0.5);
+	transform: translateX(100%);
+	animation: slideInFromLeft 2s 1.25s linear;
+	animation-fill-mode: forwards;
+	border-top-left-radius: 20px;
+	border-bottom-left-radius: 20px;
+	justify-content: space-around;
+	padding: 3%;
+	-webkit-text-stroke-width: 1px;
+	-webkit-text-stroke-color: darkblue;
+	color: green;
 }
 
 #summary {
 	-webkit-text-stroke-width: 1px;
-	-webkit-text-stroke-color: white;
+	-webkit-text-stroke-color: darkblue;
+	font-size: 1.1em;
+	animation: fadeIn 1s 2.25s linear;
+	animation-fill-mode: forwards;
+	opacity: 0;
 }
 
 #skills {
-
+	font-size: 1em;
+	animation: fadeIn 1s 2.5s linear;
+	animation-fill-mode: forwards;
+	opacity: 0;
+}
+.skill:nth-of-type(1) {
+	animation: fadeIn 1s 2.6s linear;
+	animation-fill-mode: forwards;
+	opacity: 0;
+}
+.skill:nth-of-type(2) {
+	animation: fadeIn 1s 2.675s linear;
+	animation-fill-mode: forwards;
+	opacity: 0;
+}
+.skill:nth-of-type(3) {
+	animation: fadeIn 1s 2.73s linear;
+	animation-fill-mode: forwards;
+	opacity: 0;
+}
+.skill:nth-of-type(4) {
+	animation: fadeIn 1s 2.78s linear;
+	animation-fill-mode: forwards;
+	opacity: 0;
+}
+.skill:nth-of-type(5) {
+	animation: fadeIn 1s 2.8s linear;
+	animation-fill-mode: forwards;
+	opacity: 0;
 }
 
 #languages {
-
+	animation: fadeIn 1s 2.75s linear;
+	animation-fill-mode: forwards;
+	opacity: 0;
+	
 }
 #progressEnglish {
 	position: relative;
@@ -314,14 +328,27 @@ ul {
 	height: 2vh;
 	border-radius: 50px;
 	background-color: green;
-	border-width: 2px;
-	border-color: darkolivegreen;
 	justify-content: center;
 	display: flex;
 	overflow: hidden;
 	margin-left: 4%;
 	align-self: center;
+	border-width: 2px;
+	border-top-width: 1px;
+	border-bottom-width: 1px;
+/*	border-left-width: 3px;*/
+	border-style: solid;
+	border-color: darkgreen;
 }
+.boxSection {
+	width: 100%;
+	height: 20%;
+	border-width: 0;
+	border-bottom-width: 1px;
+	border-color: darkgreen;
+	border-style: solid;
+}
+
 #progressEnglish::before {
 	width: 100%;
 	height: 100%;
@@ -329,6 +356,7 @@ ul {
 	opacity: 40%;
 	position: absolute;
 	background-color: black;
+
 }
 #progressColor {
 	animation: blinkOpa 1s infinite;
@@ -342,3 +370,32 @@ ul {
 	}
 }
 
+
+@media screen and (min-width: 750px) {
+	#infoBox {
+		flex-direction: row;
+		width: 70%;
+		line-height: 2;
+	}
+	#name {
+		margin-bottom: 0;
+	}
+	#contact {
+		width: 60%;
+		font-size: 1em;
+
+	}
+	#workExpertise {
+		font-size: .85em;
+	}
+	ul {
+		font-size: 1em;
+		line-height: 1;
+	}
+	#rightSide {
+		padding-left: 6%;
+		padding-right: 6%;
+
+	}
+}
+@media screen and (max-width: 750px) {

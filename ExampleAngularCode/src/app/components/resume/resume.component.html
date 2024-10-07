@@ -7,16 +7,25 @@
 				<span>Coleman</span>
 			</div>
 			<div id="contact">
-				<span>Maple Shade Township, NJ, 08052</span>
-				<span>609-202-9343</span>
-				<span>isaiahcoleman12321&#64;gmail.com</span>
+				<div class="contactInfo" (click)="copyToClipboard('Maple Shade Township, NJ, 08052')" title="copy address to clipboard">
+					<span class="contactIcon">&#9750;</span>
+					<span style="margin-left: 4px;">Maple Shade Township, NJ, 08052</span>
+				</div>
+				<div class="contactInfo" (click)="copyToClipboard('609-202-9343')" title="copy phone number to clipboard">
+					<span class="contactIcon">&#9990;</span>
+					<span style="margin-left: 4px;">609-202-9343</span>
+				</div>
+				<div class="contactInfo" (click)="copyToClipboard('isaiahcoleman12321@gmail.com')" title="copy email to clipboard">
+					<span class="contactIcon">&#9993;</span>
+					<span style="margin-left: 4px;">isaiahcoleman12321&#64;gmail.com</span>
+				</div>
 			</div>
 		</div>
 	</div>
 	<div id="backgroundInfo">
 		<div id="leftSide">
 			<div id="workContainer">
-				<div id="work" class="leftBox">Work History</div>
+				<div id="work" class="leftTitleBox">Work History</div>
 				<ul id="workList">
 					<li>
 						<div id="workTitle">
@@ -33,7 +42,7 @@
 				</ul>
 			</div>
 			<div id="educationContainer">	
-				<div id="education" class="leftBox">Education</div>
+				<div id="education" class="leftTitleBox">Education</div>
 				<ul id="edList">
 					<li>Woodstown Highschool</li>
 					<li>Rowan College at Gloucester County 2y/r</li>
@@ -41,7 +50,7 @@
 				</ul>
 			</div>
 			<div id="certificationsContainer">
-				<div id="certifications" class="leftBox">Certifications</div>
+				<div id="certifications" class="leftTitleBox">Certifications</div>
 				<ul id="certiList">
 					<li>Rowan Associate's Degree</li>
 					<li>Single Page Web Applications with AngularJS</li>
@@ -50,16 +59,16 @@
 		</div>
 		<div id="rightSide">
 			<div id="summary">
-				I'm passionate about learning new skills and practice.
+				I'm passionate about practical skills and practice.
 			</div>
 			<div id="skills">
 				<span>Skills</span>
 				<ul>
-					<li>Lifting and sorting</li>
-					<li>Product verification</li>
-					<li>Quantity calculations</li>
-					<li>Warehouse safety</li>
-					<li>HTML, CSS, JS, Angular JavaScript Framework</li>
+					<li class="skill">Lifting and sorting</li>
+					<li class="skill">Product verification</li>
+					<li class="skill">Quantity calculations</li>
+					<li class="skill">Warehouse safety</li>
+					<li class="skill">HTML, CSS, JS, Angular JavaScript Framework</li>
 				</ul>
 			</div>
 			<div id="languages">
@@ -67,14 +76,50 @@
 				<ul>
 					<li>
 						<div class="d-flex">
-							<span>English</span>
+							<span style="align-self: center;">English</span>
 							<div id="progressEnglish">
-								<div style="background-color: red; width: 16.66%;"></div>
-								<div style="background-color: orangered; width: 16.66%;"></div>
-								<div style="background-color: orange; width: 16.66%;"></div>
-								<div id="progressColor" style="background-color: yellowgreen; width: 16.66%;"></div>
-								<div style="background-color: greenyellow; width: 16.66%;"></div>
-								<div style="background-color: lawngreen; width: 16.66%;"></div>
+								<div style="background-color: red; width: 16.66%; display: flex; flex-direction: column;">
+									<div class="boxSection" style="border-top-width: 1px;"></div>
+									<div class="boxSection"></div>
+									<div class="boxSection"></div>
+									<div class="boxSection"></div>
+									<div class="boxSection"></div>
+								</div>
+								<div style="background-color: orangered; width: 16.66%; display: flex; flex-direction: column;">
+									<div class="boxSection" style="border-top-width: 1px;"></div>
+									<div class="boxSection"></div>
+									<div class="boxSection"></div>
+									<div class="boxSection"></div>
+									<div class="boxSection"></div>
+								</div>
+								<div style="background-color: orange; width: 16.66%; display: flex; flex-direction: column;">
+									<div class="boxSection" style="border-top-width: 1px;"></div>
+									<div class="boxSection"></div>
+									<div class="boxSection"></div>
+									<div class="boxSection"></div>
+									<div class="boxSection"></div>
+								</div>
+								<div id="progressColor" style="background-color: yellowgreen; width: 16.66%; display: flex; flex-direction: column;">
+									<div class="boxSection" style="border-top-width: 1px;"></div>
+									<div class="boxSection"></div>
+									<div class="boxSection"></div>
+									<div class="boxSection"></div>
+									<div class="boxSection"></div>
+								</div>
+								<div style="background-color: greenyellow; width: 16.66%; display: flex; flex-direction: column;">
+									<div class="boxSection" style="border-top-width: 1px;"></div>
+									<div class="boxSection"></div>
+									<div class="boxSection"></div>
+									<div class="boxSection"></div>
+									<div class="boxSection"></div>
+								</div>
+								<div style="background-color: lawngreen; width: 16.66%; display: flex; flex-direction: column;">
+									<div class="boxSection" style="border-top-width: 1px;"></div>
+									<div class="boxSection"></div>
+									<div class="boxSection"></div>
+									<div class="boxSection"></div>
+									<div class="boxSection"></div>
+								</div>
 							</div>
 						</div>
 					</li>

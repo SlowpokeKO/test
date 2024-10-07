@@ -1,0 +1,41 @@
+<div id="body">
+	<span id="title"><strong style="color: skyblue;">~ </strong>To-Do List<strong style="color: skyblue;"> ~</strong></span>
+	<div id="inputContainer">
+		<label id="what">What are your goals?</label>
+		<input [(ngModel)]="todoInput" type="text" name="" id="todoInput" (keyup.enter)="submit()">
+		<div id="doneArrow">&#10140;</div>
+	</div>
+	<div #containerContainer id="containerContainer">
+		@for (item of todo; track item) {
+			<div #container class="container set">
+				<div class="checkbox" (click)="completed($index)">
+					<img class="checkStar" src="./assets/star.png">
+				</div>
+				<div class="item">{{item}}</div>
+			</div>
+		} @empty {
+			<div #container class="container">
+				<div class="checkbox"></div>
+				<div class="item">{{todoInput}}</div>
+			</div>
+		}
+
+		@if (complete.length != 0) {
+			<div class="strike">
+				<div class="hLine"></div>
+				<span style="font-size: 1.35em;">Completed Items: {{complete.length}}</span>
+				<div class="hLine"></div>
+			</div>
+		}
+		<div #completedContainer>
+			@for (item of complete; track item) {
+				<div #container class="container done">
+					<div class="checkbox" (click)="removeIndex($index)" style="background-image: url(/assets/x.png); background-size: cover;"></div>
+					<div class="item">{{item}}</div>
+					<img class="doneStar" src="./assets/star.png">
+				</div>
+			}
+		</div>
+
+	</div>
+</div>
